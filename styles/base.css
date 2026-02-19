@@ -1,0 +1,72 @@
+/* styles/base.css */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1 {
+    @apply font-mono font-bold;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    color: var(--color-aqua-ink);
+  }
+
+  h2 {
+    @apply font-mono font-bold mb-3;
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    color: var(--color-aqua-ink);
+  }
+
+  h3 {
+    @apply font-mono font-semibold mb-2;
+    font-size: clamp(1.25rem, 3.5vw, 2rem);
+    color: var(--color-aqua-ink);
+  }
+
+  h4 {
+    @apply font-mono font-bold uppercase mb-2;
+    font-size: 1rem;
+    color: var(--color-aqua-ink);
+  }
+
+  .visual-heading {
+    @apply font-mono font-bold text-center mb-2 block;
+    font-size: clamp(2rem, 6vw, 4rem);
+    color: var(--color-aqua-ink);
+  }
+
+  p {
+    @apply font-sans;
+    font-size: 1rem;
+  }
+
+  a {
+    @apply font-mono;
+  }
+
+  :where(
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    [role="button"]
+  )::-moz-focus-inner {
+    border: 0;
+  }
+  :where(a, button, input, textarea, select, [role="button"]) {
+    outline: none;
+  }
+  :where(a, button, input, textarea, select, [role="button"]):focus-visible {
+    outline: 3px solid var(--color-black);
+    outline-offset: 3px;
+    box-shadow: 6px 6px 0 0 var(--color-tang-300);
+    position: relative;
+  }
+}

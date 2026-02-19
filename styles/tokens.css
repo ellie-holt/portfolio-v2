@@ -1,0 +1,81 @@
+/* styles/tokens.css */
+
+@theme {
+  /* COLOURS */
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  --color-azure-wash: #f0f4ff;
+  --color-azure-100: #e7eefd;
+  --color-azure-200: #c9d8fb;
+  --color-azure-300: #9fbbfc;
+  --color-azure-400: #7ea5ff;
+  --color-azure-500: #5f85de;
+  --color-azure-600: #1f49ad;
+  --color-azure-ink: #010b21;
+
+  --color-aqua-wash: #f2fffb;
+  --color-aqua-100: #e1fdf4;
+  --color-aqua-200: #bcfbe6;
+  --color-aqua-300: #86f7d1;
+  --color-aqua-400: #52ebb7;
+  --color-aqua-500: #2bd69d;
+  --color-aqua-600: #079d6b;
+  --color-aqua-ink: #011c13;
+
+  --color-tang-wash: #fffbfa;
+  --color-tang-100: #ffefe8;
+  --color-tang-200: #ffd3bf;
+  --color-tang-300: #ffab85;
+  --color-tang-400: #ff935f;
+  --color-tang-500: #f27941;
+  --color-tang-600: #a63a08;
+  --color-tang-ink: #1a0901;
+
+  /* TYPOGRAPHY */
+  --font-sans:
+    "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: "IBM Plex Serif", Georgia, serif;
+
+  /* SPACING */
+  --spacing-banner: 3.5rem;
+  --spacing-form: 3.5rem;
+
+  /* SHADOWS */
+  --shadow-blocky-xs: 2px 2px 0 0;
+  --shadow-blocky-sm: 4px 4px 0 0;
+  --shadow-blocky-md: 6px 6px 0 0;
+  --shadow-blocky-lg: 8px 8px 0 0;
+  --shadow-blocky: var(--shadow-blocky-md);
+
+  /* BREAKPOINTS */
+  --breakpoint-4xs: 22rem; /* 352px */
+  --breakpoint-3xs: 28rem; /* 448px */
+  --breakpoint-2xs: 34rem; /* 544px */
+  --breakpoint-xs: 36rem; /* 576px */
+  --breakpoint-3xl: 112rem; /* 1792px */
+}
+
+@theme inline {
+  --spacing-banner: var(--runtime-spacing-banner, 3.5rem);
+  --spacing-form: var(--runtime-spacing-form, 3.5rem);
+}
+
+@layer theme {
+  :root {
+    --runtime-spacing-banner: 3.5rem;
+    --runtime-spacing-form: 3.5rem;
+
+    @variant 3xs {
+      --runtime-spacing-form: 4rem;
+    }
+    @variant xs {
+      --runtime-spacing-form: 5rem;
+    }
+    @variant md {
+      --runtime-spacing-banner: 4rem;
+      --runtime-spacing-form: 6rem;
+    }
+  }
+}
