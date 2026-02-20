@@ -1,3 +1,5 @@
+import * as motion from "motion/react-client";
+
 export default function Hero() {
   return (
     <div id="hero">
@@ -17,7 +19,9 @@ export default function Hero() {
       {/* Big title area */}
       <div>
         <a href="#page-top">
-          <h1>Ellie Holt:</h1>
+          <motion.h1 animate={{ opacity: 1 }} initial={{ opacity: 0 }}>
+            Ellie Holt:
+          </motion.h1>
         </a>
 
         <h2>{`{ front-end web developer }`}</h2>

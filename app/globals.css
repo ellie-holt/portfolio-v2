@@ -18,7 +18,7 @@
     var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Roboto,
     sans-serif;
   --font-mono:
-    var(--font-monaspace-neon) ui-monospace, SFMono-Regular, Menlo, monospace;
+    var(--font-monaspace-neon), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 body {

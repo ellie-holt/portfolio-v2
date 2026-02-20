@@ -5,38 +5,37 @@ import "./globals.css";
 
 import SiteHeader from "@/components/layout/SiteHeader/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter/SiteFooter";
-import next from "next";
 
 const monaspaceNeon = localFont({
-  src: "./fonts/Monaspace_Neon_Var.woff2",
+  src: "../assets/fonts/Monaspace_Neon_Var.woff2",
   variable: "--font-monaspace-neon",
   weight: "200 800",
   display: "swap",
 });
 
 const monaspaceArgon = localFont({
-  src: "./fonts/Monaspace_Argon_Var.woff2",
+  src: "../assets/fonts/Monaspace_Argon_Var.woff2",
   variable: "--font-monaspace-argon",
   weight: "200 800",
   display: "swap",
 });
 
 const monaspaceXenon = localFont({
-  src: "./fonts/Monaspace_Xenon_Var.woff2",
+  src: "../assets/fonts/Monaspace_Xenon_Var.woff2",
   variable: "--font-monaspace-xenon",
   weight: "200 800",
   display: "swap",
 });
 
 const monaspaceRadon = localFont({
-  src: "./fonts/Monaspace_Radon_Var.woff2",
+  src: "../assets/fonts/Monaspace_Radon_Var.woff2",
   variable: "--font-monaspace-radon",
   weight: "200 800",
   display: "swap",
 });
 
 const monaspaceKrypton = localFont({
-  src: "./fonts/Monaspace_Krypton_Var.woff2",
+  src: "../assets/fonts/Monaspace_Krypton_Var.woff2",
   variable: "--font-monaspace-krypton",
   weight: "200 800",
   display: "swap",
