@@ -1,18 +1,50 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 import SiteHeader from "@/components/layout/SiteHeader/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter/SiteFooter";
+import next from "next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const monaspaceNeon = localFont({
+  src: "./fonts/Monaspace_Neon_Var.woff2",
+  variable: "--font-monaspace-neon",
+  weight: "200 800",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const monaspaceArgon = localFont({
+  src: "./fonts/Monaspace_Argon_Var.woff2",
+  variable: "--font-monaspace-argon",
+  weight: "200 800",
+  display: "swap",
+});
+
+const monaspaceXenon = localFont({
+  src: "./fonts/Monaspace_Xenon_Var.woff2",
+  variable: "--font-monaspace-xenon",
+  weight: "200 800",
+  display: "swap",
+});
+
+const monaspaceRadon = localFont({
+  src: "./fonts/Monaspace_Radon_Var.woff2",
+  variable: "--font-monaspace-radon",
+  weight: "200 800",
+  display: "swap",
+});
+
+const monaspaceKrypton = localFont({
+  src: "./fonts/Monaspace_Krypton_Var.woff2",
+  variable: "--font-monaspace-krypton",
+  weight: "200 800",
+  display: "swap",
+});
+
+const geistSans = Geist({
   subsets: ["latin"],
+  variable: "--font-geist-sans",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${monaspaceArgon.variable} ${monaspaceNeon.variable} ${monaspaceXenon.variable} ${monaspaceRadon.variable} ${monaspaceKrypton.variable} ${geistSans.variable} antialiased`}
       >
         <SiteHeader />
         {children}

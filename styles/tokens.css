@@ -33,10 +33,11 @@
   --color-tang-ink: #1a0901;
 
   /* TYPOGRAPHY */
-  --font-sans:
+  /* --font-sans:
     "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-serif: "IBM Plex Serif", Georgia, serif;
+  --font-mono:
+    "Monaspace Argon", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-serif: "IBM Plex Serif", Georgia, serif; */
 
   /* SPACING */
   --spacing-banner: 3.5rem;
