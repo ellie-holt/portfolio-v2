@@ -1,0 +1,6 @@
+@layer utilities {
+  .px-hpad {
+    padding-left: clamp(1rem, 3vw, 2.5rem);
+    padding-right: clamp(1rem, 3vw, 2.5rem);
+  }
+}

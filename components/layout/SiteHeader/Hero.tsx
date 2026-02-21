@@ -2,10 +2,7 @@ import * as motion from "motion/react-client";
 
 export default function Hero() {
   return (
-    <div
-      id="hero"
-      className="w-full flex-1 bg-aqua-100 border-b border-aqua-200"
-    >
+    <div id="hero" className="w-full flex-1 bg-aqua-100 px-1 outline-1">
       <div className="w-full px-[clamp(1rem,3vw,2.5rem)]">
         <div className="grid gap-4 pb-8 pt-6">
           <a href="#page-top" className="inline-block">

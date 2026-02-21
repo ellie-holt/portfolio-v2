@@ -1,6 +1,6 @@
 export default function HeroBanner() {
   return (
-    <div className="w-full h-10 bg-white px-[clamp(1rem,3vw,2.5rem)] ">
+    <div className="w-full h-10 bg-white px-hpad">
       <div className="flex flex-wrap justify-between gap-4 w-full h-full items-center text-sm font-mono">
         <a href="mailto:eleanorholt97@gmail.com">eleanorholt97@gmail.com</a>
 
