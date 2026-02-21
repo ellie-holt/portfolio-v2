@@ -5,14 +5,9 @@ import Navbar from "./Navbar";
 
 export default function SiteHeader() {
   return (
-    <header>
-      {/* Big cover hero */}
+    <header className="sticky top-0 z-10 flex flex-col">
       <Hero />
-
-      {/* Sticky header region (banner + nav) */}
-      <div>
-        <Navbar />
-      </div>
+      <Navbar />
     </header>
   );
 }

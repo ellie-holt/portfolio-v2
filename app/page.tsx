@@ -4,7 +4,7 @@ import Contact from "@/components/sections/Contact";
 
 export default function HomePage() {
   return (
-    <main>
+    <main className="flex flex-col">
       <About />
       <Work />
       <Contact />

@@ -40,8 +40,28 @@
   --font-serif: "IBM Plex Serif", Georgia, serif; */
 
   /* SPACING */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+
   --spacing-banner: 3.5rem;
   --spacing-form: 3.5rem;
+
+  /* SIZING */
+  --size-content: 72rem;
+  --size-narrow: 48rem;
+
+  /* RADIUS */
+  --radius-1: 0.5rem;
+  --radius-2: 0.75rem;
+  --radius-round: 999px;
 
   /* SHADOWS */
   --shadow-blocky-xs: 2px 2px 0 0;

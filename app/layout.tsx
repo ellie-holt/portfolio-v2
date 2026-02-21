@@ -5,6 +5,8 @@ import "./globals.css";
 
 import SiteHeader from "@/components/layout/SiteHeader/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter/SiteFooter";
+import HeroBanner from "@/components/layout/SiteHeader/HeroBanner";
+import CopyrightBanner from "@/components/layout/SiteFooter/CopyrightBanner";
 
 const monaspaceNeon = localFont({
   src: "../assets/fonts/Monaspace_Neon_Var.woff2",
@@ -61,9 +63,16 @@ export default function RootLayout({
       <body
         className={`${monaspaceArgon.variable} ${monaspaceNeon.variable} ${monaspaceXenon.variable} ${monaspaceRadon.variable} ${monaspaceKrypton.variable} ${geistSans.variable} antialiased`}
       >
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+        {/* full page wrapper */}
+        <div className="page-wrapper w-full px-10">
+          <HeroBanner />
+          <div className="border">
+            <SiteHeader />
+            {children}
+            <SiteFooter />
+          </div>
+          <CopyrightBanner />
+        </div>
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 export default function About() {
   return (
-    <section id="about" aria-labelledby="about-heading">
-      <div>
+    <section id="about" aria-labelledby="about-heading" className="w-full">
+      <div className="w-full px-[clamp(1rem,3vw,2.5rem)] py-16 grid gap-5">
         <h2 id="about-heading">About</h2>
 
         <p>I'm a front-end web developer based in London.</p>
@@ -14,7 +14,7 @@ export default function About() {
         </p>
 
         <h3>Core stack</h3>
-        <ul>
+        <ul className="list-disc pl-5 grid gap-2">
           <li>React / Next.js</li>
           <li>Svelte</li>
           <li>TypeScript</li>

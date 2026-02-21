@@ -1,7 +1,7 @@
 export default function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-heading">
-      <div>
+    <section id="contact" aria-labelledby="contact-heading" className="w-full">
+      <div className="w-full px-[clamp(1rem,3vw,2.5rem)] py-16 grid gap-5">
         <h2 id="contact-heading">Contact</h2>
 
         <p>

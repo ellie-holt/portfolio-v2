@@ -21,8 +21,34 @@
     var(--font-monaspace-neon), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans);
+/* Full page wrapper border lines */
+.page-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.page-wrapper::before,
+.page-wrapper::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.page-wrapper::before {
+  top: 0;
+  bottom: 0;
+  left: 2.5rem;
+  right: 2.5rem;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.page-wrapper::after {
+  top: 2.5rem;
+  bottom: 2.5rem;
+  left: 0;
+  right: 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }

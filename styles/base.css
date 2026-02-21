@@ -1,53 +1,69 @@
 /* styles/base.css */
 
 @layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    font-family: var(--font-mono);
+    font-family: var(--font-sans);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    color: var(--foreground);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-mono);
+    color: var(--color-aqua-ink);
+    margin: 0;
   }
 
   h1 {
-    @apply font-mono font-bold;
+    font-weight: 700;
     font-size: clamp(2.5rem, 8vw, 6rem);
-    color: var(--color-aqua-ink);
   }
 
   h2 {
-    @apply font-mono font-bold mb-3;
+    font-weight: 700;
     font-size: clamp(1.75rem, 5vw, 3rem);
-    color: var(--color-aqua-ink);
   }
 
   h3 {
-    @apply font-mono font-semibold mb-2;
+    font-weight: 600;
     font-size: clamp(1.25rem, 3.5vw, 2rem);
-    color: var(--color-aqua-ink);
   }
 
   h4 {
-    @apply font-mono font-bold uppercase mb-2;
-    font-size: 1rem;
-    color: var(--color-aqua-ink);
-  }
-
-  .visual-heading {
-    @apply font-mono font-bold text-center mb-2 block;
-    font-size: clamp(2rem, 6vw, 4rem);
-    color: var(--color-aqua-ink);
-  }
-
-  p {
-    @apply font-sans;
+    font-weight: 700;
+    text-transform: uppercase;
     font-size: 1rem;
   }
 
-  a {
-    @apply font-mono;
+  /* :where(p) {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+  } */
+
+  :where(a) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
   }
 
   :where(

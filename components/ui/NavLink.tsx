@@ -7,5 +7,9 @@ export default function NavLink({
   href: string;
   children: ReactNode;
 }) {
-  return <a href={href}>{children}</a>;
+  return (
+    <a href={href} className="font-mono lowercase tracking-[0.02em]">
+      {children}
+    </a>
+  );
 }
