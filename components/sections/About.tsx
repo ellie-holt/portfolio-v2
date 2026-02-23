@@ -1,4 +1,5 @@
 import { aboutContent } from "@/data/about";
+import Button from "@/components/ui/Button";
 
 export default function About() {
   const content = aboutContent;
@@ -12,37 +13,40 @@ export default function About() {
       </div>
 
       {/* section content */}
-      <div className="relative w-full grid grid-cols-2 divide-x divide-black">
+      <div className="relative w-full grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black">
         {/* left column */}
-        <div className="px-hpad py-10 flex flex-col gap-5 h-full">
-          <p className="font-mono text-[clamp(2rem,5vw,3rem)] font-bold leading-tight">
+        <div className="px-hpad py-r3 flex flex-col gap-r2 h-full">
+          <h3 className="font-mono text-[clamp(2rem,5vw,3rem)] font-bold leading-tight">
             {content.greeting}
-          </p>
-          <p className="leading-loose">{content.about}</p>
+          </h3>
+
+          <p className="max-w-prose leading-relaxed">{content.about}</p>
 
           <div>
-            <h3>Here are some things I am interested in:</h3>
-            <ul role="list" className="list-disc pl-5 grid gap-2 py-2 pb-40">
+            <h3 className="text-xl leading-snug">
+              Here are some things I am interested in:
+            </h3>
+            <ul
+              role="list"
+              className="list-disc max-w-prose pl-r2 grid space-y-r1 pt-r1"
+            >
               {content.bullets.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="leading-relaxed">
+                  {item}
+                </li>
               ))}
             </ul>
           </div>
 
           {/* cta link */}
-          <div className="absolute bottom-10">
-            <a
-              href={content.ctaHref}
-              className="inline-flex items-center gap-2 w-fit bg-white border border-black px-5 py-3 font-mono text-lg shadow-[var(--shadow-blocky-sm)_var(--color-tang-300)]"
-            >
-              {content.ctaText}
-            </a>
+          <div className="mt-auto pt-r3">
+            <Button href={content.ctaHref}>{content.ctaText}</Button>
           </div>
         </div>
 
         {/* right column */}
         <div
-          className="w-full  bg-white grid place-items-center text-sm font-mono"
+          className="w-full bg-white grid place-items-center text-sm font-mono"
           aria-label="Photo placeholder"
         >
           photo

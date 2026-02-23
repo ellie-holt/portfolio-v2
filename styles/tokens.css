@@ -43,6 +43,24 @@
   --font-mono:
     var(--font-monaspace-neon), ui-monospace, SFMono-Regular, Menlo, monospace;
 
+  --font-argon:
+    var(--font-monaspace-argon), system-ui, -apple-system, Segoe UI, Roboto,
+    sans-serif;
+  --font-krypton:
+    var(--font-monaspace-krypton), system-ui, -apple-system, Segoe UI, Roboto,
+    sans-serif;
+  --font-neon:
+    var(--font-monaspace-neon), system-ui, -apple-system, Segoe UI, Roboto,
+    sans-serif;
+  --font-radon:
+    var(--font-monaspace-radon), system-ui, -apple-system, Segoe UI, Roboto,
+    sans-serif;
+  --font-xenon:
+    var(--font-monaspace-xenon), system-ui, -apple-system, Segoe UI, Roboto,
+    sans-serif;
+  --font-plex-mono:
+    var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+
   /* SPACING */
 
   /* RADIUS */

@@ -1,12 +1,10 @@
 import ProjectCard from "@/components/cards/ProjectCard";
+import Button from "@/components/ui/Button";
 import { projects } from "@/data/projects";
+import { toolbox } from "@/data/tools";
 import type { Project } from "@/data/projects";
 
 export default function Work() {
-  const techChips = Array.from(
-    new Set(projects.flatMap((project) => project.stack)),
-  );
-
   return (
     <section
       id="work"
@@ -20,42 +18,50 @@ export default function Work() {
         </h2>
       </div>
 
-      <div className="relative w-full grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black border-b">
+      <div className="relative w-full grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black ">
         {/* left column */}
-        <div className="px-hpad py-10 flex flex-col gap-6">
+        <div className="px-hpad py-r3 flex flex-col gap-r2">
           <p className="font-mono text-[clamp(2rem,5vw,3rem)] font-bold leading-tight">
-            Selected work
+            Check out some of the things I’ve built recently.
           </p>
-          <p className="leading-loose">
-            A few recent projects exploring responsive design, accessibility,
-            and thoughtful front‑end architecture.
-          </p>
+          <p className="max-w-prose leading-relaxed">Recent projects.</p>
 
-          <div>
-            <h3 className="font-mono text-sm uppercase">Tech used</h3>
-            <ul role="list" className="flex flex-wrap gap-2 mt-3">
-              {techChips.map((chip) => (
-                <li key={chip}>
-                  <span className="bg-white border border-black px-2 py-1 font-mono text-sm block shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)]">
-                    {chip}
-                  </span>
-                </li>
+          <div className="grid gap-r1">
+            <h3 className="text-xl leading-snug">Toolbox</h3>
+            <div className="grid gap-r1">
+              {toolbox.map((group) => (
+                <div
+                  key={group.title}
+                  className="bg-white border border-black px-r2 py-r1"
+                >
+                  <p className="font-mono text-sm uppercase">{group.title}</p>
+                  <ul className="flex flex-wrap gap-r0 mt-3">
+                    {group.items.map((item) => (
+                      <li key={item}>
+                        <span className="bg-white border border-black px-2 py-1 font-mono text-sm block shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)]">
+                          {item}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
-          <a
-            href="https://github.com/ellie-holt"
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 w-fit bg-white border border-black px-5 py-3 font-mono text-lg shadow-[var(--shadow-blocky-sm)_var(--color-tang-300)]"
-          >
-            Browse repos →
-          </a>
+          <div className="mt-auto pt-r3">
+            <Button
+              href="https://github.com/ellie-holt"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Browse repos →
+            </Button>
+          </div>
         </div>
 
         {/* right column */}
-        <div className="px-hpad py-10 grid gap-6">
+        <div className="px-hpad py-r3 grid gap-r2">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}

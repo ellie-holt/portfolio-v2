@@ -16,7 +16,13 @@ export default function Hero() {
           </a>
 
           <h2 className="font-mono text-[clamp(1.75rem,5vw,3rem)] font-bold text-aqua-ink">
-            {`{ front-end web developer }`}
+            <span className="text-[1.3em] font-plex-mono" aria-hidden="true">
+              {"{"}
+            </span>
+            {` front-end web developer `}
+            <span className="text-[1.3em] font-plex-mono" aria-hidden="true">
+              {"}"}
+            </span>
           </h2>
 
           <p>

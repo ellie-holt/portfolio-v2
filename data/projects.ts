@@ -21,7 +21,7 @@ export const projects: Project[] = [
     stack: ["React", "Tailwind", "SCSS", "OpenWeatherMap API"],
     accent: "var(--color-tang-500)",
     image: {
-      src: "/images/weather-app-square.png",
+      src: "/weather-app-square.png",
       alt: "Weather App interface screenshot",
     },
   },
@@ -34,7 +34,7 @@ export const projects: Project[] = [
     stack: ["HTML/CSS", "JavaScript", "Moment.js"],
     accent: "var(--color-aqua-500)",
     image: {
-      src: "/images/world-clock-square.png",
+      src: "/world-clock-square.png",
       alt: "World Clock interface screenshot",
     },
   },
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     stack: ["HTML/CSS", "JavaScript", "SheCodes AI API"],
     accent: "var(--color-azure-500)",
     image: {
-      src: "/images/ai-poet-square.png",
+      src: "/ai-poet-square.png",
       alt: "AI Poet interface screenshot",
     },
   },

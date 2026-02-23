@@ -1,12 +1,12 @@
 export const aboutContent = {
-  greeting: "Hi, I’m Ellie.",
+  greeting: "Hi, I’m Ellie",
   about:
-    "I’m a front-end web developer who builds accessible, responsive sites with clean layouts and thoughtful details.",
+    "I’m a front-end web developer who builds friendly, responsive sites with tidy layouts.",
   bullets: [
-    "Accessibility-first UI",
-    "Clean, responsive layout systems",
-    "Thoughtful interaction details",
+    "Accessibility-first UI development",
+    "Clean, responsive layouts with a little flair",
+    "Thoughtful micro-interactions and smooth UX",
   ],
-  ctaText: "Get in touch →",
+  ctaText: "Say hello →",
   ctaHref: "#contact",
 };
