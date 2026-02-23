@@ -59,10 +59,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB">
-      <body
-        className={`${monaspaceArgon.variable} ${monaspaceNeon.variable} ${monaspaceXenon.variable} ${monaspaceRadon.variable} ${monaspaceKrypton.variable} ${geistSans.variable} antialiased`}
-      >
+    <html
+      lang="en-GB"
+      className={`${monaspaceArgon.variable} ${monaspaceNeon.variable} ${monaspaceXenon.variable} ${monaspaceRadon.variable} ${monaspaceKrypton.variable} ${geistSans.variable} antialiased`}
+    >
+      <body>
         {/* full page wrapper */}
         <div className="page-wrapper w-full px-10">
           <HeroBanner />

@@ -1,25 +1,17 @@
 @import "tailwindcss";
 @import "../styles/tokens.css";
-@import "../styles/utilities.css";
 @import "../styles/base.css";
+@import "../styles/utilities.css";
 
 :root {
   /* Light theme */
   --background: var(--color-white, #ffffff);
   --foreground: var(--color-aqua-ink, #011c13);
-
-  --runtime-spacing-banner: 3.5rem;
-  --runtime-spacing-form: 3.5rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans:
-    var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Roboto,
-    sans-serif;
-  --font-mono:
-    var(--font-monaspace-neon), ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 /* Full page wrapper border lines */

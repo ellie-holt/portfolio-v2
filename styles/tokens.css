@@ -1,5 +1,9 @@
 /* styles/tokens.css */
 
+/* 
+  @theme is for static design tokens which Tailwind can generate utility classes from
+  stable values like colours, shadows and fonts go here
+*/
 @theme {
   /* COLOURS */
   --color-white: #ffffff;
@@ -33,30 +37,13 @@
   --color-tang-ink: #1a0901;
 
   /* TYPOGRAPHY */
-  /* --font-sans:
-    "IBM Plex Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  --font-sans:
+    var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Roboto,
+    sans-serif;
   --font-mono:
-    "Monaspace Argon", ui-monospace, SFMono-Regular, Menlo, monospace;
-  --font-serif: "IBM Plex Serif", Georgia, serif; */
+    var(--font-monaspace-neon), ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* SPACING */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.5rem;
-  --space-6: 2rem;
-  --space-7: 3rem;
-  --space-8: 4rem;
-  --space-9: 6rem;
-  --space-10: 8rem;
-
-  --spacing-banner: 3.5rem;
-  --spacing-form: 3.5rem;
-
-  /* SIZING */
-  --size-content: 72rem;
-  --size-narrow: 48rem;
 
   /* RADIUS */
   --radius-1: 0.5rem;
@@ -78,25 +65,43 @@
   --breakpoint-3xl: 112rem; /* 1792px */
 }
 
-@theme inline {
-  --spacing-banner: var(--runtime-spacing-banner, 3.5rem);
-  --spacing-form: var(--runtime-spacing-form, 3.5rem);
-}
-
+/* 
+  @layer theme defines runtime CSS variables so they load before the base and utilities layers
+  variables that may change responsively should go here, such as spacing values
+*/
 @layer theme {
   :root {
-    --runtime-spacing-banner: 3.5rem;
-    --runtime-spacing-form: 3.5rem;
+    /* Page layout */
+    --gutter-x: clamp(1rem, 3vw, 2.5rem);
+    --frame: clamp(1.5rem, 3vw, 2.5rem);
 
-    @variant 3xs {
-      --runtime-spacing-form: 4rem;
-    }
-    @variant xs {
-      --runtime-spacing-form: 5rem;
-    }
-    @variant md {
-      --runtime-spacing-banner: 4rem;
-      --runtime-spacing-form: 6rem;
+    /* Vertical section padding */
+    --section-y: clamp(3rem, 6vw, 5rem);
+
+    /* Rhythm steps */
+    --rhythm-0: 0.5rem; /* 8px */
+    --rhythm-1: 0.75rem; /* 12px */
+    --rhythm-2: 1.25rem; /* 20px */
+    --rhythm-3: 2rem; /* 32px */
+  }
+
+  @variant md {
+    :root {
+      --rhythm-1: 1rem; /* 16px */
+      --rhythm-2: 1.5rem; /* 24px */
+      --rhythm-3: 2.5rem; /* 40px */
     }
   }
+}
+
+/* 
+  @theme inline bridges runtime CSS variables into Tailwind's token system
+  this allows responsive tokens to be used in Tailwind utilities, for example p-section
+*/
+@theme inline {
+  --spacing-section: var(--section-y);
+  --spacing-r0: var(--rhythm-0);
+  --spacing-r1: var(--rhythm-1);
+  --spacing-r2: var(--rhythm-2);
+  --spacing-r3: var(--rhythm-3);
 }
