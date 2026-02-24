@@ -4,13 +4,13 @@ export default function Contact() {
   return (
     <section id="contact" aria-labelledby="contact-heading" className="w-full">
       {/* section heading */}
-      <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-t z-1">
+      <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-black border-t z-1">
         <h2 id="contact-heading" className="font-mono text-lg">
           <span aria-hidden="true">// </span>contact
         </h2>
       </div>
 
-      <div className="relative w-full grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black border-b">
+      <div className="relative w-full grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black border-b border-black">
         {/* left column */}
         <div className="px-hpad py-r3 flex flex-col gap-r2">
           <p className="font-mono text-[clamp(2rem,5vw,3rem)] font-bold leading-tight">

@@ -12,7 +12,7 @@ export default function Work() {
       className="w-full bg-azure-wash"
     >
       {/* section heading */}
-      <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-t z-1">
+      <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-black border-t z-1">
         <h2 id="work-heading" className="font-mono text-lg">
           <span aria-hidden="true">// </span>work
         </h2>

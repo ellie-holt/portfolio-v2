@@ -6,7 +6,7 @@ export default function About() {
   return (
     <section id="about" aria-labelledby="about-heading" className="w-full">
       {/* section heading */}
-      <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b z-1">
+      <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-black z-1">
         <h2 id="about-heading" className="font-mono text-lg">
           <span aria-hidden="true">// </span>about
         </h2>
