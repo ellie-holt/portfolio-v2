@@ -4,7 +4,12 @@ import Button from "@/components/ui/Button";
 export default function About() {
   const content = aboutContent;
   return (
-    <section id="about" aria-labelledby="about-heading" className="w-full">
+    <section
+      id="about"
+      aria-labelledby="about-heading"
+      className="w-full"
+      style={{ scrollMarginTop: "var(--site-header-height, 40px)" }}
+    >
       {/* section heading */}
       <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-black z-1">
         <h2 id="about-heading" className="font-mono text-lg">

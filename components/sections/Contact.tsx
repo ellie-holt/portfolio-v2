@@ -2,7 +2,12 @@ import Button from "@/components/ui/Button";
 
 export default function Contact() {
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="w-full">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="w-full"
+      style={{ scrollMarginTop: "var(--site-header-height, 40px)" }}
+    >
       {/* section heading */}
       <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-black border-t z-1">
         <h2 id="contact-heading" className="font-mono text-lg">

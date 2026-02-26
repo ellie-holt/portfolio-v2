@@ -10,6 +10,7 @@ export default function Work() {
       id="work"
       aria-labelledby="work-heading"
       className="w-full bg-azure-wash"
+      style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
       <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-black border-t z-1">
