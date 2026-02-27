@@ -1,12 +1,14 @@
 import Button from "@/components/ui/Button";
 
+import * as motion from "motion/react-client";
+
 export default function Contact() {
   return (
     <section
       id="contact"
       aria-labelledby="contact-heading"
       className="w-full"
-      style={{ scrollMarginTop: "var(--site-header-height, 40px)" }}
+      style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
       <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-black border-t z-1">
@@ -19,11 +21,11 @@ export default function Contact() {
         {/* left column */}
         <div className="px-hpad py-r3 flex flex-col gap-r2">
           <p className="font-mono text-[clamp(2rem,5vw,3rem)] font-bold leading-tight">
-            Let’s make something cool.
+            Let’s get in touch.
           </p>
           <p className="max-w-prose leading-relaxed">
-            If you'd like to work together or have any questions, send a message
-            and I’ll get back to you.
+            If you'd like to work together or have any questions, send me a
+            message and I’ll get back to you.
           </p>
 
           <form
@@ -76,8 +78,24 @@ export default function Contact() {
 
         {/* right column */}
         <div className="px-hpad py-r3 bg-white flex items-end">
-          <p className="font-mono text-[clamp(2.25rem,6vw,4.5rem)] font-bold leading-tight">
-            Drop me a message.
+          <p className="sr-only">Drop me a message</p>
+          <p className="aria-hidden font-mono text-[clamp(2.25rem,6vw,4.5rem)] font-bold leading-tight">
+            <motion.span
+              initial={{ opacity: 0, y: -200 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 20,
+                mass: 1.5,
+                delay: 0.2,
+              }}
+              // viewport={{ once: true }}
+              className="inline-block"
+            >
+              Drop
+            </motion.span>{" "}
+            me a message.
           </p>
         </div>
       </div>
