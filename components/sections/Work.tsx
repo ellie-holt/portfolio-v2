@@ -1,5 +1,6 @@
 import ProjectCard from "@/components/cards/ProjectCard";
 import Button from "@/components/ui/Button";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/Tabs";
 import { projects } from "@/data/projects";
 import { toolbox } from "@/data/tools";
 import type { Project } from "@/data/projects";
@@ -23,33 +24,44 @@ export default function Work() {
         {/* left column */}
         <div className="px-hpad py-r3 flex flex-col gap-r2">
           <p className="font-mono text-[clamp(2rem,5vw,3rem)] font-bold leading-tight">
-            Check out some of the things I’ve built recently.
+            Check out some of the things I’ve made.
           </p>
           <p className="max-w-prose leading-relaxed">Recent projects.</p>
 
           <div className="grid gap-r1">
-            <h3 className="text-xl leading-snug">Toolbox</h3>
-            <div className="grid gap-r1">
+            <h3 className="font-mono text-xl leading-snug">Toolbox</h3>
+            <Tabs defaultValue={toolbox[0].title}>
+              <TabsList className="w-auto flex-row flex-wrap items-center justify-start shadow-[var(--shadow-blocky-sm)_var(--color-aqua-300)]">
+                {toolbox.map((group) => (
+                  <TabsTrigger
+                    key={group.title}
+                    value={group.title}
+                    className="h-full w-auto justify-center text-aqua-ink/75 hover:bg-aqua-100 hover:text-aqua-ink hover:cursor-pointer data-[state=active]:bg-aqua-200 data-[state=active]:text-aqua-ink data-[state=active]:shadow-[var(--shadow-blocky-xs)_var(--color-aqua-400)]"
+                  >
+                    {group.title}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
               {toolbox.map((group) => (
-                <div
+                <TabsContent
                   key={group.title}
-                  className="bg-white border border-black px-r2 py-r1"
+                  value={group.title}
+                  className="shadow-[var(--shadow-blocky-sm)_var(--color-tang-300)]"
                 >
-                  <p className="font-mono text-sm uppercase">{group.title}</p>
-                  <ul className="flex flex-wrap gap-r0 mt-3">
-                    {group.items.map((item) => (
-                      <li key={item}>
-                        <span className="bg-white border border-black px-2 py-1 font-mono text-sm block shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)]">
-                          {item}
-                        </span>
+                  <ul
+                    role="list"
+                    className="grid list-disc gap-r0 pl-r2 marker:text-tang-500"
+                  >
+                    {group.items.map((tool) => (
+                      <li key={tool} className="leading-relaxed text-aqua-ink">
+                        {tool}
                       </li>
                     ))}
                   </ul>
-                </div>
+                </TabsContent>
               ))}
-            </div>
+            </Tabs>
           </div>
-
           <div className="mt-auto pt-r3">
             <Button
               href="https://github.com/ellie-holt"
