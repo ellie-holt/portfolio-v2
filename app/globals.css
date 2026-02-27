@@ -117,6 +117,16 @@
   border-bottom: 1px solid black;
 }
 
+/* Persistent nav active styling (CSS-only via :target) */
+body:has(#about:target) .nav-link[href="#about"] .nav-link-inner,
+body:has(#work:target) .nav-link[href="#work"] .nav-link-inner,
+body:has(#contact:target) .nav-link[href="#contact"] .nav-link-inner {
+  border-color: var(--color-black);
+  background: var(--color-aqua-200);
+  color: var(--color-aqua-ink);
+  box-shadow: var(--shadow-blocky-xs) var(--color-aqua-400);
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -124,7 +134,7 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.87 0.00 0);
+  --primary: oklch(0.87 0 0);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
