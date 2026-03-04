@@ -9,6 +9,7 @@ type RoughArrowProps = {
   direction?: ArrowDirection;
   stroke?: string;
   strokeWidth?: number;
+  roughness?: number;
   className?: string;
 };
 
@@ -16,6 +17,7 @@ export default function RoughArrow({
   direction = "down",
   stroke = "#f27941",
   strokeWidth = 5,
+  roughness = 1,
   className,
 }: RoughArrowProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -84,14 +86,17 @@ export default function RoughArrow({
       rc.line(x1, y1, x2, y2, {
         stroke,
         strokeWidth,
+        roughness,
       });
       rc.line(x2, y2, x3, y3, {
         stroke,
         strokeWidth,
+        roughness,
       });
       rc.line(x2, y2, x4, y4, {
         stroke,
         strokeWidth,
+        roughness,
       });
     };
 
@@ -100,7 +105,7 @@ export default function RoughArrow({
     observer.observe(canvas);
 
     return () => observer.disconnect();
-  }, [direction, stroke, strokeWidth]);
+  }, [direction, stroke, strokeWidth, roughness]);
 
   return <canvas ref={canvasRef} className={className} aria-hidden="true" />;
 }
