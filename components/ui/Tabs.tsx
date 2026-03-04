@@ -8,7 +8,7 @@ import {
   TabsTrigger as ShadcnTabsTrigger,
   TabsContent as ShadcnTabsContent,
   tabsListVariants as shadcnTabsListVariants,
-} from "@/components/external/shadcn/tabs";
+} from "@/components/external/shadcn/ui/tabs";
 
 export function Tabs({
   className,

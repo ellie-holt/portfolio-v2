@@ -1,5 +1,9 @@
 import Button from "@/components/ui/Button";
-
+import RoughArrow from "@/components/ui/RoughArrow";
+import RoughEnvelope from "@/components/ui/RoughEnvelope";
+import { Field, FieldLabel, FieldDescription } from "@/components/ui/Field";
+import { Input } from "@/components/ui/Input";
+import { Textarea } from "@/components/ui/Textarea";
 import * as motion from "motion/react-client";
 
 export default function Contact() {
@@ -37,47 +41,78 @@ export default function Contact() {
           >
             <input type="hidden" name="form-name" value="contact" />
 
-            <label className="grid gap-r0">
-              <span className="uppercase text-sm">Name</span>
-              <input
+            <Field className="grid gap-r0">
+              <FieldLabel htmlFor="name">
+                <span className="w-fit px-r0 py-0.5 text-sm font-semibold uppercase tracking-wide">
+                  Name
+                </span>
+              </FieldLabel>
+              <Input
                 type="text"
+                id="name"
                 name="name"
                 placeholder="Your name"
                 required
                 autoComplete="name"
-                className="bg-white border border-black px-4 py-r0"
+                className="h-11 border-black bg-white px-4  shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5 focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)]"
               />
-            </label>
+            </Field>
 
-            <label className="grid gap-r0">
-              <span className="uppercase text-sm">Email</span>
-              <input
+            <Field className="grid gap-r0">
+              <FieldLabel htmlFor="email">
+                <span className="w-fit  px-r0 py-0.5 text-sm font-semibold uppercase tracking-wide">
+                  Email
+                </span>
+              </FieldLabel>
+              <Input
                 type="email"
+                id="email"
                 name="email"
                 placeholder="name@email.com"
                 required
                 autoComplete="email"
-                className="bg-white border border-black px-4 py-r0"
+                className="h-11 border-black bg-white px-4 text-sm shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5 focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)]"
               />
-            </label>
+            </Field>
 
-            <label className="grid gap-r0">
-              <span className="uppercase text-sm">Message</span>
-              <textarea
+            <Field className="grid gap-r0">
+              <FieldLabel htmlFor="message">
+                <span className="w-fit px-r0 py-0.5 text-sm font-semibold uppercase tracking-wide">
+                  Message
+                </span>
+              </FieldLabel>
+              <Textarea
+                id="message"
                 name="message"
                 placeholder="Type your message here..."
                 required
                 rows={5}
-                className="bg-white border border-black px-4 py-r0"
+                className="min-h-36 border-black bg-white px-4 py-3 text-sm shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5 focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)]"
               />
-            </label>
+            </Field>
 
-            <Button type="submit">Send</Button>
+            <div className="pt-r0">
+              <Button type="submit" className="bg-aqua-100">
+                <span>Send message</span>
+                <RoughArrow
+                  direction="right"
+                  stroke="#f27941"
+                  strokeWidth={1.4}
+                  className="h-8 w-8"
+                />
+              </Button>
+            </div>
           </form>
         </div>
 
         {/* right column */}
-        <div className="px-hpad py-r3 bg-white flex items-end">
+        <div className="relative px-hpad py-r3 bg-white flex items-end overflow-hidden">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute right-r1 top-r1 h-28 w-28"
+          >
+            <RoughEnvelope className="h-full w-full" stroke="#ff935f" />
+          </div>
           <p className="sr-only">Drop me a message</p>
           <p className="aria-hidden font-mono text-[clamp(2.25rem,6vw,4.5rem)] font-bold leading-tight">
             <motion.span
