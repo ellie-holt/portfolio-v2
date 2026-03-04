@@ -1,5 +1,6 @@
 import { aboutContent } from "@/data/about";
 import Button from "@/components/ui/Button";
+import RoughArrow from "@/components/ui/RoughArrow";
 
 export default function About() {
   const content = aboutContent;
@@ -45,7 +46,15 @@ export default function About() {
 
           {/* cta link */}
           <div className="mt-auto pt-r3">
-            <Button href={content.ctaHref}>{content.ctaText}</Button>
+            <Button href={content.ctaHref}>
+              <span>{content.ctaText}</span>
+              <RoughArrow
+                direction="right"
+                stroke="#f27941"
+                strokeWidth={1.4}
+                className="h-8 w-8"
+              />
+            </Button>
           </div>
         </div>
 

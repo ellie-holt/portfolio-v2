@@ -136,7 +136,7 @@ export default function Hero() {
     <motion.div
       ref={heroRef}
       id="hero"
-      className="w-full shrink-0 overflow-hidden bg-aqua-100 px-1 outline-1 outline-black"
+      className="w-full shrink-0 overflow-hidden px-1 outline-1 bg-white outline-black"
       animate={{
         height: heroTargetHeight,
       }}
@@ -173,7 +173,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="col-start-1 row-start-2 overflow-hidden mb-6"
+            className="col-start-1 row-start-2 overflow-hidden mb-4 lg:mb-6 -mt-4 md:-mt-6 xl:-mt-10 2xl:-mt-12"
             animate={{
               scale: currentScale,
               opacity: h2Visibility,
