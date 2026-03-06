@@ -57,7 +57,7 @@ export default function Work() {
                 <AccordionItem
                   key={project.slug}
                   value={project.slug}
-                  className="min-h-0 bg-white will-change-[flex] flex-[0_0_auto] transition-[flex] duration-300 ease-in-out data-[state=open]:flex-[1_1_0%]"
+                  className="min-h-0 flex-none bg-white transition-[flex-grow] duration-340 ease-in-out data-[state=open]:flex-1"
                 >
                   <AccordionTrigger className="bg-white px-r2 py-r1 font-mono text-[clamp(1.75rem,3vw,2.8rem)] font-bold leading-tight hover:bg-aqua-100">
                     {project.title}

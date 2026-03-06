@@ -9,13 +9,16 @@ export default function Navbar() {
       <div className="flex h-full items-center justify-end">
         <ul className="m-0 flex list-none flex-wrap gap-6 px-0 ">
           <li>
-            <NavLink href="#about">about</NavLink>
+            <NavLink href="./#about">about</NavLink>
           </li>
           <li>
-            <NavLink href="#work">work</NavLink>
+            <NavLink href="./#work">work</NavLink>
           </li>
           <li>
-            <NavLink href="#contact">contact</NavLink>
+            <NavLink href="./#contact">contact</NavLink>
+          </li>
+          <li>
+            <NavLink href="/blog">blog</NavLink>
           </li>
         </ul>
       </div>

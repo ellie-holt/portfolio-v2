@@ -5,41 +5,40 @@
     scroll-behavior: smooth;
   }
 
-  body {
+  div.page-wrapper {
     font-family: var(--font-sans);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: var(--foreground);
     background-color: var(--background);
-  }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    font-family: var(--font-mono);
-    color: var(--color-aqua-ink);
-  }
-
-  :where(
-    a,
-    button,
-    input,
-    textarea,
-    select,
-    [role="button"]
-  )::-moz-focus-inner {
-    border: 0;
-  }
-  :where(a, button, input, textarea, select, [role="button"]) {
-    outline: none;
-  }
-  :where(a, button, input, textarea, select, [role="button"]):focus-visible {
-    outline: 3px solid var(--color-black);
-    outline-offset: 3px;
-    box-shadow: 6px 6px 0 0 var(--color-tang-300);
-    position: relative;
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-mono);
+      color: var(--color-aqua-ink);
+    }
+    :where(
+      a,
+      button,
+      input,
+      textarea,
+      select,
+      [role="button"]
+    )::-moz-focus-inner {
+      border: 0;
+    }
+    :where(a, button, input, textarea, select, [role="button"]) {
+      outline: none;
+    }
+    :where(a, button, input, textarea, select, [role="button"]):focus-visible {
+      outline: 3px solid var(--color-black);
+      outline-offset: 3px;
+      box-shadow: 6px 6px 0 0 var(--color-tang-300);
+      position: relative;
+    }
   }
 }
 

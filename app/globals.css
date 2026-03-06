@@ -162,10 +162,10 @@ body:has(#contact:target) .nav-link[href="#contact"] .nav-link-inner {
 }
 
 @layer base {
-  * {
+  .page-wrapper {
     @apply border-border outline-ring/50;
   }
-  body {
+  .page-wrapper {
     @apply bg-background text-foreground;
   }
 }
