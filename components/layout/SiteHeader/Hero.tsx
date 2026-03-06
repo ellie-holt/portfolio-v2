@@ -4,8 +4,11 @@ import Icon from "@/components/ui/Icon";
 import { useState, useEffect, useRef } from "react";
 import { TypewriterEffect } from "@/components/external/aceternity/typewriter-effect";
 import { motion } from "motion/react";
+import { usePathname } from "next/navigation";
 
 export default function Hero() {
+  const pathname = usePathname();
+  const isBlogRoute = pathname?.startsWith("/blog") ?? false;
   const heroRef = useRef<HTMLDivElement>(null);
   const heroContentRef = useRef<HTMLDivElement>(null);
   const h2ContentRef = useRef<HTMLDivElement>(null);
@@ -99,9 +102,11 @@ export default function Hero() {
     };
   }, []);
 
-  const h1Words = ["Ellie", "Holt:"];
+  const h1Words = isBlogRoute ? ["Blog", "posts:"] : ["Ellie", "Holt:"];
   const h1Characters = h1Words.reduce((count, word) => count + word.length, 0);
-  const h2Words = ["{", "front-end", "web", "developer", "}"];
+  const h2Words = isBlogRoute
+    ? ["{", "thoughts", "and", "musings", "}"]
+    : ["{", "front-end", "web", "developer", "}"];
   const h2Characters = h2Words.reduce((count, word) => count + word.length, 0);
   const h1TypeDuration = (h1Characters - 1) * 0.05 + 0.3;
   const h2TypeDuration = (h2Characters - 1) * 0.05 + 0.3;
@@ -111,7 +116,7 @@ export default function Hero() {
   const currentArrowScale = 1 - (1 - arrowCollapseScale) * collapseProgress;
   const h2Visibility = Math.max(0, 1 - collapseProgress * 2);
   const isCollapsed = collapseProgress > 0.02;
-  const arrowHref = isCollapsed ? "#" : "#content-start";
+  const arrowHref = isBlogRoute ? "/" : isCollapsed ? "#" : "#content-start";
   const scaledHeroHeight = heroHeight ? heroHeight * currentScale : 0;
   const collapsedTargetHeight =
     h1Height && arrowHeight
@@ -126,6 +131,8 @@ export default function Hero() {
   const handleArrowClick: React.MouseEventHandler<HTMLAnchorElement> = (
     event,
   ) => {
+    if (isBlogRoute) return;
+
     if (!isCollapsed) return;
 
     event.preventDefault();
@@ -152,7 +159,7 @@ export default function Hero() {
             style={{ transformOrigin: "top left", willChange: "transform" }}
           >
             <div ref={h1ContentRef}>
-              <a href="#page-top" className="">
+              <a href={isBlogRoute ? "/" : "#page-top"} className="">
                 <TypewriterEffect
                   element="h1"
                   words={[
@@ -189,25 +196,13 @@ export default function Hero() {
             <div ref={h2ContentRef}>
               <TypewriterEffect
                 element="h2"
-                words={[
-                  {
-                    text: "{",
-                    className: "text-[1.3em] font-plex-mono",
-                  },
-                  {
-                    text: "front-end",
-                  },
-                  {
-                    text: "web",
-                  },
-                  {
-                    text: "developer",
-                  },
-                  {
-                    text: "}",
-                    className: "text-[1.3em] font-plex-mono",
-                  },
-                ]}
+                words={h2Words.map((word, index) => ({
+                  text: word,
+                  className:
+                    index === 0 || index === h2Words.length - 1
+                      ? "text-[1.3em] font-plex-mono"
+                      : undefined,
+                }))}
                 className="col-start-1 col-end-2 font-mono text-[clamp(1.75rem,3.15vw,3.75rem)] font-bold text-aqua-ink"
                 cursorClassName="bg-aqua-ink h-[clamp(1.75rem,3.15vw,3.75rem)] relative top-1"
                 transitionDuration={0.3}
@@ -218,7 +213,11 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="col-start-2 row-start-1 row-span-2 self-center justify-self-end"
+            className={`col-start-2 row-start-1 row-span-2 self-center ${
+              isBlogRoute
+                ? "justify-self-end mr-[clamp(0.5rem,4vw,3rem)]"
+                : "justify-self-end"
+            }`}
             animate={{ scale: currentArrowScale }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             style={{ transformOrigin: "top right", willChange: "transform" }}
@@ -227,10 +226,20 @@ export default function Hero() {
               ref={arrowContentRef}
               href={arrowHref}
               onClick={handleArrowClick}
-              aria-label={isCollapsed ? "Back to top" : "Skip to content"}
-              className="inline-block leading-none relative z-1"
-              initial={{ opacity: 0, y: -50 }}
-              animate={{ opacity: 1, y: 0 }}
+              aria-label={
+                isBlogRoute
+                  ? "Back to portfolio"
+                  : isCollapsed
+                    ? "Back to top"
+                    : "Skip to content"
+              }
+              className="inline-flex flex-col items-center leading-none relative z-1"
+              initial={{
+                opacity: 0,
+                y: isBlogRoute ? 0 : isCollapsed ? 50 : -50,
+                x: isBlogRoute ? 50 : 0,
+              }}
+              animate={{ opacity: 1, y: 0, x: 0 }}
               transition={{
                 duration: 1,
                 ease: "easeOut",
@@ -239,16 +248,24 @@ export default function Hero() {
             >
               <motion.span
                 className="inline-block"
-                animate={{ rotate: 180 * collapseProgress }}
-                whileHover={{ y: isCollapsed ? -10 : 10 }}
+                animate={{ rotate: isBlogRoute ? 0 : 180 * collapseProgress }}
+                whileHover={
+                  isBlogRoute ? { x: -10 } : { y: isCollapsed ? -10 : 10 }
+                }
                 transition={{ duration: 0.2, ease: "easeOut" }}
               >
                 <Icon
-                  name="gg:arrow-down"
+                  name={isBlogRoute ? "gg:arrow-left" : "gg:arrow-down"}
                   size="clamp(6rem, 14vw, 19rem)"
                   className="block text-tang-500 scale-120 md:-m-[1em] xl:-m-[2em] 2xl:-m-[3em]"
                 />
               </motion.span>
+              {isBlogRoute ? (
+                <span className="-mt-1 sm:mt-0 lg:mt-8 font-mono self-end text-[clamp(0.62rem,1.8vw,0.9rem)] lowercase tracking-[0.02em] text-aqua-ink/80">
+                  <span className="md:hidden">back</span>
+                  <span className="hidden md:inline">back to main</span>
+                </span>
+              ) : null}
             </motion.a>
           </motion.div>
         </div>
