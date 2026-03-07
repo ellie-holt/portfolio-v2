@@ -1,3 +1,5 @@
+import RoughArrow from "@/components/ui/RoughArrow";
+
 export default function HeroBanner() {
   return (
     <div className="w-full h-10 bg-white px-hpad">
@@ -27,8 +29,15 @@ export default function HeroBanner() {
           href="https://github.com/ellie-holt"
           target="_blank"
           rel="noreferrer"
+          className="inline-flex items-center gap-r0 font-semibold underline decoration-1 hover:decoration-transparent transition-all"
         >
-          GitHub →
+          <span>GitHub</span>
+          <RoughArrow
+            direction="right"
+            stroke="#f27941"
+            strokeWidth={1.4}
+            className="h-7 w-7"
+          />
         </a>
       </div>
     </div>

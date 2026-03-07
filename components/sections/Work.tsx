@@ -39,7 +39,7 @@ export default function Work() {
               <RoughCurvedArrow
                 direction="down"
                 stroke="#f27941"
-                strokeWidth={4}
+                strokeWidth={3}
                 roughness={1.5}
                 bowing={3}
                 className="h-32 w-24"
@@ -170,7 +170,7 @@ export default function Work() {
                 direction="right"
                 stroke="#f27941"
                 strokeWidth={1.4}
-                className="h-8 w-8"
+                className="h-7 w-7"
               />
             </Button>
           </div>

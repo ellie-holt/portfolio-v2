@@ -260,7 +260,7 @@ export default function Hero() {
                   className="block text-tang-500 scale-120 md:-m-[1em] xl:-m-[2em] 2xl:-m-[3em]"
                 />
               </motion.span>
-              {isBlogRoute ? (
+              {isBlogRoute && !isCollapsed ? (
                 <span className="-mt-1 sm:mt-0 lg:mt-8 font-mono self-end text-[clamp(0.62rem,1.8vw,0.9rem)] lowercase tracking-[0.02em] text-aqua-ink/80">
                   <span className="md:hidden">back</span>
                   <span className="hidden md:inline">back to main</span>

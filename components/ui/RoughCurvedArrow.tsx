@@ -48,12 +48,16 @@ export default function RoughCurvedArrow({
       let control1 = { x: w * 0.34, y: h * 0.95 };
       let control2 = { x: w * 0.68, y: h * 0.28 };
       let end = { x: w - padX, y: padY };
+      let curvePoints = [start, control1, control2, end];
+      let headFrom = control2;
 
       if (direction === "down-right") {
         start = { x: padX, y: padY };
         control1 = { x: w * 0.32, y: h * 0.06 };
         control2 = { x: w * 0.72, y: h * 0.72 };
         end = { x: w - padX, y: h - padY };
+        curvePoints = [start, control1, control2, end];
+        headFrom = control2;
       }
 
       if (direction === "up-left") {
@@ -61,6 +65,8 @@ export default function RoughCurvedArrow({
         control1 = { x: w * 0.66, y: h * 0.95 };
         control2 = { x: w * 0.32, y: h * 0.28 };
         end = { x: padX, y: padY };
+        curvePoints = [start, control1, control2, end];
+        headFrom = control2;
       }
 
       if (direction === "down-left") {
@@ -68,13 +74,18 @@ export default function RoughCurvedArrow({
         control1 = { x: w * 0.68, y: h * 0.06 };
         control2 = { x: w * 0.28, y: h * 0.72 };
         end = { x: padX, y: h - padY };
+        curvePoints = [start, control1, control2, end];
+        headFrom = control2;
       }
 
       if (direction === "down") {
-        start = { x: w / 2 - w / 6, y: padY };
-        control1 = { x: w * 0.52, y: h * 0.38 };
-        control2 = { x: w * 0.42, y: h * 0.62 };
-        end = { x: w / 2, y: h - padY };
+        start = { x: w * 0.34, y: padY };
+        control1 = { x: w * 0.68, y: h * 0.32 };
+        control2 = { x: w * 0.24, y: h * 0.62 };
+        const settle = { x: w / 2, y: h * 0.76 };
+        end = { x: w / 2, y: h - padY * 0.5 };
+        curvePoints = [start, control1, control2, settle, end];
+        headFrom = settle;
       }
 
       const ctx = canvas.getContext("2d");
@@ -84,12 +95,7 @@ export default function RoughCurvedArrow({
       const rc = rough.canvas(canvas);
 
       rc.curve(
-        [
-          [start.x, start.y],
-          [control1.x, control1.y],
-          [control2.x, control2.y],
-          [end.x, end.y],
-        ],
+        curvePoints.map((point) => [point.x, point.y]),
         {
           stroke,
           strokeWidth,
@@ -99,7 +105,7 @@ export default function RoughCurvedArrow({
       );
 
       const headLength = Math.min(w, h) / 6;
-      const theta = Math.atan2(end.y - control2.y, end.x - control2.x);
+      const theta = Math.atan2(end.y - headFrom.y, end.x - headFrom.x);
       const phi = Math.PI / 4;
 
       const x3 = end.x - headLength * Math.cos(theta - phi);

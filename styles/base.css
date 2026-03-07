@@ -1,6 +1,16 @@
 /* styles/base.css */
 
 @layer base {
+  ::selection {
+    background-color: var(--color-tang-300);
+    color: var(--color-tang-ink);
+  }
+
+  ::-moz-selection {
+    background-color: var(--color-tang-300);
+    color: var(--color-tang-ink);
+  }
+
   html {
     scroll-behavior: smooth;
   }
