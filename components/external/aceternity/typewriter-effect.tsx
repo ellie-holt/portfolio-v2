@@ -17,6 +17,8 @@ type SupportedElement =
   | "section"
   | "article";
 
+type TextAlign = "left" | "center" | "right" | "start" | "end";
+
 export const TypewriterEffect = ({
   element,
   words,
@@ -25,6 +27,9 @@ export const TypewriterEffect = ({
   transitionDuration,
   cursorReps,
   startDelay,
+  charStagger,
+  showCursor,
+  textAlign,
 }: {
   element?: SupportedElement;
   words: {
@@ -36,6 +41,9 @@ export const TypewriterEffect = ({
   transitionDuration?: number;
   cursorReps?: number;
   startDelay?: number;
+  charStagger?: number;
+  showCursor?: boolean;
+  textAlign?: TextAlign;
 }) => {
   // split text inside of words into array of characters
   const wordsArray = words.map((word) => {
@@ -59,25 +67,40 @@ export const TypewriterEffect = ({
         },
         {
           duration: transitionDuration ?? 0.8,
-          delay: stagger(0.05, { startDelay: startDelay ?? 0 }),
+          delay: stagger(charStagger ?? 0.05, { startDelay: startDelay ?? 0 }),
           ease: "easeInOut",
         },
       );
     }
-  }, [animate, isInView, startDelay, transitionDuration]);
+  }, [animate, isInView, startDelay, transitionDuration, charStagger]);
 
   const MotionElement =
     (motion as Record<SupportedElement, typeof motion.div>)[element ?? "div"] ??
     motion.div;
 
+  const textAlignClass =
+    textAlign === "center"
+      ? "text-center"
+      : textAlign === "right"
+        ? "text-right"
+        : textAlign === "start"
+          ? "text-start"
+          : textAlign === "end"
+            ? "text-end"
+            : "text-left";
+
   const renderWords = () => {
     return (
-      <div className="inline-grid align-baseline">
+      <div className="inline-grid align-baseline w-full">
         <MotionElement
           aria-hidden
-          className="pointer-events-none select-none [grid-area:1/1]"
+          className={cn(
+            "pointer-events-none select-none [grid-area:1/1]",
+            textAlignClass,
+          )}
         >
           {wordsArray.map((word, idx) => {
+            const isLastWord = idx === wordsArray.length - 1;
             return (
               <div key={`ghost-word-${idx}`} className="inline-block">
                 {word.text.map((char, index) => (
@@ -91,14 +114,18 @@ export const TypewriterEffect = ({
                     {char}
                   </span>
                 ))}
-                &nbsp;
+                {!isLastWord ? "\u00A0" : null}
               </div>
             );
           })}
         </MotionElement>
 
-        <MotionElement ref={scope} className="inline [grid-area:1/1]">
+        <MotionElement
+          ref={scope}
+          className={cn("inline [grid-area:1/1]", textAlignClass)}
+        >
           {wordsArray.map((word, idx) => {
+            const isLastWord = idx === wordsArray.length - 1;
             return (
               <div key={`word-${idx}`} className="inline-block">
                 {word.text.map((char, index) => (
@@ -113,29 +140,31 @@ export const TypewriterEffect = ({
                     {char}
                   </motion.span>
                 ))}
-                &nbsp;
+                {!isLastWord ? "\u00A0" : null}
               </div>
             );
           })}
 
-          <motion.span
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            transition={{
-              duration: transitionDuration ?? 0.8,
-              delay: startDelay ?? 0,
-              repeat: cursorReps ?? Infinity,
-              repeatType: "reverse",
-            }}
-            className={cn(
-              "inline-block w-0.75 h-4 bg-blue-500",
-              cursorClassName,
-            )}
-          ></motion.span>
+          {showCursor !== false ? (
+            <motion.span
+              initial={{
+                opacity: 0,
+              }}
+              animate={{
+                opacity: 1,
+              }}
+              transition={{
+                duration: transitionDuration ?? 0.8,
+                delay: startDelay ?? 0,
+                repeat: cursorReps ?? Infinity,
+                repeatType: "reverse",
+              }}
+              className={cn(
+                "inline-block w-0.75 h-4 bg-blue-500",
+                cursorClassName,
+              )}
+            ></motion.span>
+          ) : null}
         </MotionElement>
       </div>
     );
@@ -166,6 +195,7 @@ export const TypewriterEffectSmooth = ({
     return (
       <div>
         {wordsArray.map((word, idx) => {
+          const isLastWord = idx === wordsArray.length - 1;
           return (
             <div key={`word-${idx}`} className="inline-block">
               {word.text.map((char, index) => (
@@ -176,7 +206,7 @@ export const TypewriterEffectSmooth = ({
                   {char}
                 </span>
               ))}
-              &nbsp;
+              {!isLastWord ? "\u00A0" : null}
             </div>
           );
         })}
@@ -206,7 +236,7 @@ export const TypewriterEffectSmooth = ({
             whiteSpace: "nowrap",
           }}
         >
-          {renderWords()}{" "}
+          {renderWords()}
         </div>{" "}
       </motion.div>
       <motion.span
