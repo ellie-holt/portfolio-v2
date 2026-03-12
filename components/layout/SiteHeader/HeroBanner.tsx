@@ -3,10 +3,10 @@ import RoughArrow from "@/components/ui/RoughArrow";
 export default function HeroBanner() {
   return (
     <div className="w-full h-10 bg-white px-hpad">
-      <div className="flex flex-wrap justify-between gap-4 w-full h-full items-center text-sm font-mono">
+      <div className="flex flex-wrap justify-end 2xs:justify-between gap-4 w-full h-full items-center text-sm font-mono">
         <a
           href="mailto:eleanorholt97@gmail.com"
-          className="group inline-flex items-center"
+          className="group hidden 2xs:inline-flex items-center"
         >
           <span
             aria-hidden="true"

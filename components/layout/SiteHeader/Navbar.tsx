@@ -4,10 +4,10 @@ export default function Navbar() {
   return (
     <nav
       aria-label="Primary"
-      className="w-screen -left-10 h-10 bg-white px-hpad relative border-t border-b border-black"
+      className="w-screen -left-4 sm:-left-10 h-10 bg-white px-hpad relative border-t border-b border-black"
     >
-      <div className="flex h-full items-center justify-end">
-        <ul className="m-0 flex list-none flex-wrap gap-6 px-0 ">
+      <div className="flex right-4 sm:right-0 h-full items-center  md:justify-end">
+        <ul className="m-0 flex list-none justify-around md:justify-end w-full md:w-auto md:gap-6 px-0 ">
           <li>
             <NavLink href="/#about">about</NavLink>
           </li>
@@ -17,7 +17,7 @@ export default function Navbar() {
           <li>
             <NavLink href="/#contact">contact</NavLink>
           </li>
-          <li>
+          <li className="hidden md:block">
             <NavLink href="/blog">blog</NavLink>
           </li>
         </ul>

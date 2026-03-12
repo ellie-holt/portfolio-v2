@@ -15,7 +15,7 @@ export default function Contact() {
       style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
-      <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-black border-t z-1">
+      <div className="w-screen h-10 px-hpad relative -left-4 sm:-left-10 flex items-center bg-white border-b border-black border-t z-1">
         <h2 id="contact-heading" className="font-mono text-lg">
           <span aria-hidden="true">// </span>contact
         </h2>

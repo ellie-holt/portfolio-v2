@@ -89,6 +89,15 @@
 .page-wrapper {
   position: relative;
   z-index: 1;
+  --page-frame-x: 2.5rem;
+  --page-frame-y: 2.5rem;
+  padding-inline: var(--page-frame-x);
+}
+
+@media (max-width: 639px) {
+  .page-wrapper {
+    --page-frame-x: 1rem;
+  }
 }
 
 .page-wrapper::before,
@@ -102,15 +111,15 @@
 .page-wrapper::before {
   top: 0;
   bottom: 0;
-  left: 2.5rem;
-  right: 2.5rem;
+  left: var(--page-frame-x);
+  right: var(--page-frame-x);
   border-left: 1px solid black;
   border-right: 1px solid black;
 }
 
 .page-wrapper::after {
-  top: 2.5rem;
-  bottom: 2.5rem;
+  top: var(--page-frame-y);
+  bottom: var(--page-frame-y);
   left: 0;
   right: 0;
   border-top: 1px solid black;

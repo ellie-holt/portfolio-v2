@@ -9,9 +9,9 @@ export default function SiteLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="page-wrapper w-full px-10">
+    <div className="page-wrapper w-full">
       <HeroBanner />
-      <div className="border">
+      <div className="border-y">
         <SiteHeader />
         {children}
         <SiteFooter />

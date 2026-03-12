@@ -22,7 +22,7 @@ export default function Work() {
       style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
-      <div className="w-screen h-10 px-hpad relative -left-10 flex items-center bg-white border-b border-black border-t z-1">
+      <div className="w-screen h-10 px-hpad relative -left-4 sm:-left-10 flex items-center bg-white border-b border-black border-t z-1">
         <h2 id="work-heading" className="font-mono text-lg">
           <span aria-hidden="true">// </span>work
         </h2>
@@ -57,7 +57,7 @@ export default function Work() {
                 <AccordionItem
                   key={project.slug}
                   value={project.slug}
-                  className="min-h-0 flex-none bg-white transition-[flex-grow] duration-340 ease-in-out data-[state=open]:flex-1"
+                  className="min-h-0 flex-none bg-white  border-l border-black transition-[flex-grow] duration-340 ease-in-out data-[state=open]:flex-1"
                 >
                   <AccordionTrigger className="bg-white px-r2 py-r1 font-mono text-[clamp(1.75rem,3vw,2.8rem)] font-bold leading-tight hover:bg-aqua-100">
                     {project.title}
