@@ -10,7 +10,7 @@ export default function HeroBanner() {
         >
           <span
             aria-hidden="true"
-            className="pr-[0.35em] text-tang-500 text-[1.6em] leading-none transition-transform duration-300 group-hover:scale-90 group-hover:translate-x-0.5 font-plex-mono"
+            className="pr-[0.35em] font-plex-mono text-[1.6em] leading-none text-tang-500 transition-transform duration-300 group-hover:scale-90 group-hover:translate-x-0.5"
           >
             {"{"}
           </span>
@@ -19,7 +19,7 @@ export default function HeroBanner() {
           </span>
           <span
             aria-hidden="true"
-            className="pl-[0.35em] text-tang-500 text-[1.6em] leading-none transition-transform duration-300 group-hover:scale-90 group-hover:-translate-x-0.5 font-plex-mono"
+            className="pl-[0.35em] font-plex-mono text-[1.6em] leading-none text-tang-500 transition-transform duration-300 group-hover:scale-90 group-hover:-translate-x-0.5"
           >
             {"}"}
           </span>
@@ -29,7 +29,7 @@ export default function HeroBanner() {
           href="https://github.com/ellie-holt"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-r0 font-semibold underline decoration-1 hover:decoration-transparent transition-all"
+          className="inline-flex items-center gap-r0 font-semibold underline decoration-1 transition-all hover:decoration-transparent"
         >
           <span>GitHub</span>
           <RoughArrow

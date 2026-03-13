@@ -15,7 +15,7 @@ export default async function BlogPost({
   return (
     <main id="content-start" className="bg-white w-full">
       <div className="z-1 relative flex items-center bg-white px-hpad border-black border-b w-screen full-bleed-bar">
-        <h1 className="font-mono text-lg">
+        <h1>
           <span aria-hidden="true">// </span>
           {post.title.toLowerCase()}
         </h1>
@@ -46,7 +46,7 @@ export default async function BlogPost({
             <div className="mt-r4 pt-r2 border-black/70 border-t border-dashed">
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-r0 font-mono text-sm md:text-base decoration-1 decoration-tang-500 hover:decoration-transparent underline underline-offset-4 lowercase transition-all"
+                className="inline-flex items-center gap-r0 font-mono text-sm md:text-base decoration-1 hover:decoration-transparent underline underline-offset-4 lowercase transition-all"
               >
                 ← return to all posts
               </Link>

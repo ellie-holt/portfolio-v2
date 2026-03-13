@@ -8,7 +8,7 @@ export default async function Blog() {
   return (
     <main id="content-start" className="bg-white w-full">
       <div className="z-1 relative flex items-center bg-white border-black border-b w-screen h-10 full-bleed-bar">
-        <h1 className="font-mono text-lg">
+        <h1>
           <span aria-hidden="true">// </span>blog
         </h1>
       </div>

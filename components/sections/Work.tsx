@@ -22,14 +22,15 @@ export default function Work() {
       style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
-      <div className="z-1 relative flex items-center bg-white border-black border-t border-b w-screen h-10 full-bleed-bar">
-        <h2 id="work-heading" className="font-mono text-lg">
+      <div className="z-1 relative flex items-center bg-white border-black border-y w-screen h-10 full-bleed-bar">
+        <h2 id="work-heading">
           <span aria-hidden="true">// </span>work
         </h2>
       </div>
 
+      {/* section content */}
+      {/* left: project showcase */}
       <div className="relative grid grid-cols-1 md:grid-cols-2 md:divide-x divide-y md:divide-y-0 divide-black w-full">
-        {/* left column */}
         <div className="relative bg-white min-h-136 overflow-hidden">
           <div className="top-0 z-0 absolute inset-x-0 px-hpad py-r3 pointer-events-none">
             <p className="font-mono font-medium text-aqua-ink/70 md:text-[1.65rem] text-2xl leading-tight">
@@ -66,7 +67,7 @@ export default function Work() {
                     className="min-h-0"
                     contentClassName="bg-white px-r2 pb-r1 flex flex-col"
                   >
-                    <p className="pt-r1 text-sm lg:text-base leading-relaxed">
+                    <p className="pt-r1 text-sm lg:text-base">
                       {project.description}
                     </p>
 
@@ -77,7 +78,7 @@ export default function Work() {
                       {project.stack.map((tech) => (
                         <li
                           key={tech}
-                          className="shadow-[var(--shadow-blocky-xs)_#000] px-2 py-1 border border-black"
+                          className="shadow-[var(--shadow-blocky-xs)_#000] px-2 py-1 border border-black font-mono"
                         >
                           {tech}
                         </li>
@@ -90,7 +91,7 @@ export default function Work() {
                         target="_blank"
                         rel="noreferrer"
                         aria-labelledby={`${project.slug}-title`}
-                        className="inline-flex justify-start items-center gap-r0 font-semibold decoration-1 hover:decoration-transparent underline transition-all"
+                        className="inline-flex items-center gap-r0 font-semibold decoration-1 hover:decoration-transparent underline transition-all"
                       >
                         <span className="text-base lg:text-lg lowercase">
                           view project
@@ -123,34 +124,30 @@ export default function Work() {
           </div>
         </div>
 
-        {/* right column */}
+        {/* right: tech toolbox */}
         <div className="flex flex-col gap-r2 bg-white px-hpad py-r3">
           <div className="gap-r1 grid">
-            <h3 className="font-mono text-xl leading-snug">Toolbox</h3>
+            <h3>Toolbox</h3>
             <Tabs defaultValue={toolbox[0].title}>
-              <TabsList className="flex-row flex-wrap justify-start items-center shadow-[var(--shadow-blocky-sm)_var(--color-aqua-300)] w-auto">
+              <TabsList className="flex-row flex-wrap justify-start items-center w-auto">
                 {toolbox.map((group) => (
                   <TabsTrigger
                     key={group.title}
                     value={group.title}
-                    className="justify-center data-[state=active]:bg-aqua-200 hover:bg-aqua-100 data-[state=active]:shadow-[var(--shadow-blocky-xs)_var(--color-aqua-400)] w-auto h-full text-aqua-ink/75 data-[state=active]:text-aqua-ink hover:text-aqua-ink hover:cursor-pointer"
+                    className="justify-center w-auto h-full text-aqua-ink/75 cursor-pointer"
                   >
                     {group.title}
                   </TabsTrigger>
                 ))}
               </TabsList>
               {toolbox.map((group) => (
-                <TabsContent
-                  key={group.title}
-                  value={group.title}
-                  className="shadow-[var(--shadow-blocky-sm)_var(--color-tang-300)]"
-                >
+                <TabsContent key={group.title} value={group.title}>
                   <ul
                     role="list"
                     className="gap-r0 grid pl-r2 marker:text-tang-500 list-disc"
                   >
                     {group.items.map((tool) => (
-                      <li key={tool} className="text-aqua-ink leading-relaxed">
+                      <li key={tool} className="text-aqua-ink">
                         {tool}
                       </li>
                     ))}

@@ -12,34 +12,30 @@ export default function About() {
       style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
-      <div className="z-1 relative flex items-center bg-white border-black border-t border-b w-screen h-10 full-bleed-bar">
-        <h2 id="about-heading" className="font-mono text-lg">
+      <div className="z-1 relative flex items-center bg-white border-black border-y w-screen h-10 full-bleed-bar">
+        <h2 id="about-heading">
           <span aria-hidden="true">// </span>about
         </h2>
       </div>
 
       {/* section content */}
+      {/* left: intro and cta */}
       <div className="relative grid grid-cols-1 md:grid-cols-2 md:divide-x divide-y md:divide-y-0 divide-black w-full">
-        {/* left column */}
-        <div className="flex flex-col gap-r2 px-hpad py-r3 h-full">
+        <div className="flex flex-col gap-r2 bg-white px-hpad py-r3 h-full">
           <h3 className="font-mono font-bold text-[clamp(2rem,5vw,3rem)] leading-tight">
             {content.greeting}
           </h3>
 
-          <p className="max-w-prose leading-relaxed">{content.about}</p>
+          <p className="max-w-prose">{content.about}</p>
 
           <div>
-            <h3 className="text-xl leading-snug">
-              Here are some things I am interested in:
-            </h3>
+            <h3>Here are some things I am interested in:</h3>
             <ul
               role="list"
               className="space-y-r1 grid pt-r1 pl-r2 max-w-prose list-disc"
             >
               {content.bullets.map((item) => (
-                <li key={item} className="leading-relaxed">
-                  {item}
-                </li>
+                <li key={item}>{item}</li>
               ))}
             </ul>
           </div>
@@ -58,7 +54,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* right column */}
+        {/* right: photo */}
         <div
           className="place-items-center grid bg-white w-full font-mono text-sm"
           aria-label="Photo placeholder"

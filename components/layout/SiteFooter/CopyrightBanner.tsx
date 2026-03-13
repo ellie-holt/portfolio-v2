@@ -1,7 +1,7 @@
 export default function CopyrightBanner() {
   return (
-    <div className="w-full h-10 bg-white px-hpad">
-      <div className="flex flex-wrap justify-between gap-4 w-full h-full items-center text-sm font-mono">
+    <div className="bg-white px-hpad w-full h-10">
+      <div className="flex flex-wrap justify-between items-center gap-4 w-full h-full font-mono text-sm">
         <p>© {new Date().getFullYear()} Ellie Holt.</p>
         <p>
           Open source{" "}
@@ -9,6 +9,7 @@ export default function CopyrightBanner() {
             href="https://github.com/ellie-holt/portfolio"
             target="_blank"
             rel="noreferrer"
+            className="inline-flex items-center gap-r0 font-semibold decoration-1 hover:decoration-transparent underline transition-all"
           >
             code
           </a>

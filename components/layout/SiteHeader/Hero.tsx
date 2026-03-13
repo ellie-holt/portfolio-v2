@@ -198,7 +198,7 @@ export default function Hero() {
       transition={{ duration: 0.35, ease: "easeOut" }}
       style={{ willChange: "height" }}
     >
-      <div ref={heroContentRef} className="w-full px-[clamp(1rem,3vw,2.5rem)]">
+      <div ref={heroContentRef} className="w-full px-hpad">
         <div
           className={
             isCollapsed

@@ -17,7 +17,7 @@ export function Accordion({
   return (
     <ShadcnAccordion
       className={cn(
-        "accordion-root w-full border border-black bg-white",
+        "bg-white border border-black w-full accordion-root",
         className,
       )}
       {...props}
@@ -31,7 +31,7 @@ export function AccordionItem({
 }: ComponentPropsWithoutRef<typeof ShadcnAccordionItem>) {
   return (
     <ShadcnAccordionItem
-      className={cn("border-black flex flex-col", className)}
+      className={cn("flex flex-col border-black", className)}
       {...props}
     />
   );
@@ -45,19 +45,19 @@ export function AccordionTrigger({
   return (
     <ShadcnAccordionTrigger
       className={cn(
-        "w-full cursor-pointer pointer-events-auto select-none px-r1 py-r1 font-mono text-base hover:no-underline hover:bg-aqua-100",
+        "hover:bg-aqua-100 px-r1 py-r1 w-full font-mono text-base hover:no-underline cursor-pointer pointer-events-auto select-none",
         className,
       )}
       {...props}
     >
       {children}
-      <span className="ml-auto h-3 w-3 shrink-0 origin-center transform-gpu group-aria-expanded/accordion-trigger:rotate-180 self-center">
+      <span className="self-center ml-auto w-3 h-3 transform-gpu group-aria-expanded/accordion-trigger:rotate-180 origin-center shrink-0">
         <RoughCaret
           direction="up"
           stroke="currentColor"
           strokeWidth={1.6}
           roughness={1.2}
-          className="pointer-events-none h-full w-full"
+          className="w-full h-full pointer-events-none"
         />
       </span>
     </ShadcnAccordionTrigger>

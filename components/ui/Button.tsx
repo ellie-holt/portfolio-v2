@@ -1,7 +1,8 @@
 import type React from "react";
+import { cn } from "@/lib/utils";
 
 export const buttonClass =
-  "inline-flex items-center gap-r1 w-fit bg-white border border-black px-5 py-3 font-mono text-lg shadow-[var(--shadow-blocky-sm)_var(--color-tang-300)] hover:shadow-[var(--shadow-blocky-xs)_var(--color-tang-500)] hover:translate-x-0.5 hover:translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none transition-all";
+  "inline-flex w-fit items-center gap-r1 border border-black bg-white px-5 py-3 font-mono text-lg shadow-[var(--shadow-blocky-sm)_var(--color-tang-300)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[var(--shadow-blocky-xs)_var(--color-tang-500)] active:translate-x-1 active:translate-y-1 active:shadow-none";
 
 type BaseProps = {
   children: React.ReactNode;
@@ -17,7 +18,7 @@ export default function Button(props: LinkProps | ButtonProps) {
   if ("href" in props && props.href) {
     const { children, className, href, ...rest } = props;
     return (
-      <a href={href} className={`${buttonClass} ${className ?? ""}`} {...rest}>
+      <a href={href} className={cn(buttonClass, className)} {...rest}>
         {children}
       </a>
     );
@@ -32,7 +33,7 @@ export default function Button(props: LinkProps | ButtonProps) {
   return (
     <button
       type={type}
-      className={`${buttonClass} hover:cursor-pointer ${className ?? ""}`}
+      className={cn(buttonClass, "cursor-pointer", className)}
       {...rest}
     >
       {children}

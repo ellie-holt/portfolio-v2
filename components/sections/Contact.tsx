@@ -1,7 +1,7 @@
 import Button from "@/components/ui/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
 import RoughEnvelope from "@/components/ui/RoughEnvelope";
-import { Field, FieldLabel, FieldDescription } from "@/components/ui/Field";
+import { Field, FieldLabel } from "@/components/ui/Field";
 import { Input } from "@/components/ui/Input";
 import { Textarea } from "@/components/ui/Textarea";
 import * as motion from "motion/react-client";
@@ -15,19 +15,20 @@ export default function Contact() {
       style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
-      <div className="z-1 relative flex items-center bg-white border-black border-t border-b w-screen h-10 full-bleed-bar">
-        <h2 id="contact-heading" className="font-mono text-lg lg:bean">
+      <div className="z-1 relative flex items-center bg-white border-black border-y w-screen h-10 full-bleed-bar">
+        <h2 id="contact-heading">
           <span aria-hidden="true">// </span>contact
         </h2>
       </div>
 
+      {/* section content */}
+      {/* left: contact form */}
       <div className="relative grid grid-cols-1 md:grid-cols-2 border-black border-b md:divide-x divide-y md:divide-y-0 divide-black w-full">
-        {/* left column */}
-        <div className="flex flex-col gap-r2 px-hpad py-r3">
+        <div className="flex flex-col gap-r2 bg-white px-hpad py-r3">
           <p className="font-mono font-bold text-[clamp(2rem,5vw,3rem)] leading-tight">
             Let’s get in touch.
           </p>
-          <p className="max-w-prose leading-relaxed">
+          <p className="max-w-prose">
             If you'd like to work together or have any questions, send me a
             message and I’ll get back to you.
           </p>
@@ -54,7 +55,6 @@ export default function Contact() {
                 placeholder="Your name"
                 required
                 autoComplete="name"
-                className="bg-white shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)] px-4 border-black h-11 transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5"
               />
             </Field>
 
@@ -71,7 +71,6 @@ export default function Contact() {
                 placeholder="name@email.com"
                 required
                 autoComplete="email"
-                className="bg-white shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)] px-4 border-black h-11 text-sm transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5"
               />
             </Field>
 
@@ -87,7 +86,6 @@ export default function Contact() {
                 placeholder="Type your message here..."
                 required
                 rows={5}
-                className="bg-white shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)] px-4 py-3 border-black min-h-36 text-sm transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5"
               />
             </Field>
 
@@ -105,7 +103,7 @@ export default function Contact() {
           </form>
         </div>
 
-        {/* right column */}
+        {/* right: fun animation */}
         <div className="relative flex items-end bg-white px-hpad py-r3 overflow-hidden">
           <div
             aria-hidden="true"

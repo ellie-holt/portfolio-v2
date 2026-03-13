@@ -14,7 +14,7 @@ export function Tabs({
   className,
   ...props
 }: ComponentPropsWithoutRef<typeof ShadcnTabs>) {
-  return <ShadcnTabs className={cn("grid gap-r1", className)} {...props} />;
+  return <ShadcnTabs className={cn("gap-r1 grid", className)} {...props} />;
 }
 
 export function TabsList({
@@ -24,7 +24,7 @@ export function TabsList({
   return (
     <ShadcnTabsList
       className={cn(
-        "w-auto gap-r0 border border-black bg-white p-0.5 group-data-[orientation=horizontal]/tabs:min-h-10 group-data-[orientation=horizontal]/tabs:justify-start group-data-[orientation=horizontal]/tabs:flex-wrap group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:items-stretch group-data-[orientation=vertical]/tabs:justify-start",
+        "group-data-[orientation=horizontal]/tabs:flex-wrap group-data-[orientation=horizontal]/tabs:justify-start group-data-[orientation=vertical]/tabs:justify-start group-data-[orientation=vertical]/tabs:items-stretch gap-r0 bg-white shadow-[var(--shadow-blocky-sm)_var(--color-aqua-300)] p-0.5 border border-black w-auto group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=horizontal]/tabs:min-h-10",
         className,
       )}
       {...props}
@@ -39,7 +39,7 @@ export function TabsTrigger({
   return (
     <ShadcnTabsTrigger
       className={cn(
-        "rounded-none border border-transparent px-r1 py-r0 font-mono text-base leading-snug transition-all data-[state=active]:border-black group-data-[orientation=vertical]/tabs:h-auto!",
+        "data-[state=active]:bg-aqua-200 hover:bg-aqua-100 data-[state=active]:shadow-[var(--shadow-blocky-xs)_var(--color-aqua-400)] px-r1 py-r0 border border-transparent data-[state=active]:border-black rounded-none group-data-[orientation=vertical]/tabs:h-auto! font-mono data-[state=active]:text-aqua-ink hover:text-aqua-ink text-base leading-snug transition-all",
         className,
       )}
       {...props}
@@ -54,7 +54,7 @@ export function TabsContent({
   return (
     <ShadcnTabsContent
       className={cn(
-        "border border-black bg-white p-r2 font-mono text-base leading-relaxed group-data-[orientation=vertical]/tabs:min-h-full",
+        "bg-white shadow-[var(--shadow-blocky-sm)_var(--color-tang-300)] p-r2 border border-black group-data-[orientation=vertical]/tabs:min-h-full font-mono text-base leading-relaxed",
         className,
       )}
       {...props}

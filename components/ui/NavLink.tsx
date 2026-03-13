@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { cn } from "@/lib/utils";
+
 export default function NavLink({
   href,
   children,
@@ -10,9 +12,11 @@ export default function NavLink({
   return (
     <a
       href={href}
-      className="nav-link group inline-flex cursor-pointer items-center justify-center rounded-none border border-transparent p-1 font-mono lowercase tracking-[0.02em] text-aqua-ink/75 transition-colors focus-visible:outline-none"
+      className={cn(
+        "group inline-flex justify-center items-center p-1 border border-transparent rounded-none focus-visible:outline-none font-mono text-aqua-ink/75 lowercase tracking-[0.02em] transition-colors cursor-pointer nav-link",
+      )}
     >
-      <span className="nav-link-inner inline-flex items-center justify-center border border-transparent px-r1 py-0.5 transition-all group-hover:bg-aqua-100 group-hover:text-aqua-ink group-active:border-black group-active:bg-aqua-200 group-active:text-aqua-ink group-active:shadow-[var(--shadow-blocky-xs)_var(--color-aqua-400)] group-focus-visible:border-black group-focus-visible:bg-aqua-100 group-focus-visible:text-aqua-ink group-focus-visible:shadow-[var(--shadow-blocky-xs)_var(--color-aqua-400)]">
+      <span className="inline-flex justify-center items-center group-active:bg-aqua-200 group-focus-visible:bg-aqua-100 group-hover:bg-aqua-100 group-active:shadow-[var(--shadow-blocky-xs)_var(--color-aqua-400)] group-focus-visible:shadow-[var(--shadow-blocky-xs)_var(--color-aqua-400)] px-r1 py-0.5 border border-transparent group-active:border-black group-focus-visible:border-black group-active:text-aqua-ink group-focus-visible:text-aqua-ink group-hover:text-aqua-ink transition-all nav-link-inner">
         {children}
       </span>
     </a>
