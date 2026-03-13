@@ -1,3 +1,4 @@
+import "../globals.css";
 import SiteHeader from "@/components/layout/SiteHeader/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter/SiteFooter";
 import HeroBanner from "@/components/layout/SiteHeader/HeroBanner";
@@ -9,7 +10,7 @@ export default function SiteLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="page-wrapper w-full">
+    <div className="w-full page-wrapper">
       <HeroBanner />
       <div className="border-y">
         <SiteHeader />

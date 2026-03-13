@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, IBM_Plex_Mono } from "next/font/google";
 import localFont from "next/font/local";
-import "./globals.css";
 
 const monaspaceNeon = localFont({
   src: "../assets/fonts/Monaspace_Neon_Var.woff2",

@@ -1,6 +1,57 @@
 /* styles/base.css */
 
 @layer base {
+  body {
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: var(--foreground);
+    background-color: var(--background);
+  }
+
+  :where(main, section, article) :where(h1, h2, h3, h4) {
+    color: var(--color-aqua-ink);
+    font-family: var(--font-mono);
+  }
+
+  :where(main, section, article) h1,
+  :where(main, section, article) h2 {
+    font-size: 1.125rem;
+    line-height: 1.2;
+  }
+
+  :where(main, section, article) h3 {
+    font-size: 1.25rem;
+    line-height: 1.375;
+  }
+
+  :where(main, section, article) :where(p, li) {
+    line-height: 1.625;
+  }
+
+  :where(
+    a,
+    button,
+    input,
+    textarea,
+    select,
+    [role="button"]
+  )::-moz-focus-inner {
+    border: 0;
+  }
+
+  :where(a, button, input, textarea, select, [role="button"]) {
+    outline: none;
+  }
+
+  :where(a, button, input, textarea, select, [role="button"]):focus-visible {
+    position: relative;
+    outline: 3px solid var(--color-black);
+    outline-offset: 3px;
+    box-shadow: 6px 6px 0 0 var(--color-tang-300);
+  }
+
   ::selection {
     background-color: var(--color-tang-300);
     color: var(--color-tang-ink);
@@ -13,42 +64,6 @@
 
   html {
     scroll-behavior: smooth;
-  }
-
-  div.page-wrapper {
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    color: var(--foreground);
-    background-color: var(--background);
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      font-family: var(--font-mono);
-      color: var(--color-aqua-ink);
-    }
-    :where(
-      a,
-      button,
-      input,
-      textarea,
-      select,
-      [role="button"]
-    )::-moz-focus-inner {
-      border: 0;
-    }
-    :where(a, button, input, textarea, select, [role="button"]) {
-      outline: none;
-    }
-    :where(a, button, input, textarea, select, [role="button"]):focus-visible {
-      outline: 3px solid var(--color-black);
-      outline-offset: 3px;
-      box-shadow: 6px 6px 0 0 var(--color-tang-300);
-      position: relative;
-    }
   }
 }
 
