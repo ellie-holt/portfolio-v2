@@ -4,10 +4,10 @@ export default function Navbar() {
   return (
     <nav
       aria-label="Primary"
-      className="w-screen -left-4 sm:-left-10 h-10 bg-white px-hpad relative border-t border-b border-black"
+      className="relative bg-white px-hpad border-black border-t border-b w-screen h-10 full-bleed-bar"
     >
-      <div className="flex right-4 sm:right-0 h-full items-center  md:justify-end">
-        <ul className="m-0 flex list-none justify-around md:justify-end w-full md:w-auto md:gap-6 px-0 ">
+      <div className="right-4 sm:right-0 flex md:justify-end items-center h-full">
+        <ul className="flex justify-around md:justify-end md:gap-6 m-0 px-0 w-full md:w-auto list-none">
           <li>
             <NavLink href="/#about">about</NavLink>
           </li>

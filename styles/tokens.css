@@ -89,9 +89,8 @@
 */
 @layer theme {
   :root {
-    /* Page layout */
-    --gutter-x: clamp(1rem, 3vw, 2.5rem);
-    --frame: clamp(1.5rem, 3vw, 2.5rem);
+    --page-frame-x: clamp(1rem, 3vw, 2.5rem);
+    --page-frame-y: 2.5rem;
 
     /* Vertical section padding */
     --section-y: clamp(3rem, 6vw, 5rem);

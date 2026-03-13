@@ -15,16 +15,16 @@ export default function Contact() {
       style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
-      <div className="w-screen h-10 px-hpad relative -left-4 sm:-left-10 flex items-center bg-white border-b border-black border-t z-1">
-        <h2 id="contact-heading" className="font-mono text-lg">
+      <div className="z-1 relative flex items-center bg-white border-black border-t border-b w-screen h-10 full-bleed-bar">
+        <h2 id="contact-heading" className="font-mono text-lg lg:bean">
           <span aria-hidden="true">// </span>contact
         </h2>
       </div>
 
-      <div className="relative w-full grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black border-b border-black">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 border-black border-b md:divide-x divide-y md:divide-y-0 divide-black w-full">
         {/* left column */}
-        <div className="px-hpad py-r3 flex flex-col gap-r2">
-          <p className="font-mono text-[clamp(2rem,5vw,3rem)] font-bold leading-tight">
+        <div className="flex flex-col gap-r2 px-hpad py-r3">
+          <p className="font-mono font-bold text-[clamp(2rem,5vw,3rem)] leading-tight">
             Let’s get in touch.
           </p>
           <p className="max-w-prose leading-relaxed">
@@ -37,13 +37,13 @@ export default function Contact() {
             method="POST"
             action="/"
             data-netlify="true"
-            className="grid gap-r2 font-mono"
+            className="gap-r2 grid font-mono"
           >
             <input type="hidden" name="form-name" value="contact" />
 
-            <Field className="grid gap-r0">
+            <Field className="gap-r0 grid">
               <FieldLabel htmlFor="name">
-                <span className="w-fit px-r0 py-0.5 text-sm font-semibold uppercase tracking-wide">
+                <span className="px-r0 py-0.5 w-fit font-semibold text-sm uppercase tracking-wide">
                   Name
                 </span>
               </FieldLabel>
@@ -54,13 +54,13 @@ export default function Contact() {
                 placeholder="Your name"
                 required
                 autoComplete="name"
-                className="h-11 border-black bg-white px-4  shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5 focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)]"
+                className="bg-white shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)] px-4 border-black h-11 transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5"
               />
             </Field>
 
-            <Field className="grid gap-r0">
+            <Field className="gap-r0 grid">
               <FieldLabel htmlFor="email">
-                <span className="w-fit  px-r0 py-0.5 text-sm font-semibold uppercase tracking-wide">
+                <span className="px-r0 py-0.5 w-fit font-semibold text-sm uppercase tracking-wide">
                   Email
                 </span>
               </FieldLabel>
@@ -71,13 +71,13 @@ export default function Contact() {
                 placeholder="name@email.com"
                 required
                 autoComplete="email"
-                className="h-11 border-black bg-white px-4 text-sm shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5 focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)]"
+                className="bg-white shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)] px-4 border-black h-11 text-sm transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5"
               />
             </Field>
 
-            <Field className="grid gap-r0">
+            <Field className="gap-r0 grid">
               <FieldLabel htmlFor="message">
-                <span className="w-fit px-r0 py-0.5 text-sm font-semibold uppercase tracking-wide">
+                <span className="px-r0 py-0.5 w-fit font-semibold text-sm uppercase tracking-wide">
                   Message
                 </span>
               </FieldLabel>
@@ -87,7 +87,7 @@ export default function Contact() {
                 placeholder="Type your message here..."
                 required
                 rows={5}
-                className="min-h-36 border-black bg-white px-4 py-3 text-sm shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5 focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)]"
+                className="bg-white shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)] px-4 py-3 border-black min-h-36 text-sm transition-transform focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5"
               />
             </Field>
 
@@ -98,7 +98,7 @@ export default function Contact() {
                   direction="right"
                   stroke="#f27941"
                   strokeWidth={1.4}
-                  className="h-8 w-8"
+                  className="w-8 h-8"
                 />
               </Button>
             </div>
@@ -106,15 +106,15 @@ export default function Contact() {
         </div>
 
         {/* right column */}
-        <div className="relative px-hpad py-r3 bg-white flex items-end overflow-hidden">
+        <div className="relative flex items-end bg-white px-hpad py-r3 overflow-hidden">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute right-r1 top-r1 h-28 w-28"
+            className="top-r1 right-r1 absolute w-28 h-28 pointer-events-none"
           >
-            <RoughEnvelope className="h-full w-full" stroke="#ff935f" />
+            <RoughEnvelope className="w-full h-full" stroke="#ff935f" />
           </div>
           <p className="sr-only">Drop me a message</p>
-          <p className="aria-hidden font-mono text-[clamp(2.25rem,6vw,4.5rem)] font-bold leading-tight">
+          <p className="aria-hidden font-mono font-bold text-[clamp(2.25rem,6vw,4.5rem)] leading-tight">
             <motion.span
               initial={{ opacity: 0, y: -200 }}
               whileInView={{ opacity: 1, y: 0 }}

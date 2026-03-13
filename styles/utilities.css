@@ -1,28 +1,46 @@
 /* styles/utilities.css */
 
+/* 
+  @utility creates a custom utility class that behaves just like Tailwind's built-in utility classes
+  these can therefore be used with Tailwind's modifiers e.g. lg: / hover: / dark:
+*/
+
+@utility px-hpad {
+  padding-inline: clamp(1rem, 3vw, 2.5rem);
+}
+
+@utility full-bleed-bar {
+  position: relative;
+  width: 100vw;
+  left: calc(-1 * var(--page-frame-x));
+  padding-inline: var(--page-frame-x);
+}
+
+@utility stack-1 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rhythm-1);
+}
+
+@utility stack-2 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rhythm-2);
+}
+
+@utility stack-3 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rhythm-3);
+}
+
+/* 
+  @layer utilities places these CSS rules in the utilities cascade layer
+  in Tailwind 4, these are no longer automatically made into Tailwind utility classes
+  that would require the @utility directive, as used above
+*/
+
 @layer utilities {
-  .px-hpad {
-    padding-inline: var(--gutter-x);
-  }
-
-  .stack-1 {
-    display: flex;
-    flex-direction: column;
-    gap: var(--rhythm-1);
-  }
-
-  .stack-2 {
-    display: flex;
-    flex-direction: column;
-    gap: var(--rhythm-2);
-  }
-
-  .stack-3 {
-    display: flex;
-    flex-direction: column;
-    gap: var(--rhythm-3);
-  }
-
   .accordion-root:not(:has([data-slot="accordion-item"][data-state="open"]))
     > [data-slot="accordion-item"]:first-child {
     border-top-width: 1px;

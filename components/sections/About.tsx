@@ -12,17 +12,17 @@ export default function About() {
       style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
-      <div className="w-screen h-10 px-hpad relative -left-4 sm:-left-10 flex items-center bg-white border-b border-black border-t z-1">
+      <div className="z-1 relative flex items-center bg-white border-black border-t border-b w-screen h-10 full-bleed-bar">
         <h2 id="about-heading" className="font-mono text-lg">
           <span aria-hidden="true">// </span>about
         </h2>
       </div>
 
       {/* section content */}
-      <div className="relative w-full grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-black">
+      <div className="relative grid grid-cols-1 md:grid-cols-2 md:divide-x divide-y md:divide-y-0 divide-black w-full">
         {/* left column */}
-        <div className="px-hpad py-r3 flex flex-col gap-r2 h-full">
-          <h3 className="font-mono text-[clamp(2rem,5vw,3rem)] font-bold leading-tight">
+        <div className="flex flex-col gap-r2 px-hpad py-r3 h-full">
+          <h3 className="font-mono font-bold text-[clamp(2rem,5vw,3rem)] leading-tight">
             {content.greeting}
           </h3>
 
@@ -34,7 +34,7 @@ export default function About() {
             </h3>
             <ul
               role="list"
-              className="list-disc max-w-prose pl-r2 grid space-y-r1 pt-r1"
+              className="space-y-r1 grid pt-r1 pl-r2 max-w-prose list-disc"
             >
               {content.bullets.map((item) => (
                 <li key={item} className="leading-relaxed">
@@ -52,7 +52,7 @@ export default function About() {
                 direction="right"
                 stroke="#f27941"
                 strokeWidth={1.4}
-                className="h-8 w-8"
+                className="w-8 h-8"
               />
             </Button>
           </div>
@@ -60,7 +60,7 @@ export default function About() {
 
         {/* right column */}
         <div
-          className="w-full bg-white grid place-items-center text-sm font-mono"
+          className="place-items-center grid bg-white w-full font-mono text-sm"
           aria-label="Photo placeholder"
         >
           photo
