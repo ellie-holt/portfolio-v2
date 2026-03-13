@@ -42,13 +42,3 @@
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
-
-/* Persistent nav active styling (CSS-only via :target) */
-body:has(#about:target) .nav-link[href="#about"] .nav-link-inner,
-body:has(#work:target) .nav-link[href="#work"] .nav-link-inner,
-body:has(#contact:target) .nav-link[href="#contact"] .nav-link-inner {
-  border-color: var(--color-black);
-  background: var(--color-aqua-200);
-  color: var(--color-aqua-ink);
-  box-shadow: var(--shadow-blocky-xs) var(--color-aqua-400);
-}

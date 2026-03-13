@@ -12,17 +12,17 @@ export default function About() {
       style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
-      <div className="z-1 relative flex items-center bg-white border-black border-y w-screen h-10 full-bleed-bar">
-        <h2 id="about-heading">
+      <div className="section-bar full-bleed-bar">
+        <h2 id="about-heading" className="text-section-heading">
           <span aria-hidden="true">// </span>about
         </h2>
       </div>
 
       {/* section content */}
-      {/* left: intro and cta */}
-      <div className="relative grid grid-cols-1 md:grid-cols-2 md:divide-x divide-y md:divide-y-0 divide-black w-full">
+      <div className="split-panel">
+        {/* left: intro and cta */}
         <div className="flex flex-col gap-r2 bg-white px-hpad py-r3 h-full">
-          <h3 className="font-mono font-bold text-[clamp(2rem,5vw,3rem)] leading-tight">
+          <h3 className="text-section-display">
             {content.greeting}
           </h3>
 

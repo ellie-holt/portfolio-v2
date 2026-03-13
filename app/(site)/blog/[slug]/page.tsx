@@ -14,11 +14,10 @@ export default async function BlogPost({
 
   return (
     <main id="content-start" className="bg-white w-full">
-      <div className="z-1 relative flex items-center bg-white px-hpad border-black border-b w-screen full-bleed-bar">
-        <h1>
-          <span aria-hidden="true">// </span>
-          {post.title.toLowerCase()}
-        </h1>
+      <div className="section-bar full-bleed-bar px-hpad border-t-0">
+        <span aria-hidden="true" className="text-section-heading">
+          // {post.title.toLowerCase()}
+        </span>
       </div>
 
       <article className="grid grid-cols-6 px-hpad py-[clamp(2.25rem,6vw,5.5rem)] border-black border-b min-h-[calc(100dvh-300px)]">
@@ -28,7 +27,7 @@ export default async function BlogPost({
               {post.title}
             </h2>
             {post.publishedAt ? (
-              <p className="mt-r1 pl-r0 font-mono text-aqua-ink/75 text-sm md:text-base">
+              <p className="text-body mt-r1 pl-r0 font-mono text-aqua-ink/75">
                 {new Date(post.publishedAt).toLocaleDateString("en-GB", {
                   day: "numeric",
                   month: "short",
@@ -46,7 +45,7 @@ export default async function BlogPost({
             <div className="mt-r4 pt-r2 border-black/70 border-t border-dashed">
               <Link
                 href="/blog"
-                className="inline-flex items-center gap-r0 font-mono text-sm md:text-base decoration-1 hover:decoration-transparent underline underline-offset-4 lowercase transition-all"
+                className="text-body inline-flex items-center gap-r0 font-mono decoration-1 hover:decoration-transparent underline underline-offset-4 lowercase transition-all"
               >
                 ← return to all posts
               </Link>

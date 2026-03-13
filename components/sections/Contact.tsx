@@ -15,17 +15,17 @@ export default function Contact() {
       style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
-      <div className="z-1 relative flex items-center bg-white border-black border-y w-screen h-10 full-bleed-bar">
-        <h2 id="contact-heading">
+      <div className="section-bar full-bleed-bar">
+        <h2 id="contact-heading" className="text-section-heading">
           <span aria-hidden="true">// </span>contact
         </h2>
       </div>
 
       {/* section content */}
-      {/* left: contact form */}
-      <div className="relative grid grid-cols-1 md:grid-cols-2 border-black border-b md:divide-x divide-y md:divide-y-0 divide-black w-full">
+      <div className="split-panel border-b">
+        {/* left: contact form */}
         <div className="flex flex-col gap-r2 bg-white px-hpad py-r3">
-          <p className="font-mono font-bold text-[clamp(2rem,5vw,3rem)] leading-tight">
+          <p className="text-section-display">
             Let’s get in touch.
           </p>
           <p className="max-w-prose">
@@ -44,7 +44,7 @@ export default function Contact() {
 
             <Field className="gap-r0 grid">
               <FieldLabel htmlFor="name">
-                <span className="px-r0 py-0.5 w-fit font-semibold text-sm uppercase tracking-wide">
+                <span className="px-r0 py-0.5 w-fit text-label">
                   Name
                 </span>
               </FieldLabel>
@@ -60,7 +60,7 @@ export default function Contact() {
 
             <Field className="gap-r0 grid">
               <FieldLabel htmlFor="email">
-                <span className="px-r0 py-0.5 w-fit font-semibold text-sm uppercase tracking-wide">
+                <span className="px-r0 py-0.5 w-fit text-label">
                   Email
                 </span>
               </FieldLabel>
@@ -76,7 +76,7 @@ export default function Contact() {
 
             <Field className="gap-r0 grid">
               <FieldLabel htmlFor="message">
-                <span className="px-r0 py-0.5 w-fit font-semibold text-sm uppercase tracking-wide">
+                <span className="px-r0 py-0.5 w-fit text-label">
                   Message
                 </span>
               </FieldLabel>

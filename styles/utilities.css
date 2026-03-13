@@ -16,6 +16,61 @@
   padding-inline: var(--page-frame-x);
 }
 
+@utility section-bar {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100vw;
+  height: 2.5rem;
+  align-items: center;
+  border-block-width: 1px;
+  border-color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+@utility split-panel {
+  position: relative;
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, 1fr);
+  border-color: var(--color-black);
+}
+
+@utility text-section-heading {
+  font-family: var(--font-mono);
+  font-size: 1.125rem;
+  line-height: 1.2;
+}
+
+@utility text-section-display {
+  font-family: var(--font-mono);
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@utility text-body {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+@utility text-chip {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+@utility text-action {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@utility text-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+}
+
 @utility stack-1 {
   display: flex;
   flex-direction: column;
@@ -41,6 +96,37 @@
 */
 
 @layer utilities {
+  .split-panel > * + * {
+    border-top-width: 1px;
+  }
+
+  @variant md {
+    .text-body {
+      font-size: 1rem;
+    }
+  }
+
+  @variant lg {
+    .text-chip {
+      font-size: 0.875rem;
+    }
+
+    .text-action {
+      font-size: 1.125rem;
+    }
+  }
+
+  @variant md {
+    .split-panel {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .split-panel > * + * {
+      border-top-width: 0;
+      border-left-width: 1px;
+    }
+  }
+
   .accordion-root:not(:has([data-slot="accordion-item"][data-state="open"]))
     > [data-slot="accordion-item"]:first-child {
     border-top-width: 1px;

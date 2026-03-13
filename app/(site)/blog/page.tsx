@@ -7,8 +7,8 @@ export default async function Blog() {
 
   return (
     <main id="content-start" className="bg-white w-full">
-      <div className="z-1 relative flex items-center bg-white border-black border-b w-screen h-10 full-bleed-bar">
-        <h1>
+      <div className="section-bar full-bleed-bar border-t-0">
+        <h1 className="text-section-heading">
           <span aria-hidden="true">// </span>blog
         </h1>
       </div>
@@ -33,7 +33,7 @@ export default async function Blog() {
                     {post.title}
                   </h2>
                   {post.publishedAt ? (
-                    <p className="mt-r0 pl-r0 font-mono text-aqua-ink/75 text-sm md:text-base">
+                    <p className="text-body mt-r0 pl-r0 font-mono text-aqua-ink/75">
                       {new Date(post.publishedAt).toLocaleDateString("en-GB", {
                         day: "numeric",
                         month: "short",
@@ -41,7 +41,7 @@ export default async function Blog() {
                       })}
                     </p>
                   ) : null}
-                  <p className="inline-flex items-center gap-r0 mt-r1 pl-r0 font-semibold text-sm md:text-base decoration-1 decoration-aqua-500/70 group-hover:decoration-transparent underline underline-offset-4 lowercase transition-all">
+                  <p className="text-body inline-flex items-center gap-r0 mt-r1 pl-r0 font-semibold decoration-1 decoration-aqua-500/70 group-hover:decoration-transparent underline underline-offset-4 lowercase transition-all">
                     read post →
                   </p>
                 </Link>

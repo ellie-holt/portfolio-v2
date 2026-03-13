@@ -22,15 +22,15 @@ export default function Work() {
       style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
     >
       {/* section heading */}
-      <div className="z-1 relative flex items-center bg-white border-black border-y w-screen h-10 full-bleed-bar">
-        <h2 id="work-heading">
+      <div className="section-bar full-bleed-bar">
+        <h2 id="work-heading" className="text-section-heading">
           <span aria-hidden="true">// </span>work
         </h2>
       </div>
 
       {/* section content */}
-      {/* left: project showcase */}
-      <div className="relative grid grid-cols-1 md:grid-cols-2 md:divide-x divide-y md:divide-y-0 divide-black w-full">
+      <div className="split-panel">
+        {/* left: project showcase */}
         <div className="relative bg-white min-h-136 overflow-hidden">
           <div className="top-0 z-0 absolute inset-x-0 px-hpad py-r3 pointer-events-none">
             <p className="font-mono font-medium text-aqua-ink/70 md:text-[1.65rem] text-2xl leading-tight">
@@ -58,7 +58,7 @@ export default function Work() {
                 <AccordionItem
                   key={project.slug}
                   value={project.slug}
-                  className="flex-none data-[state=open]:flex-1 bg-white border-black border-l min-h-0 transition-[flex-grow] duration-340 ease-in-out"
+                  className="flex-none data-[state=open]:flex-1 bg-white border-black border-x md:border-l md:border-r-0 min-h-0 transition-[flex-grow] duration-340 ease-in-out"
                 >
                   <AccordionTrigger className="bg-white hover:bg-aqua-100 px-r2 py-r1 font-mono font-bold text-[clamp(1.75rem,3vw,2.8rem)] leading-tight">
                     {project.title}
@@ -67,13 +67,11 @@ export default function Work() {
                     className="min-h-0"
                     contentClassName="bg-white px-r2 pb-r1 flex flex-col"
                   >
-                    <p className="pt-r1 text-sm lg:text-base">
-                      {project.description}
-                    </p>
+                    <p className="text-body pt-r1">{project.description}</p>
 
                     <ul
                       aria-label="Technologies used"
-                      className="flex flex-wrap gap-r0 pt-r1 font-mono text-xs lg:text-sm"
+                      className="flex flex-wrap gap-r0 pt-r1 font-mono text-chip"
                     >
                       {project.stack.map((tech) => (
                         <li
@@ -93,7 +91,7 @@ export default function Work() {
                         aria-labelledby={`${project.slug}-title`}
                         className="inline-flex items-center gap-r0 font-semibold decoration-1 hover:decoration-transparent underline transition-all"
                       >
-                        <span className="text-base lg:text-lg lowercase">
+                        <span className="text-action lowercase">
                           view project
                         </span>
                         <RoughArrow
