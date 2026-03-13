@@ -23,7 +23,7 @@ export default async function BlogPost({
       <article className="grid grid-cols-6 px-hpad py-[clamp(2.25rem,6vw,5.5rem)] border-black border-b min-h-[calc(100dvh-300px)]">
         <div className="col-start-2 col-end-6 w-full max-w-4xl">
           <header className="pb-r3 border-black/70 border-b border-dashed">
-            <h2 className="font-mono font-bold text-[clamp(1.75rem,4vw,3rem)] text-aqua-ink leading-tight">
+            <h2 className="text-title text-aqua-ink">
               {post.title}
             </h2>
             {post.publishedAt ? (
@@ -45,7 +45,7 @@ export default async function BlogPost({
             <div className="mt-r4 pt-r2 border-black/70 border-t border-dashed">
               <Link
                 href="/blog"
-                className="text-body inline-flex items-center gap-r0 font-mono decoration-1 hover:decoration-transparent underline underline-offset-4 lowercase transition-all"
+                className="text-action inline-flex items-center gap-r0 font-mono decoration-1 hover:decoration-transparent underline underline-offset-4 lowercase transition-all"
               >
                 ← return to all posts
               </Link>

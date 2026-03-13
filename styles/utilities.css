@@ -49,6 +49,13 @@
   line-height: 1.2;
 }
 
+@utility text-title {
+  font-family: var(--font-mono);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
 @utility text-body {
   font-size: 0.875rem;
   line-height: 1.5;

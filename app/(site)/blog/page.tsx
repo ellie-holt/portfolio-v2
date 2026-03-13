@@ -16,7 +16,7 @@ export default async function Blog() {
       <section className="px-hpad py-r3 border-black border-b min-h-[calc(100dvh-300px)]">
         <div className="w-full max-w-3xl">
           {posts.length === 0 ? (
-            <p className="bg-white px-r1 py-r1 border border-black/70 border-dashed text-aqua-ink/90">
+            <p className="bg-white px-r1 py-r1 border border-black/70 border-dashed text-body text-aqua-ink/90">
               No posts yet.
             </p>
           ) : (
@@ -29,7 +29,7 @@ export default async function Blog() {
                   href={`/blog/${post.slug.current}`}
                   className="group block pl-r1 md:pl-r2 border-transparent border-l-4 focus-visible:outline-2 focus-visible:outline-aqua-500 focus-visible:outline-offset-2"
                 >
-                  <h2 className="font-mono font-bold text-[clamp(1.4rem,2.8vw,2rem)] text-aqua-ink group-hover:text-aqua-600 transition-colors">
+                  <h2 className="text-title text-aqua-ink group-hover:text-aqua-600 transition-colors">
                     {post.title}
                   </h2>
                   {post.publishedAt ? (
@@ -41,7 +41,7 @@ export default async function Blog() {
                       })}
                     </p>
                   ) : null}
-                  <p className="text-body inline-flex items-center gap-r0 mt-r1 pl-r0 font-semibold decoration-1 decoration-aqua-500/70 group-hover:decoration-transparent underline underline-offset-4 lowercase transition-all">
+                  <p className="text-action inline-flex items-center gap-r0 mt-r1 pl-r0 font-semibold decoration-1 decoration-aqua-500/70 group-hover:decoration-transparent underline underline-offset-4 lowercase transition-all">
                     read post →
                   </p>
                 </Link>

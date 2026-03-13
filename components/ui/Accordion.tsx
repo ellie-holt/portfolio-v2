@@ -45,7 +45,7 @@ export function AccordionTrigger({
   return (
     <ShadcnAccordionTrigger
       className={cn(
-        "hover:bg-aqua-100 px-r1 py-r1 w-full font-mono text-base hover:no-underline cursor-pointer pointer-events-auto select-none",
+        "hover:bg-aqua-100 px-r1 py-r1 w-full hover:no-underline cursor-pointer pointer-events-auto select-none",
         className,
       )}
       {...props}
