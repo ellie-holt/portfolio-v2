@@ -33,9 +33,9 @@ export default function Work() {
         {/* left: project showcase */}
         <div className="relative bg-white min-h-136 overflow-hidden">
           <div className="top-0 z-0 absolute inset-x-0 px-hpad py-r3 pointer-events-none">
-            <p className="font-mono font-medium text-aqua-ink/70 md:text-[1.65rem] text-2xl leading-tight">
+            <h3 className="text-section-alt">
               Check out some of the things I’ve made.
-            </p>
+            </h3>
             <div className="flex justify-center mt-r1">
               <RoughCurvedArrow
                 direction="down"

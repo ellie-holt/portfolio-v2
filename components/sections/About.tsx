@@ -22,14 +22,14 @@ export default function About() {
       <div className="split-panel">
         {/* left: intro and cta */}
         <div className="flex flex-col gap-r2 bg-white px-hpad py-r3 h-full">
-          <h3 className="text-section-display">
-            {content.greeting}
-          </h3>
+          <h3 className="text-section-display">{content.greeting}</h3>
 
           <p className="max-w-prose">{content.about}</p>
 
           <div>
-            <h3>Here are some things I am interested in:</h3>
+            <h3 className="text-section-alt">
+              Here are some things I am interested in:
+            </h3>
             <ul
               role="list"
               className="space-y-r1 grid pt-r1 pl-r2 max-w-prose list-disc"

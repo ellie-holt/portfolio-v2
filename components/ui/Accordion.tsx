@@ -45,13 +45,13 @@ export function AccordionTrigger({
   return (
     <ShadcnAccordionTrigger
       className={cn(
-        "hover:bg-aqua-100 px-r1 py-r1 w-full hover:no-underline cursor-pointer pointer-events-auto select-none",
+        "hover:bg-aqua-100 px-hpad py-r1 w-full hover:no-underline cursor-pointer pointer-events-auto select-none",
         className,
       )}
       {...props}
     >
       {children}
-      <span className="self-center ml-auto w-3 h-3 transform-gpu group-aria-expanded/accordion-trigger:rotate-180 origin-center shrink-0">
+      <span className="px-hpad self-center ml-auto w-3 h-3 transform-gpu group-aria-expanded/accordion-trigger:rotate-180 origin-center shrink-0">
         <RoughCaret
           direction="up"
           stroke="currentColor"
