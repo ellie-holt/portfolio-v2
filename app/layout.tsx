@@ -1,52 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, IBM_Plex_Mono } from "next/font/google";
-import localFont from "next/font/local";
-
-const monaspaceNeon = localFont({
-  src: "../assets/fonts/Monaspace_Neon_Var.woff2",
-  variable: "--font-monaspace-neon",
-  weight: "200 800",
-  display: "swap",
-});
-
-const monaspaceArgon = localFont({
-  src: "../assets/fonts/Monaspace_Argon_Var.woff2",
-  variable: "--font-monaspace-argon",
-  weight: "200 800",
-  display: "swap",
-});
-
-const monaspaceXenon = localFont({
-  src: "../assets/fonts/Monaspace_Xenon_Var.woff2",
-  variable: "--font-monaspace-xenon",
-  weight: "200 800",
-  display: "swap",
-});
-
-const monaspaceRadon = localFont({
-  src: "../assets/fonts/Monaspace_Radon_Var.woff2",
-  variable: "--font-monaspace-radon",
-  weight: "200 800",
-  display: "swap",
-});
-
-const monaspaceKrypton = localFont({
-  src: "../assets/fonts/Monaspace_Krypton_Var.woff2",
-  variable: "--font-monaspace-krypton",
-  weight: "200 800",
-  display: "swap",
-});
-
-const geistSans = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist-sans",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  variable: "--font-ibm-plex-mono",
-  weight: "700",
-});
+import { rootFontClassName } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -59,10 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en-GB"
-      className={`${monaspaceArgon.variable} ${monaspaceNeon.variable} ${monaspaceXenon.variable} ${monaspaceRadon.variable} ${monaspaceKrypton.variable} ${geistSans.variable} ${ibmPlexMono.variable} antialiased`}
-    >
+    <html lang="en-GB" className={rootFontClassName}>
       <body>{children}</body>
     </html>
   );
