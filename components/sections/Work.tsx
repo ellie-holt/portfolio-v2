@@ -6,7 +6,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/Accordion";
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
 import RoughCurvedArrow from "@/components/ui/RoughCurvedArrow";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/Tabs";

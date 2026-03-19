@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import rough from "roughjs";
+import { resolveCanvasColor } from "@/lib/resolveCanvasColor";
 
 type RoughEnvelopeProps = {
   className?: string;
@@ -24,6 +25,7 @@ export default function RoughEnvelope({
       const rect = canvas.getBoundingClientRect();
       canvas.width = Math.max(1, Math.floor(rect.width));
       canvas.height = Math.max(1, Math.floor(rect.height));
+      const resolvedStroke = resolveCanvasColor(canvas, stroke);
 
       const w = canvas.width;
       const h = canvas.height;
@@ -49,40 +51,40 @@ export default function RoughEnvelope({
       const flapRightX = midX + flapHalf;
 
       rc.rectangle(x, y, bw, bh, {
-        stroke,
+        stroke: resolvedStroke,
         strokeWidth,
         roughness: 1.4,
       });
 
       rc.line(left, top, flapLeftX, flapY, {
-        stroke,
+        stroke: resolvedStroke,
         strokeWidth,
         roughness: 1.15,
       });
       rc.line(right, top, flapRightX, flapY, {
-        stroke,
+        stroke: resolvedStroke,
         strokeWidth,
         roughness: 1.15,
       });
       rc.line(flapLeftX, flapY, flapRightX, flapY, {
-        stroke,
+        stroke: resolvedStroke,
         strokeWidth,
         roughness: 1.1,
       });
 
       rc.line(left, bottom, flapLeftX, flapY, {
-        stroke,
+        stroke: resolvedStroke,
         strokeWidth: Math.max(1, strokeWidth - 1),
         roughness: 1.2,
       });
       rc.line(right, bottom, flapRightX, flapY, {
-        stroke,
+        stroke: resolvedStroke,
         strokeWidth: Math.max(1, strokeWidth - 1),
         roughness: 1.2,
       });
 
       rc.line(left, top, right, top, {
-        stroke,
+        stroke: resolvedStroke,
         strokeWidth: Math.max(1, strokeWidth - 1),
         roughness: 1.1,
       });

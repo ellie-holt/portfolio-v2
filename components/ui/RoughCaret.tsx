@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import rough from "roughjs";
+import { resolveCanvasColor } from "@/lib/resolveCanvasColor";
 
 type CaretDirection = "up" | "down" | "left" | "right";
 
@@ -30,6 +31,7 @@ export default function RoughCaret({
       const rect = canvas.getBoundingClientRect();
       canvas.width = Math.max(1, Math.floor(rect.width));
       canvas.height = Math.max(1, Math.floor(rect.height));
+      const resolvedStroke = resolveCanvasColor(canvas, stroke);
 
       const w = canvas.width;
       const h = canvas.height;
@@ -66,12 +68,12 @@ export default function RoughCaret({
       }
 
       rc.line(p1.x, p1.y, p2.x, p2.y, {
-        stroke,
+        stroke: resolvedStroke,
         strokeWidth,
         roughness,
       });
       rc.line(p2.x, p2.y, p3.x, p3.y, {
-        stroke,
+        stroke: resolvedStroke,
         strokeWidth,
         roughness,
       });

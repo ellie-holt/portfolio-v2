@@ -1,5 +1,5 @@
 import { aboutContent } from "@/data/about";
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
 
 export default function About() {

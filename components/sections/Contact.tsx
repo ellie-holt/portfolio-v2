@@ -1,4 +1,4 @@
-import Button from "@/components/ui/Button";
+import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
 import RoughEnvelope from "@/components/ui/RoughEnvelope";
 import { Field, FieldLabel } from "@/components/ui/Field";
@@ -25,9 +25,7 @@ export default function Contact() {
       <div className="split-panel border-b">
         {/* left: contact form */}
         <div className="flex flex-col gap-r2 bg-white px-hpad py-r3">
-          <p className="text-section-display">
-            Let’s get in touch.
-          </p>
+          <p className="text-section-display">Let’s get in touch.</p>
           <p className="max-w-prose">
             If you'd like to work together or have any questions, send me a
             message and I’ll get back to you.
@@ -44,9 +42,7 @@ export default function Contact() {
 
             <Field className="gap-r0 grid">
               <FieldLabel htmlFor="name">
-                <span className="px-r0 py-0.5 w-fit text-label">
-                  Name
-                </span>
+                <span className="px-r0 py-0.5 w-fit text-label">Name</span>
               </FieldLabel>
               <Input
                 type="text"
@@ -60,9 +56,7 @@ export default function Contact() {
 
             <Field className="gap-r0 grid">
               <FieldLabel htmlFor="email">
-                <span className="px-r0 py-0.5 w-fit text-label">
-                  Email
-                </span>
+                <span className="px-r0 py-0.5 w-fit text-label">Email</span>
               </FieldLabel>
               <Input
                 type="email"
@@ -76,9 +70,7 @@ export default function Contact() {
 
             <Field className="gap-r0 grid">
               <FieldLabel htmlFor="message">
-                <span className="px-r0 py-0.5 w-fit text-label">
-                  Message
-                </span>
+                <span className="px-r0 py-0.5 w-fit text-label">Message</span>
               </FieldLabel>
               <Textarea
                 id="message"

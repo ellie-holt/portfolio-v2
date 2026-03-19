@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import rough from "roughjs";
+import { resolveCanvasColor } from "@/lib/resolveCanvasColor";
 
 type ArrowDirection = "up" | "down" | "left" | "right";
 type ArrowVariant =
@@ -61,6 +62,8 @@ export default function RoughChunkyOutlineArrow({
       const dpr = window.devicePixelRatio || 1;
       canvas.width = Math.max(1, Math.floor(cssWidth * dpr));
       canvas.height = Math.max(1, Math.floor(cssHeight * dpr));
+      const resolvedStroke = resolveCanvasColor(canvas, stroke);
+      const resolvedFill = fill ? resolveCanvasColor(canvas, fill) : undefined;
 
       const w = cssWidth;
       const h = cssHeight;
@@ -200,10 +203,10 @@ export default function RoughChunkyOutlineArrow({
       const styleDefaults = defaultFillSettingsByStyle[selectedFillStyle];
 
       rc.polygon(points, {
-        stroke,
+        stroke: resolvedStroke,
         strokeWidth,
         roughness,
-        fill: isFilled ? (fill ?? stroke) : undefined,
+        fill: isFilled ? (resolvedFill ?? resolvedStroke) : undefined,
         fillStyle: isFilled ? selectedFillStyle : undefined,
         hachureGap: isFilled ? (fillGap ?? styleDefaults.gap) : undefined,
         hachureAngle: isFilled ? (fillAngle ?? styleDefaults.angle) : undefined,
