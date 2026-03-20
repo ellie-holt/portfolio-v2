@@ -87,6 +87,11 @@
   text-transform: uppercase;
 }
 
+@utility dashed-outline {
+  outline: 2px dashed var(--color-black);
+  outline-offset: 4px;
+}
+
 @utility stack-1 {
   display: flex;
   flex-direction: column;
