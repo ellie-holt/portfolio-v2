@@ -16,16 +16,16 @@ export default function TabRailButton({
     <button
       type="button"
       className={cn(
-        "relative flex items-center justify-center h-42 border border-black rounded-tl-md rounded-bl-md cursor-pointer",
-        "transition-[width,margin,background-color,color] duration-200 ease-out",
+        "relative flex items-center justify-center w-42 md:h-42! border border-black rounded-tl-md md:rounded-bl-md rounded-tr-md md:rounded-tr-none cursor-pointer",
+        "transition-[width,height,margin,background-color,color] duration-200 ease-out",
         isActive
-          ? "z-20 w-16 bg-white text-aqua-ink border-r-white"
-          : "z-0 w-13 bg-aqua-200 text-aqua-ink/75  hover:w-14 hover:bg-aqua-100 hover:text-aqua-ink",
+          ? "z-20 h-13 md:w-16 bg-white text-aqua-ink border-b-white md:border-b-black md:border-r-white"
+          : "z-0 h-11 md:w-13 bg-aqua-200 text-aqua-ink/75 hover:h-12 md:hover:w-14 hover:bg-aqua-100 hover:text-aqua-ink",
         className,
       )}
       {...props}
     >
-      <span className="[writing-mode:vertical-rl] [text-orientation:mixed] rotate-180 font-mono font-bold text-base tracking-wide leading-none">
+      <span className="md:[writing-mode:vertical-rl] md:[text-orientation:mixed] md:rotate-180 font-mono font-bold text-base tracking-wide leading-none">
         {children}
       </span>
     </button>

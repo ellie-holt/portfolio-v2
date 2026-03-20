@@ -34,19 +34,19 @@ export default function Work() {
       </div>
 
       {/* section content */}
-      <div className="split-panel">
+      <div className="md:grid-cols-[1fr_2fr]! 2xl:grid-cols-2! split-panel">
         {/* left: project chooser */}
-        <div className="flex flex-col bg-aqua-200 min-h-136 md:min-h-full">
+        <div className="flex md:flex-row flex-col bg-aqua-200 min-h-60 md:min-h-full">
           <div className="px-hpad py-r3 w-full">
             <h3 className="w-full text-section-alt">
               Check out some of the things I’ve made.
             </h3>
           </div>
 
-          <div className="mt-auto w-full flex justify-end">
+          <div className="flex flex-1 md:justify-end md:mt-auto w-full">
             <ul
               aria-label="Projects"
-              className="relative left-px mb-r2 flex flex-col items-end gap-0"
+              className="top-px md:top-0 md:left-px relative flex md:flex-col items-end gap-0 mx-r2 md:mx-0 md:my-r2"
             >
               {/* Vertical folder-tab rail: each tab selects the right-side preview. */}
               {projects.map((project, index) => {
@@ -55,7 +55,7 @@ export default function Work() {
                 return (
                   <li
                     key={project.slug}
-                    className="-mt-3 first:mt-0"
+                    className="md:-mt-3 md:first:mt-0 md:mr-0 -ml-3 first:ml-0"
                     style={{ zIndex: isActive ? 4 : index + 1 }}
                   >
                     <TabRailButton
