@@ -17,7 +17,7 @@ export function Accordion({
   return (
     <ShadcnAccordion
       className={cn(
-        "bg-white border border-black w-full accordion-root",
+        "bg-white border border-black w-full accordion-root pt-r2",
         className,
       )}
       {...props}
@@ -45,19 +45,22 @@ export function AccordionTrigger({
   return (
     <ShadcnAccordionTrigger
       className={cn(
-        "hover:bg-aqua-100 px-hpad py-r1 w-full hover:no-underline cursor-pointer pointer-events-auto select-none",
+        "hover:bg-aqua-100 py-r1 w-full hover:no-underline cursor-pointer pointer-events-auto select-none text-section-display",
         className,
       )}
       {...props}
     >
       {children}
-      <span className="px-hpad self-center ml-auto w-3 h-3 transform-gpu group-aria-expanded/accordion-trigger:rotate-180 origin-center shrink-0">
+      <span
+        aria-hidden="true"
+        className="self-center ml-auto inline-flex w-3 h-3 items-center justify-center text-tang-500 transform-gpu transition-transform duration-200 ease-out group-aria-expanded/accordion-trigger:rotate-180 origin-center shrink-0"
+      >
         <RoughCaret
           direction="up"
-          stroke="currentColor"
+          stroke="#f27941"
           strokeWidth={1.6}
           roughness={1.2}
-          className="w-full h-full pointer-events-none"
+          className="block w-full h-full pointer-events-none"
         />
       </span>
     </ShadcnAccordionTrigger>
@@ -77,10 +80,7 @@ export function AccordionContent({
         "origin-bottom data-[state=open]:animate-[accordion-fade-in_180ms_ease-out]",
         className,
       )}
-      contentClassName={cn(
-        "px-r1 font-mono text-sm leading-relaxed",
-        contentClassName,
-      )}
+      contentClassName={cn("text-body pt-0", contentClassName)}
       {...props}
     />
   );

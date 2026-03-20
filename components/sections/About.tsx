@@ -21,18 +21,19 @@ export default function About() {
       {/* section content */}
       <div className="split-panel">
         {/* left: intro and cta */}
-        <div className="flex flex-col gap-r2 bg-white px-hpad py-r3 h-full">
-          <h3 className="text-section-display">{content.greeting}</h3>
+        <div className="px-hpad py-r3 h-full stack-3">
+          <div className="stack-1">
+            <h3 className="text-section-display">{content.greeting}</h3>
+            <p className="max-w-prose text-body">{content.about}</p>
+          </div>
 
-          <p className="max-w-prose">{content.about}</p>
-
-          <div>
+          <div className="stack-1">
             <h3 className="text-section-alt">
               Here are some things I am interested in:
             </h3>
             <ul
               role="list"
-              className="space-y-r1 grid pt-r1 pl-r2 max-w-prose list-disc"
+              className="gap-r1 grid pl-r2 max-w-[58ch] text-body marker:text-tang-500 list-disc"
             >
               {content.bullets.map((item) => (
                 <li key={item}>{item}</li>
@@ -41,7 +42,7 @@ export default function About() {
           </div>
 
           {/* cta link */}
-          <div className="mt-auto pt-r3">
+          <div className="mt-auto pt-r1">
             <Button href={content.ctaHref}>
               <span>{content.ctaText}</span>
               <RoughArrow
@@ -56,7 +57,7 @@ export default function About() {
 
         {/* right: photo */}
         <div
-          className="place-items-center grid bg-white w-full font-mono text-sm"
+          className="place-items-center grid bg-white px-hpad py-r3 w-full font-mono text-aqua-ink/60 text-sm"
           aria-label="Photo placeholder"
         >
           photo
