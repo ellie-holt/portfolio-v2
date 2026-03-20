@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import rough from "roughjs";
-import { resolveCanvasColor } from "@/lib/resolveCanvasColor";
+import { resolveCanvasColour } from "@/lib/resolveCanvasColour";
 
 type ArrowDirection = "up" | "down" | "left" | "right";
 
@@ -31,7 +31,7 @@ export default function RoughArrow({
       const rect = canvas.getBoundingClientRect();
       canvas.width = Math.max(1, Math.floor(rect.width));
       canvas.height = Math.max(1, Math.floor(rect.height));
-      const resolvedStroke = resolveCanvasColor(canvas, stroke);
+      const resolvedStroke = resolveCanvasColour(canvas, stroke);
 
       const w = canvas.width;
       const h = canvas.height;

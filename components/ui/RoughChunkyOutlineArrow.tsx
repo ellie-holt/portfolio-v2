@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import rough from "roughjs";
-import { resolveCanvasColor } from "@/lib/resolveCanvasColor";
+import { resolveCanvasColour } from "@/lib/resolveCanvasColour";
 
 type ArrowDirection = "up" | "down" | "left" | "right";
 type ArrowVariant =
@@ -62,8 +62,8 @@ export default function RoughChunkyOutlineArrow({
       const dpr = window.devicePixelRatio || 1;
       canvas.width = Math.max(1, Math.floor(cssWidth * dpr));
       canvas.height = Math.max(1, Math.floor(cssHeight * dpr));
-      const resolvedStroke = resolveCanvasColor(canvas, stroke);
-      const resolvedFill = fill ? resolveCanvasColor(canvas, fill) : undefined;
+      const resolvedStroke = resolveCanvasColour(canvas, stroke);
+      const resolvedFill = fill ? resolveCanvasColour(canvas, fill) : undefined;
 
       const w = cssWidth;
       const h = cssHeight;

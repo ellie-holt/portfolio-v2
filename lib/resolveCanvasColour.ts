@@ -1,4 +1,4 @@
-export function resolveCanvasColor(
+export function resolveCanvasColour(
   canvas: HTMLCanvasElement,
   color: string,
 ): string {
@@ -25,13 +25,15 @@ export function resolveCanvasColor(
   const [, variableName, fallbackColor] = cssVariableMatch;
   const resolvedValue =
     computedStyle.getPropertyValue(variableName).trim() ||
-    getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
+    getComputedStyle(document.documentElement)
+      .getPropertyValue(variableName)
+      .trim();
 
   if (resolvedValue) {
     return resolvedValue;
   }
 
   return fallbackColor
-    ? resolveCanvasColor(canvas, fallbackColor.trim())
+    ? resolveCanvasColour(canvas, fallbackColor.trim())
     : trimmedColor;
 }
