@@ -11,8 +11,8 @@ import {
   FieldSet,
   FieldTitle,
 } from "./Field";
-import { Input } from "../Input/Input";
-import { Textarea } from "../Textarea/Textarea";
+import Input from "../Input/Input";
+import Textarea from "../Textarea/Textarea";
 
 type StoryArgs = {
   label: string;

@@ -1,6 +1,5 @@
 import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
-import RoughEnvelope from "@/components/ui/RoughEnvelope";
 import { Field, FieldLabel } from "@/components/ui/Field/Field";
 import Input from "@/components/ui/Input/Input";
 import Textarea from "@/components/ui/Textarea/Textarea";
