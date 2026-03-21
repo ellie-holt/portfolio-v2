@@ -2,7 +2,7 @@ import RoughArrow from "@/components/ui/RoughArrow";
 
 export default function HeroBanner() {
   return (
-    <div className="w-full h-10 bg-white px-hpad">
+    <div className="w-full h-10  px-hpad">
       <div className="flex flex-wrap justify-end 2xs:justify-between gap-4 w-full h-full items-center text-sm font-mono">
         <a
           href="mailto:eleanorholt97@gmail.com"
@@ -35,7 +35,7 @@ export default function HeroBanner() {
           <RoughArrow
             direction="right"
             stroke="#f27941"
-            strokeWidth={1.4}
+            strokeWidth={2}
             className="h-7 w-7"
           />
         </a>

@@ -17,8 +17,8 @@ type RoughArrowProps = {
 export default function RoughArrow({
   direction = "down",
   stroke = "#f27941",
-  strokeWidth = 5,
-  roughness = 1,
+  strokeWidth = 2.2,
+  roughness = 0.75,
   className,
 }: RoughArrowProps) {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);

@@ -21,7 +21,7 @@ export default function About() {
       {/* section content */}
       <div className="split-panel">
         {/* left: intro and cta */}
-        <div className="px-hpad py-r3 h-full stack-3">
+        <div className="px-hpad py-r3 h-full stack-3 bg-tang-wash">
           <div className="stack-1">
             <h3 className="text-section-display">{content.greeting}</h3>
             <p className="max-w-prose text-body">{content.about}</p>
@@ -48,7 +48,7 @@ export default function About() {
               <RoughArrow
                 direction="right"
                 stroke="#f27941"
-                strokeWidth={1.4}
+                strokeWidth={2.2}
                 className="w-8 h-8"
               />
             </Button>
@@ -57,7 +57,7 @@ export default function About() {
 
         {/* right: photo */}
         <div
-          className="place-items-center grid bg-white px-hpad py-r3 w-full font-mono text-aqua-ink/60 text-sm"
+          className="bg-aqua-wash place-items-center grid  px-hpad py-r3 w-full font-mono text-azure-ink/60 text-sm"
           aria-label="Photo placeholder"
         >
           photo

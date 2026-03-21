@@ -1,6 +1,6 @@
 export default function CopyrightBanner() {
   return (
-    <div className="bg-white px-hpad w-full h-10">
+    <div className=" px-hpad w-full h-10">
       <div className="flex flex-wrap justify-between items-center gap-4 w-full h-full font-mono text-sm">
         <p>© {new Date().getFullYear()} Ellie Holt.</p>
         <p>

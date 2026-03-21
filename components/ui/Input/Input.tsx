@@ -2,7 +2,7 @@ import type { ComponentPropsWithoutRef } from "react";
 import { cn } from "@/lib/utils";
 import { Input as ShadcnInput } from "@/components/external/shadcn/ui/input";
 
-export function Input({
+export default function Input({
   className,
   ...props
 }: ComponentPropsWithoutRef<typeof ShadcnInput>) {

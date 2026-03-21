@@ -4,7 +4,7 @@ export default function Navbar() {
   return (
     <nav
       aria-label="Primary"
-      className="relative px-hpad border-black border-t border-b w-screen h-10 full-bleed-bar bg-aqua-100"
+      className="relative px-hpad border-black  border-t-2 border-b-2 w-screen h-10 full-bleed-bar bg-tang-wash"
     >
       <div className="right-4 sm:right-0 flex md:justify-end items-center h-full">
         <ul className="flex justify-between md:justify-end md:gap-6 m-0 px-0 w-full md:w-auto list-none">

@@ -107,7 +107,7 @@ export const TypewriterEffect = ({
                   <span
                     key={`ghost-char-${index}`}
                     className={cn(
-                      "inline-block dark:text-white text-black opacity-0",
+                      "inline-block dark:text-white opacity-0",
                       word.className,
                     )}
                   >
@@ -133,7 +133,7 @@ export const TypewriterEffect = ({
                     initial={{}}
                     key={`char-${index}`}
                     className={cn(
-                      "tw-char dark:text-white text-black opacity-0 hidden",
+                      "tw-char dark:text-white  opacity-0 hidden",
                       word.className,
                     )}
                   >

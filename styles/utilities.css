@@ -9,6 +9,15 @@
   padding-inline: clamp(1rem, 3vw, 2.5rem);
 }
 
+@utility bg-grid-tang {
+  background-image:
+    linear-gradient(to right, var(--color-tang-100) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-tang-100) 1px, transparent 1px);
+  background-size: 1rem 1rem;
+  background-position: var(--page-frame-x) var(--page-frame-y);
+  background-attachment: fixed;
+}
+
 @utility full-bleed-bar {
   position: relative;
   width: 100vw;
@@ -17,15 +26,16 @@
 }
 
 @utility section-bar {
+  font-weight: 600;
   position: relative;
   z-index: 1;
   display: flex;
   width: 100vw;
   height: 2.5rem;
   align-items: center;
-  border-block-width: 1px;
+  border-block-width: 2px;
   border-color: var(--color-black);
-  background-color: var(--color-white);
+  background-color: var(--color-tang-wash);
 }
 
 @utility split-panel {

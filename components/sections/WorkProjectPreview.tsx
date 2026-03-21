@@ -10,16 +10,18 @@ export default function WorkProjectPreview({
   project,
 }: WorkProjectPreviewProps) {
   return (
-    <div className="relative border-l-0 h-full">
-      <div className="relative flex md:flex-row flex-col gap-r2 items-end px-r2 py-r2 h-full">
+    <div className="relative h-full bg-tang-wash">
+      <div className="relative flex md:flex-row flex-col gap-r2 divide-y md:divide-y-0 md:divide-x divide-dashed items-end px-r2 py-r2 h-full">
         {/* Project details on the left */}
-        <div className="flex flex-col flex-1 self-start gap-r1">
+        <div className="flex flex-col flex-1 self-center gap-r1 md:mr-r1 p-r1 2xs:w-[clamp(26rem,75%,30rem)] md:w-auto md:h-7/8">
+          {/* Project title */}
+          <h3 className="text-section-alt">{project.title}</h3>
           {/* Project description */}
-          <div className=" bg-white px-r1 ">
+          <div className="">
             <p className="max-w-prose text-body">{project.description}</p>
           </div>
           {/* Project stack */}
-          <div className="bg-white mx-r1  ">
+          <div className="">
             <ul
               aria-label="Technologies used"
               className="flex flex-wrap gap-r0 font-mono text-chip"
@@ -27,7 +29,7 @@ export default function WorkProjectPreview({
               {project.stack.map((tech) => (
                 <li
                   key={tech}
-                  className="bg-white px-2 py-1 border border-black font-mono"
+                  className="bg-tang-100 px-2 py-1 border border-tang-400 font-mono"
                 >
                   {tech}
                 </li>
@@ -37,9 +39,9 @@ export default function WorkProjectPreview({
         </div>
 
         {/* Project preview/cta on the right */}
-        <div className="flex flex-col self-center md:self-end">
+        <div className="flex flex-col flex-2 self-center md:self-end">
           {/* Project image */}
-          <div className="self-start bg-white border border-black max-w-120 md:w-full mx-r1">
+          <div className="self-end bg-white border border-black md:w-[clamp(24rem,95%,45rem)] lg:w-[clamp(22rem,95%,40rem)] max-w-110  mx-r1">
             <img
               src={project.image.src}
               alt={project.image.alt}
@@ -49,7 +51,7 @@ export default function WorkProjectPreview({
           </div>
 
           {/* Project link */}
-          <div className="z-1 -mt-r2 self-end relative bg-white px-r1 py-r1 border border-black dashed-outline outline-tang-500">
+          <div className="z-1 -mt-r2 self-end relative bg-white px-r1 py-r1 border-2 border-black dashed-outline outline-tang-500">
             <a
               href={project.liveUrl}
               target="_blank"
@@ -60,7 +62,7 @@ export default function WorkProjectPreview({
               <RoughArrow
                 direction="right"
                 stroke="#f27941"
-                strokeWidth={1.4}
+                strokeWidth={2.2}
                 className="w-7 h-7"
               />
               <span className="sr-only">

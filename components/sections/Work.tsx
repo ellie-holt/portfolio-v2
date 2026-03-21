@@ -5,6 +5,7 @@ import { useState } from "react";
 import TabRailButton from "@/components/ui/TabRailButton";
 import WorkProjectPreview from "./WorkProjectPreview";
 import { projects } from "@/data/projects";
+import RoughDownRightArrow from "../ui/RoughDownRightArrow";
 
 const DEFAULT_PROJECT = projects[0];
 
@@ -34,28 +35,29 @@ export default function Work() {
       </div>
 
       {/* section content */}
-      <div className="md:grid-cols-[1fr_2fr]! 2xl:grid-cols-2! split-panel">
+      <div className="md:grid-cols-1! lg:grid-cols-[1fr_2fr]! 2xl:grid-cols-2! split-panel">
         {/* left: project chooser */}
-        <div className="flex md:flex-row flex-col bg-aqua-200 min-h-60 md:min-h-full">
+        <div className="flex lg:flex-row flex-col bg-aqua-wash min-h-60 lg:min-h-full">
           <div className="px-hpad py-r3 w-full">
-            <h3 className="w-full text-section-alt">
+            <h3 className="w-full text-section-display lg:text-[clamp(2rem,3vw,3rem)]">
               Check out some of the things I’ve made.
             </h3>
+            <RoughDownRightArrow className="w-40 h-40 mt-r2 mx-auto hidden lg:block" />
           </div>
 
-          <div className="flex flex-1 md:justify-end md:mt-auto w-full">
+          <div className="flex flex-1 lg:justify-end lg:mt-auto w-full">
             <ul
               aria-label="Projects"
-              className="top-px md:top-0 md:left-px relative flex md:flex-col items-end gap-0 mx-r2 md:mx-0 md:my-r2"
+              className="top-px lg:top-0 lg:left-px relative flex lg:flex-col items-end gap-0 mx-r2 lg:mx-0 lg:my-r2"
             >
-              {/* Vertical folder-tab rail: each tab selects the right-side preview. */}
+              {/* Vertical folder-tab rail on lg viewports and above: each tab selects the right-side preview. */}
               {projects.map((project, index) => {
                 const isActive = project.slug === activeProjectSlug;
 
                 return (
                   <li
                     key={project.slug}
-                    className="md:-mt-3 md:first:mt-0 md:mr-0 -ml-3 first:ml-0"
+                    className="lg:-mt-3 lg:first:mt-0 lg:mr-0 -ml-3 first:ml-0"
                     style={{ zIndex: isActive ? 4 : index + 1 }}
                   >
                     <TabRailButton
@@ -73,7 +75,7 @@ export default function Work() {
         </div>
 
         {/* right: project preview */}
-        <div className="bg-white">
+        <div className="bg-white md:border-t! lg:border-t-0!">
           <WorkProjectPreview project={activeProject} />
         </div>
       </div>

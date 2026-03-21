@@ -191,7 +191,7 @@ export default function Hero() {
     <motion.div
       ref={heroRef}
       id="hero"
-      className="w-full shrink-0 overflow-hidden border-x bg-white border-black"
+      className="w-full shrink-0 overflow-hidden border-x bg-aqua-100 border-black"
       animate={{
         height: heroTargetHeight,
       }}
@@ -229,7 +229,7 @@ export default function Hero() {
                       text: h1Words[1],
                     },
                   ]}
-                  className="w-full font-mono text-[12vw] sm:text-[clamp(2.6rem,8vw,10rem)] font-bold text-aqua-ink whitespace-nowrap"
+                  className="w-full font-mono text-[12vw] sm:text-[clamp(2.6rem,8vw,10rem)] font-bold  text-black whitespace-nowrap"
                   cursorClassName="bg-aqua-ink h-[12vw] sm:h-[clamp(2.6rem,8vw,10rem)] relative top-2"
                   transitionDuration={0.24}
                   cursorReps={1}
@@ -271,7 +271,7 @@ export default function Hero() {
                     .filter(Boolean)
                     .join(" "),
                 }))}
-                className="w-full text-left col-start-1 col-end-2 font-mono text-[7vw] sm:text-[clamp(1.75rem,3.15vw,3.75rem)] font-bold text-aqua-ink"
+                className="text-black w-full text-left col-start-1 col-end-2 font-mono text-[7vw] sm:text-[clamp(1.75rem,3.15vw,3.75rem)] font-bold"
                 cursorClassName="bg-aqua-ink h-[7vw] sm:h-[clamp(1.75rem,3.15vw,3.75rem)] relative top-1"
                 transitionDuration={shouldInstantRemountH2 ? 0.01 : 0.24}
                 cursorReps={shouldInstantRemountH2 ? 0 : 9}
@@ -349,7 +349,7 @@ export default function Hero() {
                   direction={isBlogRoute ? "left" : "down"}
                   variant="solid"
                   stroke="#1a0d08CC"
-                  fill="#f27840"
+                  fill="#f27941"
                   strokeWidth={2}
                   roughness={1.5}
                   className="block h-[clamp(5.4rem,12.5vw,17rem)] w-[clamp(5.4rem,12.5vw,17rem)] scale-100"
