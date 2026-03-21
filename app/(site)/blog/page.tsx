@@ -13,8 +13,8 @@ export default async function Blog() {
         </h1>
       </div>
 
-      <section className="px-hpad py-r3 border-black border-b min-h-[calc(100dvh-300px)]">
-        <div className="w-full max-w-3xl">
+      <section className="grid grid-cols-6 px-hpad py-[clamp(2.25rem,6vw,5.5rem)] border-black border-b min-h-[calc(100dvh-300px)]">
+        <div className="w-full max-w-3xl col-start-2 col-end-6">
           {posts.length === 0 ? (
             <p className="bg-white px-r1 py-r1 border border-black/70 border-dashed text-body text-aqua-ink/90">
               No posts yet.

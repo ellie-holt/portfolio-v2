@@ -1,7 +1,7 @@
 export default function SiteFooter() {
   return (
-    <footer className="bg-aqua-wash">
-      <div className="px-hpad py-r3 sm:py-[clamp(3rem,8vw,6rem)]">
+    <footer className="">
+      <div className="px-hpad py-r3">
         <div className="flex justify-center sm:justify-end">
           <div className="gap-r2 grid font-mono text-lg sm:text-2xl">
             <div className="flex justify-center sm:justify-end items-center gap-r1">
