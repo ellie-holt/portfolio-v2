@@ -89,7 +89,7 @@ export default function Contact() {
                   direction="right"
                   stroke="#f27941"
                   strokeWidth={2.2}
-                  className="w-8 h-8"
+                  className="w-8 h-8 transition-transform duration-200 ease-out group-hover:translate-x-1"
                 />
               </Button>
             </div>

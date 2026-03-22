@@ -113,7 +113,7 @@ export default function WorkToolbox({ className }: WorkToolboxProps) {
               direction="right"
               stroke="#f27941"
               strokeWidth={1.4}
-              className="w-7 h-7"
+              className="w-7 h-7 transition-transform duration-200 ease-out group-hover:translate-x-1"
             />
           </Button>
         </div>

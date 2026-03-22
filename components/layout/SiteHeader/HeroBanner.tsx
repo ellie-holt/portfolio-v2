@@ -29,14 +29,14 @@ export default function HeroBanner() {
           href="https://github.com/ellie-holt"
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-r0 font-semibold underline decoration-1 transition-all hover:decoration-transparent"
+          className="group inline-flex items-center gap-r0 font-semibold underline decoration-1 transition-all hover:decoration-transparent"
         >
           <span>GitHub</span>
           <RoughArrow
             direction="right"
             stroke="#f27941"
             strokeWidth={2}
-            className="h-7 w-7"
+            className="h-7 w-7 transition-transform duration-200 ease-out group-hover:translate-x-1"
           />
         </a>
       </div>

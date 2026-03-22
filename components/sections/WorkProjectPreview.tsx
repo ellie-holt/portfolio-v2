@@ -15,7 +15,7 @@ export default function WorkProjectPreview({
         {/* Project details on the left */}
         <div className="flex flex-col flex-1 self-center gap-r1 md:mr-r1 p-r1 2xs:w-[clamp(26rem,75%,30rem)] md:w-auto md:h-7/8">
           {/* Project title */}
-          <h3 className="text-section-alt">{project.title}</h3>
+          <h3 className="text-section-alt hidden md:block">{project.title}</h3>
           {/* Project description */}
           <div className="">
             <p className="max-w-prose text-body">{project.description}</p>
@@ -56,14 +56,14 @@ export default function WorkProjectPreview({
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-r0 font-semibold decoration-1 hover:decoration-transparent underline transition-all"
+              className="group inline-flex items-center gap-r0 font-semibold decoration-1 hover:decoration-transparent underline transition-all"
             >
               <span className="text-action lowercase">view project</span>
               <RoughArrow
                 direction="right"
                 stroke="#f27941"
                 strokeWidth={2.2}
-                className="w-7 h-7"
+                className="w-7 h-7 transition-transform duration-200 ease-out group-hover:translate-x-1"
               />
               <span className="sr-only">
                 {" "}
