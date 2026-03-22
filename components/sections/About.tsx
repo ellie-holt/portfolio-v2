@@ -1,6 +1,7 @@
 import { aboutContent } from "@/data/about";
 import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
+import RoughAsterisk from "@/components/ui/RoughAsterisk";
 
 export default function About() {
   const content = aboutContent;
@@ -27,16 +28,21 @@ export default function About() {
             <p className="max-w-prose text-body">{content.about}</p>
           </div>
 
-          <div className="stack-1">
+          <div className="stack-2">
             <h3 className="text-section-alt">
-              Here are some things I am interested in:
+              Here are some things I care about:
             </h3>
-            <ul
-              role="list"
-              className="gap-r1 grid pl-r2 max-w-[58ch] text-body marker:text-tang-500 list-disc"
-            >
+
+            <ul role="list" className="grid gap-r1 max-w-[58ch] text-body">
               {content.bullets.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item} className="flex items-start gap-r0">
+                  <RoughAsterisk
+                    className="mt-1 h-4 w-4 shrink-0"
+                    stroke="#f27941"
+                    strokeWidth={2}
+                  />
+                  <span>{item}</span>
+                </li>
               ))}
             </ul>
           </div>

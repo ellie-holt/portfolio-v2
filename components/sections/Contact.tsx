@@ -97,7 +97,7 @@ export default function Contact() {
         </div>
 
         {/* right: fun animation */}
-        <div className="hidden relative sm:flex items-end bg-aqua-wash px-hpad py-r3 overflow-hidden">
+        <div className="hidden relative md:flex items-end bg-aqua-wash px-hpad py-r3 overflow-hidden">
           <div
             aria-hidden="true"
             className="top-r1 right-r1 absolute w-28 h-28 pointer-events-none"

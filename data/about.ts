@@ -1,11 +1,11 @@
 export const aboutContent = {
   greeting: "Hi, I’m Ellie",
   about:
-    "I’m a front-end web developer who loves building accessible and responsive websites with a little bit of flair.",
+    "I’m a front-end web developer interested in accessible and responsive UI, thoughtful design, and continuously getting better at what I do.",
   bullets: [
-    "Accessibility-first UI development",
-    "Clean, responsive layouts with a little flair",
-    "Thoughtful micro-interactions and smooth UX",
+    "Designing layouts that hold up across different screen sizes.",
+    "something else.",
+    "Not treating accessibility as an afterthought.",
   ],
   ctaText: "Say hello",
   ctaHref: "#contact",
