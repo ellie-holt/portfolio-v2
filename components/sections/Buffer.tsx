@@ -5,10 +5,10 @@ export default function Buffer() {
         <ul className="list-disc space-y-1 pl-6 flex flex-wrap gap-6">
           <li>Get contact form working</li>
           <li>Tweak nav bar styles</li>
-          <li>Add photo of me to about section</li>
+          <li className="line-through">Add photo of me to about section</li>
           <li>Redo about section copy</li>
           <li>Redo project section copy</li>
-          <li>Reconsider section alt text style</li>
+          <li className="line-through">Reconsider section alt text style</li>
           <li className="line-through">
             Make sure curved arrow on work section is not shifting, and consider
             arrow for mobile
@@ -20,9 +20,9 @@ export default function Buffer() {
             Think about about section responsiveness and full page
             responsiveness in general
           </li>
-          <li>Style blog posts more</li>
+          <li className="line-through">Style blog posts more</li>
           <li>Consider button styles on hover and press</li>
-          <li>Establish link styles</li>
+          <li className="line-through">Establish link styles</li>
           <li className="line-through">
             Experiment with arrows moving on links and buttons
           </li>

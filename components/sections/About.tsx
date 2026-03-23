@@ -1,4 +1,5 @@
 import { aboutContent } from "@/data/about";
+import Image from "next/image";
 import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
 import RoughAsterisk from "@/components/ui/RoughAsterisk";
@@ -49,11 +50,24 @@ export default function About() {
         </div>
 
         {/* right: photo */}
-        <div
-          className="bg-aqua-wash place-items-center grid  px-hpad py-r3 w-full font-mono text-azure-ink/60 text-sm"
-          aria-label="Photo placeholder"
-        >
-          photo
+        <div className="bg-aqua-wash grid place-items-center px-hpad py-r3 w-full">
+          <div
+            className="relative bg-white px-r1 py-r1 border-2 border-black dashed-outline outline-tang-500 w-full max-w-84"
+            aria-label="Photo placeholder"
+          >
+            <div className="relative bg-slate-100 border border-black/50 border-dashed aspect-4/5 w-full overflow-hidden">
+              <Image
+                src="/me-4.jpg"
+                alt="Portrait of Ellie Holt"
+                fill
+                sizes="(max-width: 768px) 80vw, 21rem"
+                className="object-cover"
+              />
+            </div>
+          </div>
+          <p className="text-slate-700 font-mono text-sm">
+            TODO: Take a professional headshot.
+          </p>
         </div>
       </div>
     </SectionShell>
