@@ -2,23 +2,12 @@ import { aboutContent } from "@/data/about";
 import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
 import RoughAsterisk from "@/components/ui/RoughAsterisk";
+import SectionShell from "@/components/sections/SectionShell";
 
 export default function About() {
   const content = aboutContent;
   return (
-    <section
-      id="about"
-      aria-labelledby="about-heading"
-      className="w-full"
-      style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
-    >
-      {/* section heading */}
-      <div className="section-bar full-bleed-bar">
-        <h2 id="about-heading" className="text-section-heading">
-          <span aria-hidden="true">// </span>about
-        </h2>
-      </div>
-
+    <SectionShell id="about" heading="about">
       {/* section content */}
       <div className="split-panel">
         {/* left: intro and cta */}
@@ -69,6 +58,6 @@ export default function About() {
           photo
         </div>
       </div>
-    </section>
+    </SectionShell>
   );
 }

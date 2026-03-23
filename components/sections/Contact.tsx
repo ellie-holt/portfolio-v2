@@ -4,22 +4,11 @@ import { Field, FieldLabel } from "@/components/ui/Field/Field";
 import Input from "@/components/ui/Input/Input";
 import Textarea from "@/components/ui/Textarea/Textarea";
 import * as motion from "motion/react-client";
+import SectionShell from "./SectionShell";
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      aria-labelledby="contact-heading"
-      className="w-full"
-      style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
-    >
-      {/* section heading */}
-      <div className="section-bar full-bleed-bar">
-        <h2 id="contact-heading" className="text-section-heading">
-          <span aria-hidden="true">// </span>contact
-        </h2>
-      </div>
-
+    <SectionShell id="contact" heading="contact">
       {/* section content */}
       <div className="border-b split-panel">
         {/* left: contact form */}
@@ -126,6 +115,6 @@ export default function Contact() {
           </p>
         </div>
       </div>
-    </section>
+    </SectionShell>
   );
 }

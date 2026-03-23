@@ -7,6 +7,7 @@ import WorkProjectPreview from "./WorkProjectPreview";
 import { projects } from "@/data/projects";
 import RoughDownRightArrow from "../ui/RoughDownRightArrow";
 import RoughCurvedArrow from "../ui/RoughCurvedArrow";
+import SectionShell from "./SectionShell";
 
 const DEFAULT_PROJECT = projects[0];
 
@@ -22,19 +23,7 @@ export default function Work() {
     DEFAULT_PROJECT;
 
   return (
-    <section
-      id="work"
-      aria-labelledby="work-heading"
-      className="w-full"
-      style={{ scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)" }}
-    >
-      {/* section heading */}
-      <div className="section-bar full-bleed-bar">
-        <h2 id="work-heading" className="text-section-heading">
-          <span aria-hidden="true">// </span>work
-        </h2>
-      </div>
-
+    <SectionShell id="work" heading="work">
       {/* section content */}
       <div className="md:grid-cols-1! lg:grid-cols-[1fr_2fr]! 2xl:grid-cols-2! split-panel">
         {/* left: project chooser */}
@@ -90,6 +79,6 @@ export default function Work() {
           <WorkProjectPreview project={activeProject} />
         </div>
       </div>
-    </section>
+    </SectionShell>
   );
 }
