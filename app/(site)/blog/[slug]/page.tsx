@@ -1,7 +1,12 @@
 import { PortableText } from "@portabletext/react";
 import Link from "next/link";
+import SectionShell from "@/components/sections/SectionShell";
+import { blogPortableTextComponents } from "@/components/portabletext/blogPortableTextComponents";
+import RoughArrow from "@/components/ui/RoughArrow";
+import { CTA_ROUGH_ARROW_PROPS } from "@/components/ui/roughComponentPresets";
 import { client } from "@/sanity/client";
 import { POST_QUERY } from "@/sanity/queries";
+import StickyBlogPostNav from "./StickyBlogPostNav";
 
 export default async function BlogPost({
   params,
@@ -14,45 +19,64 @@ export default async function BlogPost({
 
   return (
     <main id="content-start" className="bg-white w-full">
-      <div className="section-bar full-bleed-bar px-hpad border-t-0">
-        <span aria-hidden="true" className="text-section-heading">
-          // {post.title.toLowerCase()}
-        </span>
-      </div>
+      <SectionShell
+        id="blog-post"
+        heading={"blog / " + post.title.toLowerCase()}
+        barVariant="first"
+      >
+        <article className="grid grid-cols-6 px-hpad py-[clamp(2.25rem,6vw,5.5rem)] border-black border-b min-h-[calc(100dvh-300px)]">
+          <aside className="hidden lg:block lg:col-start-6 xl:col-start-5 col-span-full row-start-1 mt-r2 lg:ml-8 xl:ml-28">
+            <StickyBlogPostNav />
+          </aside>
+          <div className="col-start-2 col-end-6 row-start-1 w-full max-w-5xl grid grid-cols-subgrid">
+            <header className="stack-1 pb-r2 border-black/70 border-b border-dashed col-start-1 col-end-5 lg:col-end-4">
+              <h1 className="text-title text-aqua-ink leading-tight">
+                {post.title}
+              </h1>
+              {post.publishedAt ? (
+                <div className="flex items-stretch gap-r0 pl-r0">
+                  <span
+                    aria-hidden="true"
+                    className="w-1 shrink-0 bg-slate-200"
+                  />
+                  <p className="text-body pl-r0 font-mono text-aqua-ink/75">
+                    {new Date(post.publishedAt).toLocaleDateString("en-GB", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </p>
+                </div>
+              ) : null}
+            </header>
 
-      <article className="grid grid-cols-6 px-hpad py-[clamp(2.25rem,6vw,5.5rem)] border-black border-b min-h-[calc(100dvh-300px)]">
-        <div className="col-start-2 col-end-6 w-full max-w-4xl">
-          <header className="pb-r3 border-black/70 border-b border-dashed">
-            <h2 className="text-title text-aqua-ink">
-              {post.title}
-            </h2>
-            {post.publishedAt ? (
-              <p className="text-body mt-r1 pl-r0 font-mono text-aqua-ink/75">
-                {new Date(post.publishedAt).toLocaleDateString("en-GB", {
-                  day: "numeric",
-                  month: "short",
-                  year: "numeric",
-                })}
-              </p>
-            ) : null}
-          </header>
-
-          <div className="pt-r3 md:pt-r4">
-            <div className="md:prose-li:my-2 md:prose-p:my-r2 prose-li:my-1 prose-p:my-r1 prose-headings:mt-r3 md:prose-headings:mb-r2 prose-headings:mb-r1 pb-r2 md:pb-r3 prose-blockquote:border-l-black max-w-[72ch] prose-headings:font-mono prose-a:text-aqua-ink prose-blockquote:text-aqua-ink/80 prose-headings:text-aqua-ink prose-li:text-aqua-ink prose-p:text-aqua-ink prose-strong:text-aqua-ink prose-a:decoration-aqua-500 prose-a:underline-offset-4 prose-p:leading-8 prose prose-zinc md:prose-lg">
-              <PortableText value={post.body} />
+            <div className="pt-r1 col-start-1 col-end-5">
+              <div className="max-w-[72ch] pb-r2 md:pb-r3">
+                <PortableText
+                  value={post.body}
+                  components={blogPortableTextComponents}
+                />
+              </div>
             </div>
 
-            <div className="mt-r4 pt-r2 border-black/70 border-t border-dashed">
+            <div className="mt-r4 pt-r2 border-black/70 border-t border-dashed col-start-1 col-end-5 lg:col-end-4">
               <Link
                 href="/blog"
-                className="text-action inline-flex items-center gap-r0 font-mono decoration-1 hover:decoration-transparent underline underline-offset-4 lowercase transition-all"
+                className="group text-action inline-flex items-center gap-r0 font-semibold underline-accent hover:decoration-transparent lowercase transition-[text-decoration]"
               >
-                ← return to all posts
+                <span className="inline-flex w-7 h-7 shrink-0 items-center justify-center">
+                  <RoughArrow
+                    {...CTA_ROUGH_ARROW_PROPS}
+                    direction="left"
+                    className="w-7 h-7 transition-transform duration-200 ease-out group-hover:-translate-x-1"
+                  />
+                </span>
+                <span>return to all posts</span>
               </Link>
             </div>
           </div>
-        </div>
-      </article>
+        </article>
+      </SectionShell>
     </main>
   );
 }

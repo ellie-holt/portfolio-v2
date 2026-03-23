@@ -38,6 +38,11 @@
   background-color: var(--color-tang-wash);
 }
 
+@utility section-bar-first {
+  @apply section-bar;
+  border-top-width: 0;
+}
+
 @utility split-panel {
   position: relative;
   display: grid;
@@ -119,6 +124,23 @@
   gap: var(--rhythm-3);
 }
 
+@utility arrow-cta-motion {
+  transition-property: transform;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+}
+
+@utility underline-accent {
+  text-decoration-line: underline;
+  text-decoration-color: var(--underline-accent-color);
+  text-decoration-thickness: var(--underline-accent-thickness);
+  text-underline-offset: var(--underline-accent-offset);
+}
+
+@utility underline-tang-accent {
+  @apply underline-accent;
+}
+
 /* 
   @layer utilities places these CSS rules in the utilities cascade layer
   in Tailwind 4, these are no longer automatically made into Tailwind utility classes
@@ -155,6 +177,10 @@
       border-top-width: 0;
       border-left-width: 1px;
     }
+  }
+
+  .group:hover .arrow-cta-motion {
+    transform: translateX(0.25rem);
   }
 
   .accordion-root:not(:has([data-slot="accordion-item"][data-state="open"]))

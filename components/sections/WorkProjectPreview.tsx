@@ -1,5 +1,6 @@
 import type { Project } from "@/data/projects";
 import RoughArrow from "@/components/ui/RoughArrow";
+import { CTA_ROUGH_ARROW_PROPS } from "../ui/roughComponentPresets";
 
 type WorkProjectPreviewProps = {
   project: Project;
@@ -60,10 +61,8 @@ export default function WorkProjectPreview({
             >
               <span className="text-action lowercase">view project</span>
               <RoughArrow
-                direction="right"
-                stroke="#f27941"
-                strokeWidth={2.2}
-                className="w-7 h-7 transition-transform group-hover:translate-x-1 duration-200 ease-out"
+                {...CTA_ROUGH_ARROW_PROPS}
+                className="w-7 h-7 arrow-cta-motion"
               />
               <span className="sr-only">
                 {" "}

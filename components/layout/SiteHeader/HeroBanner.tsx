@@ -1,4 +1,5 @@
 import RoughArrow from "@/components/ui/RoughArrow";
+import { CTA_ROUGH_ARROW_PROPS } from "../../ui/roughComponentPresets";
 
 export default function HeroBanner() {
   return (
@@ -33,10 +34,8 @@ export default function HeroBanner() {
         >
           <span>GitHub</span>
           <RoughArrow
-            direction="right"
-            stroke="#f27941"
-            strokeWidth={2}
-            className="h-7 w-7 transition-transform duration-200 ease-out group-hover:translate-x-1"
+            {...CTA_ROUGH_ARROW_PROPS}
+            className="h-7 w-7 arrow-cta-motion"
           />
         </a>
       </div>

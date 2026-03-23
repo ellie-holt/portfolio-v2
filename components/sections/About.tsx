@@ -3,6 +3,10 @@ import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
 import RoughAsterisk from "@/components/ui/RoughAsterisk";
 import SectionShell from "@/components/sections/SectionShell";
+import {
+  CTA_ROUGH_ARROW_PROPS,
+  ROUGH_ASTERISK_MARKER_PROPS,
+} from "../ui/roughComponentPresets";
 
 export default function About() {
   const content = aboutContent;
@@ -25,11 +29,7 @@ export default function About() {
             <ul role="list" className="grid gap-r1 max-w-[58ch] text-body">
               {content.bullets.map((item) => (
                 <li key={item} className="flex items-start gap-r0">
-                  <RoughAsterisk
-                    className="mt-1 h-4 w-4 shrink-0"
-                    stroke="#f27941"
-                    strokeWidth={2}
-                  />
+                  <RoughAsterisk {...ROUGH_ASTERISK_MARKER_PROPS} />
                   <span>{item}</span>
                 </li>
               ))}
@@ -41,10 +41,8 @@ export default function About() {
             <Button href={content.ctaHref}>
               <span>{content.ctaText}</span>
               <RoughArrow
-                direction="right"
-                stroke="#f27941"
-                strokeWidth={2.2}
-                className="w-8 h-8 transition-transform duration-200 ease-out group-hover:translate-x-1"
+                {...CTA_ROUGH_ARROW_PROPS}
+                className="w-8 h-8 arrow-cta-motion"
               />
             </Button>
           </div>

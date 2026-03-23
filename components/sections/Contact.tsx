@@ -5,6 +5,7 @@ import Input from "@/components/ui/Input/Input";
 import Textarea from "@/components/ui/Textarea/Textarea";
 import * as motion from "motion/react-client";
 import SectionShell from "./SectionShell";
+import { CTA_ROUGH_ARROW_PROPS } from "../ui/roughComponentPresets";
 
 export default function Contact() {
   return (
@@ -75,10 +76,8 @@ export default function Contact() {
               <Button type="submit" className="">
                 <span>Send message</span>
                 <RoughArrow
-                  direction="right"
-                  stroke="#f27941"
-                  strokeWidth={2.2}
-                  className="w-8 h-8 transition-transform duration-200 ease-out group-hover:translate-x-1"
+                  {...CTA_ROUGH_ARROW_PROPS}
+                  className="w-8 h-8 arrow-cta-motion"
                 />
               </Button>
             </div>

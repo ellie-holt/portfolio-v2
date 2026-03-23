@@ -9,7 +9,7 @@ export default function CopyrightBanner() {
             href="https://github.com/ellie-holt/portfolio"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-r0 font-semibold decoration-1 hover:decoration-transparent underline transition-all"
+            className="inline-flex items-center gap-r0 font-semibold underline-accent hover:decoration-transparent underline transition-all"
           >
             code
           </a>

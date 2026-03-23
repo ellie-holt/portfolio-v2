@@ -5,6 +5,7 @@ type SectionShellProps = {
   heading: string;
   children: ReactNode;
   className?: string;
+  barVariant?: "default" | "first";
 };
 
 export default function SectionShell({
@@ -12,8 +13,11 @@ export default function SectionShell({
   heading,
   children,
   className,
+  barVariant = "default",
 }: SectionShellProps) {
   const headingId = `${id}-heading`;
+  const barClassName =
+    barVariant === "first" ? "section-bar-first" : "section-bar";
 
   return (
     <section
@@ -24,7 +28,7 @@ export default function SectionShell({
         scrollMarginTop: "calc(var(--site-header-height, 40px) - 2px)",
       }}
     >
-      <div className="section-bar full-bleed-bar">
+      <div className={`${barClassName} full-bleed-bar`}>
         <h2 id={headingId} className="text-section-heading">
           <span aria-hidden="true">// </span>
           {heading}

@@ -6,6 +6,7 @@ import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 import { toolbox } from "@/data/tools";
+import { LIGHT_ROUGH_ARROW_PROPS } from "../ui/roughComponentPresets";
 
 const toCliSlug = (value: string) =>
   value
@@ -110,10 +111,8 @@ export default function WorkToolbox({ className }: WorkToolboxProps) {
           >
             <span>Browse repos</span>
             <RoughArrow
-              direction="right"
-              stroke="#f27941"
-              strokeWidth={1.4}
-              className="w-7 h-7 transition-transform duration-200 ease-out group-hover:translate-x-1"
+              {...LIGHT_ROUGH_ARROW_PROPS}
+              className="w-7 h-7 arrow-cta-motion"
             />
           </Button>
         </div>

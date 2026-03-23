@@ -180,6 +180,11 @@
     --rhythm-1: 0.75rem; /* 12px */
     --rhythm-2: 1.25rem; /* 20px */
     --rhythm-3: 2rem; /* 32px */
+
+    /* Underline accent tokens */
+    --underline-accent-color: var(--color-tang-500);
+    --underline-accent-thickness: 2px;
+    --underline-accent-offset: 0.2em;
   }
 
   @variant md {
