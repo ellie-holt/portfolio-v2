@@ -220,6 +220,7 @@ export default function Hero() {
                 className="block w-full"
               >
                 <TypewriterEffect
+                  key={`hero-h1-${isBlogRoute ? "blog" : "site"}`}
                   element="h1"
                   words={[
                     {

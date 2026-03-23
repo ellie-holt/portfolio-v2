@@ -30,7 +30,7 @@ export default function HeroBanner() {
           href="https://github.com/ellie-holt"
           target="_blank"
           rel="noreferrer"
-          className="group inline-flex items-center gap-r0 font-semibold underline decoration-1 transition-all hover:decoration-transparent"
+          className="group inline-flex items-center gap-r0 font-semibold underline-accent transition-all hover:decoration-transparent"
         >
           <span>GitHub</span>
           <RoughArrow

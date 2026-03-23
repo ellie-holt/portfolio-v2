@@ -50,7 +50,7 @@ export default function About() {
         </div>
 
         {/* right: photo */}
-        <div className="bg-aqua-wash grid place-items-center px-hpad py-r3 w-full">
+        <div className="bg-aqua-wash grid place-content-center place-items-center px-hpad py-r3 w-full">
           <div
             className="relative bg-white px-r1 py-r1 border-2 border-black dashed-outline outline-tang-500 w-full max-w-84"
             aria-label="Photo placeholder"
@@ -65,7 +65,7 @@ export default function About() {
               />
             </div>
           </div>
-          <p className="text-slate-700 font-mono text-sm">
+          <p className="text-slate-700 font-mono text-sm mt-r0">
             TODO: Take a professional headshot.
           </p>
         </div>

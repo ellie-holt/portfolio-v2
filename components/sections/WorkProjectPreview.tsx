@@ -37,6 +37,19 @@ export default function WorkProjectPreview({
               ))}
             </ul>
           </div>
+          {/* Project source code link */}
+          <div className="font-mono text-body">
+            View{" "}
+            <a
+              href={project.sourceUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-block mt-r0 font-semibold underline-accent hover:decoration-transparent transition-all"
+            >
+              code
+            </a>{" "}
+            on GitHub.
+          </div>
         </div>
 
         {/* Project preview/cta on the right */}
