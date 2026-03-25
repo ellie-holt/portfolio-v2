@@ -1,5 +1,11 @@
 import type { Project } from "@/data/projects";
 import RoughArrow from "@/components/ui/RoughArrow";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/Tooltip/Tooltip";
 import { CTA_ROUGH_ARROW_PROPS } from "../ui/roughComponentPresets";
 
 type WorkProjectPreviewProps = {
@@ -11,10 +17,10 @@ export default function WorkProjectPreview({
   project,
 }: WorkProjectPreviewProps) {
   return (
-    <div className="relative bg-tang-wash h-full">
-      <div className="relative flex md:flex-row flex-col items-end gap-r2 px-r2 py-r2 md:divide-x divide-y md:divide-y-0 divide-dashed h-full">
+    <div className="relative h-full bg-tang-wash">
+      <div className="relative flex md:flex-row flex-col items-end gap-r2 h-full px-r2 py-r2 md:divide-x divide-y md:divide-y-0 divide-dashed">
         {/* Project details on the left */}
-        <div className="flex-1 self-center md:mr-r1 p-r1 2xs:w-[clamp(26rem,75%,30rem)] md:w-auto md:h-7/8 stack-1">
+        <div className="flex-1 self-center stack-1 2xs:w-[clamp(26rem,75%,30rem)] md:w-auto md:h-7/8 md:mr-r1 p-r1">
           {/* Project title */}
           <h3 className="hidden md:block text-section-alt">{project.title}</h3>
           {/* Project description */}
@@ -30,7 +36,7 @@ export default function WorkProjectPreview({
               {project.stack.map((tech) => (
                 <li
                   key={tech}
-                  className="bg-tang-100 px-2 py-1 border border-tang-400 font-mono"
+                  className="px-2 py-1 border border-tang-400 bg-tang-100 font-mono"
                 >
                   {tech}
                 </li>
@@ -44,7 +50,7 @@ export default function WorkProjectPreview({
               href={project.sourceUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-block mt-r0 font-semibold underline-accent hover:decoration-transparent transition-all"
+              className="inline-block mt-r0 font-semibold hover:decoration-transparent underline-accent transition-all"
             >
               code
             </a>{" "}
@@ -53,24 +59,45 @@ export default function WorkProjectPreview({
         </div>
 
         {/* Project preview/cta on the right */}
-        <div className="flex flex-col flex-2 self-center md:self-end">
+        <div className="group flex flex-col flex-2 self-center md:self-end">
           {/* Project image */}
-          <div className="self-end bg-white mx-r1 border border-black md:w-[clamp(24rem,95%,45rem)] lg:w-[clamp(22rem,95%,40rem)] max-w-110">
-            <img
-              src={project.image.src}
-              alt={project.image.alt}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
-          </div>
+          <TooltipProvider delayDuration={100}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block self-end md:w-[clamp(24rem,95%,45rem)] lg:w-[clamp(22rem,95%,40rem)] max-w-110 mx-r1 border border-black bg-white"
+                  aria-label={`${project.title} - opens in a new tab`}
+                >
+                  <img
+                    src={project.image.src}
+                    alt={project.image.alt}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </a>
+              </TooltipTrigger>
+
+              <TooltipContent
+                side="top"
+                align="end"
+                showArrow={true}
+                className="hidden md:block"
+              >
+                Open site in new tab ↗
+              </TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
 
           {/* Project link */}
-          <div className="z-1 relative self-end bg-white -mt-r2 px-r1 py-r1 border-2 border-black dashed-outline outline-tang-500">
+          <div className="z-1 relative self-end -mt-r2 px-r1 py-r1 border-2 border-black outline-tang-500 dashed-outline bg-white">
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noreferrer"
-              className="group inline-flex items-center gap-r0 font-semibold decoration-1 hover:decoration-transparent underline transition-all"
+              className="inline-flex items-center gap-r0 font-semibold decoration-1 hover:decoration-transparent group-hover:decoration-transparent underline transition-all"
             >
               <span className="text-action lowercase">view project</span>
               <RoughArrow
