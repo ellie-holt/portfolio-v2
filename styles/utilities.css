@@ -59,14 +59,14 @@
 
 @utility text-section-display {
   font-family: var(--font-mono);
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.875rem, 5vw, 3rem);
   font-weight: 700;
   line-height: 1.2;
 }
 
 @utility text-section-alt {
   font-family: var(--font-mono);
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-size: clamp(1.375rem, 4vw, 2rem);
   font-weight: 600;
   color: color-mix(in srgb, var(--color-aqua-ink) 70%, transparent);
   line-height: 1.2;
@@ -141,6 +141,33 @@
   @apply underline-accent;
 }
 
+@utility form-control-base {
+  border-color: var(--color-black);
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-blocky-xs) var(--color-tang-300);
+  font-size: 0.875rem;
+  transition-property: all;
+  transition-duration: 150ms;
+}
+
+@utility form-control-base-focus {
+  &:focus-visible {
+    box-shadow: var(--shadow-blocky-sm) var(--color-tang-500);
+    transform: translate(-0.125rem, -0.125rem);
+  }
+}
+
+@utility form-control-input-layout {
+  height: 2.5rem;
+  padding-inline: 1rem;
+}
+
+@utility form-control-textarea-layout {
+  min-height: 9rem;
+  padding-inline: 1rem;
+  padding-block: 0.75rem;
+}
+
 /* 
   @layer utilities places these CSS rules in the utilities cascade layer
   in Tailwind 4, these are no longer automatically made into Tailwind utility classes
@@ -155,6 +182,22 @@
   @variant md {
     .text-body {
       font-size: 1rem;
+    }
+
+    .form-control-base {
+      font-size: 1rem;
+    }
+  }
+
+  @variant lg {
+    .form-control-input-layout {
+      height: 2.75rem;
+    }
+  }
+
+  @variant xl {
+    .form-control-input-layout {
+      height: 3rem;
     }
   }
 
@@ -176,6 +219,16 @@
     .split-panel > * + * {
       border-top-width: 0;
       border-left-width: 1px;
+    }
+  }
+
+  @variant 2xs {
+    .text-section-alt {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+
+    .text-section-display {
+      font-size: clamp(2rem, 5vw, 3rem);
     }
   }
 
