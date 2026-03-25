@@ -25,15 +25,15 @@ export default function Work() {
   return (
     <SectionShell id="work" heading="work">
       {/* section content */}
-      <div className="md:grid-cols-1! lg:grid-cols-[1fr_2fr]! 2xl:grid-cols-2! split-panel">
+      <div className="split-panel md:grid-cols-1! lg:grid-cols-[1fr_2fr]! 2xl:grid-cols-2!">
         {/* left: project chooser */}
-        <div className="flex lg:flex-row flex-col bg-aqua-wash min-h-76 3xs:min-h-74 2xs:min-h-64 xs:min-h-60 sm:min-h-62 md:min-h-74 lg:min-h-full">
-          <div className="px-hpad pb-r1 xs:pb-0 lg:pb-r3 pt-r3 w-full flex flex-col lg:flex-4">
+        <div className="flex lg:flex-row flex-col min-h-76 3xs:min-h-71 2xs:min-h-64 xs:min-h-60 sm:min-h-62 md:min-h-74 lg:min-h-full bg-aqua-wash">
+          <div className="flex flex-col lg:flex-4 w-full px-hpad pt-r3 pb-r1 xs:pb-0 lg:pb-r3">
             <h3 className="w-full text-section-display lg:text-[clamp(2rem,3vw,3rem)]">
               Check out some of the things I’ve made.
             </h3>
             {/* below-lg-only curved arrow below heading */}
-            <div className="block lg:hidden 2xs:mr-14 sm:mr-r3 2xs:-mt-r2 self-center 2xs:self-end w-[clamp(4rem,11vw,6rem)] h-[clamp(5rem,12vw,10rem)]">
+            <div className="lg:hidden block self-center 2xs:self-end w-[clamp(4rem,11vw,6rem)] h-[clamp(5rem,12vw,10rem)] 2xs:-mt-r2 2xs:mr-14 sm:mr-r3">
               <RoughCurvedArrow
                 direction="down"
                 stroke="#f27941"
@@ -42,10 +42,10 @@ export default function Work() {
               />
             </div>
             {/* above-lg-only down-right arrow to project rail */}
-            <RoughDownRightArrow className="w-40 h-40 mt-r2 hidden lg:block self-center" />
+            <RoughDownRightArrow className="hidden lg:block self-center w-40 h-40 mt-r2" />
           </div>
 
-          <div className="flex flex-1 lg:justify-end justify-center sm:justify-start lg:mt-auto w-full">
+          <div className="flex flex-1 justify-center sm:justify-start lg:justify-end w-full lg:mt-auto">
             <ul
               aria-label="Projects"
               className="top-px lg:top-0 lg:left-px relative flex lg:flex-col items-end gap-0 mx-r1 2xs:mx-r2 lg:mx-0 lg:my-r2"
@@ -75,7 +75,7 @@ export default function Work() {
         </div>
 
         {/* right: project preview */}
-        <div className="bg-white md:border-t! lg:border-t-0!">
+        <div className="md:border-t! lg:border-t-0! bg-white">
           <WorkProjectPreview project={activeProject} />
         </div>
       </div>

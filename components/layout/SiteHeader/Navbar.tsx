@@ -122,9 +122,9 @@ export default function NavbarRewrite() {
   }, []);
 
   return (
-    <nav className="relative bg-tang-wash px-hpad border-black border-t-2 border-b-2 w-screen h-10 full-bleed-bar">
+    <nav className="relative full-bleed-bar w-screen h-10 px-hpad border-black border-t-2 border-b-2 bg-tang-wash">
       <div className="right-4 sm:right-0 flex md:justify-end items-center h-full">
-        <ul className="flex justify-between md:justify-end md:gap-6 m-0 px-0 w-full md:w-auto list-none">
+        <ul className="flex justify-between md:justify-end md:gap-6 w-full md:w-auto h-full m-0 md:px-0 pr-r2 3xs:pr-r3 list-none">
           <li>
             <NavLink
               href="/#about"

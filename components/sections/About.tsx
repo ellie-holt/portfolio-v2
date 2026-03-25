@@ -16,7 +16,7 @@ export default function About() {
       {/* section content */}
       <div className="split-panel">
         {/* left: intro and cta */}
-        <div className="px-hpad py-r3 h-full stack-3 bg-tang-wash">
+        <div className="stack-3 h-full px-hpad py-r3 bg-tang-wash">
           <div className="stack-1">
             <h3 className="text-section-display">{content.greeting}</h3>
             <p className="max-w-prose text-body">{content.about}</p>
@@ -50,12 +50,12 @@ export default function About() {
         </div>
 
         {/* right: photo */}
-        <div className="bg-aqua-wash grid place-content-center place-items-center px-hpad py-r3 w-full">
+        <div className="grid place-content-center place-items-center w-full px-hpad py-r3 bg-aqua-wash">
           <div
-            className="relative bg-white px-r1 py-r1 border-2 border-black dashed-outline outline-tang-500 w-full max-w-84"
+            className="relative w-full max-w-84 px-r1 py-r1 border-2 border-black outline-tang-500 dashed-outline bg-white"
             aria-label="Photo placeholder"
           >
-            <div className="relative bg-slate-100 border border-black/50 border-dashed aspect-4/5 w-full overflow-hidden">
+            <div className="relative w-full aspect-4/5 overflow-hidden border border-black/50 border-dashed bg-slate-100">
               <Image
                 src="/me-4.jpg"
                 alt="Portrait of Ellie Holt"
@@ -65,7 +65,7 @@ export default function About() {
               />
             </div>
           </div>
-          <p className="text-slate-700 font-mono text-sm mt-r0">
+          <p className="mt-r0 font-mono text-slate-700 text-xs 2xs:text-sm">
             TODO: Take a professional headshot.
           </p>
         </div>

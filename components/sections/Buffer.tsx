@@ -4,7 +4,7 @@ export default function Buffer() {
       <div>
         <ul className="list-disc space-y-1 pl-6 flex flex-wrap gap-6">
           <li>Get contact form working</li>
-          <li>Tweak nav bar styles</li>
+          <li className="line-through">Tweak nav bar styles</li>
           <li className="line-through">Add photo of me to about section</li>
           <li>Redo about section copy</li>
           <li>Redo project section copy</li>
@@ -27,7 +27,9 @@ export default function Buffer() {
             Experiment with arrows moving on links and buttons
           </li>
           <li>Make project image a link</li>
-          <li>Potentially add GitHub link to project cards</li>
+          <li className="line-through">
+            Potentially add GitHub link to project cards
+          </li>
           <li>
             Potentially add extra story/description to project cards as a
             separate page or blog connection
