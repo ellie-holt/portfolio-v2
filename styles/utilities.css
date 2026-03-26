@@ -5,19 +5,33 @@
   these can therefore be used with Tailwind's modifiers e.g. lg: / hover: / dark:
 */
 
+/* ===== SPACING ===== */
+
 @utility px-hpad {
   padding-inline: clamp(1rem, 3vw, 2.5rem);
 }
 
-@utility bg-grid-tang {
-  background-image:
-    linear-gradient(to right, var(--color-tang-100) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--color-tang-100) 1px, transparent 1px);
-  background-size: 1rem 1rem;
-  background-position: var(--page-frame-x) var(--page-frame-y);
-  background-attachment: fixed;
+@utility stack-1 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rhythm-1);
 }
 
+@utility stack-2 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rhythm-2);
+}
+
+@utility stack-3 {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rhythm-3);
+}
+
+/* ===== LAYOUT ===== */
+
+/* Full width bar for section header and navbar */
 @utility full-bleed-bar {
   position: relative;
   width: 100vw;
@@ -25,6 +39,7 @@
   padding-inline: var(--page-frame-x);
 }
 
+/* Section header bar */
 @utility section-bar {
   font-weight: 600;
   position: relative;
@@ -38,11 +53,13 @@
   background-color: var(--color-tang-wash);
 }
 
+/* First section variant: same bar style without a top border */
 @utility section-bar-first {
   @apply section-bar;
   border-top-width: 0;
 }
 
+/* Panel layout for section content */
 @utility split-panel {
   position: relative;
   display: grid;
@@ -50,6 +67,8 @@
   grid-template-columns: minmax(0, 1fr);
   border-color: var(--color-black);
 }
+
+/* ===== TYPOGRAPHY ===== */
 
 @utility text-section-heading {
   font-family: var(--font-mono);
@@ -101,35 +120,25 @@
   text-transform: uppercase;
 }
 
+/* ===== DECORATION ===== */
+
+/* Page background */
+@utility bg-grid-tang {
+  background-image:
+    linear-gradient(to right, var(--color-tang-100) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-tang-100) 1px, transparent 1px);
+  background-size: 1rem 1rem;
+  background-position: var(--page-frame-x) var(--page-frame-y);
+  background-attachment: fixed;
+}
+
+/* Outline style for component and image frames */
 @utility dashed-outline {
   outline: 2px dashed var(--color-black);
   outline-offset: 4px;
 }
 
-@utility stack-1 {
-  display: flex;
-  flex-direction: column;
-  gap: var(--rhythm-1);
-}
-
-@utility stack-2 {
-  display: flex;
-  flex-direction: column;
-  gap: var(--rhythm-2);
-}
-
-@utility stack-3 {
-  display: flex;
-  flex-direction: column;
-  gap: var(--rhythm-3);
-}
-
-@utility arrow-cta-motion {
-  transition-property: transform;
-  transition-duration: 200ms;
-  transition-timing-function: ease-out;
-}
-
+/* Offset underline style */
 @utility underline-accent {
   text-decoration-line: underline;
   text-decoration-color: var(--underline-accent-color);
@@ -137,35 +146,31 @@
   text-underline-offset: var(--underline-accent-offset);
 }
 
-@utility underline-tang-accent {
-  @apply underline-accent;
+/* Link and button rough arrow motion */
+@utility arrow-cta-motion {
+  transition-property: transform;
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
 }
 
+/* ===== FORM ===== */
+
+/* Shared form field styles */
 @utility form-control-base {
+  border-width: 1px;
   border-color: var(--color-black);
   background-color: var(--color-white);
   box-shadow: var(--shadow-blocky-xs) var(--color-tang-300);
   font-size: 0.875rem;
   transition-property: all;
   transition-duration: 150ms;
-}
 
-@utility form-control-base-focus {
   &:focus-visible {
-    box-shadow: var(--shadow-blocky-sm) var(--color-tang-500);
+    box-shadow:
+      0 0 0 1px black,
+      var(--shadow-blocky-sm) var(--color-tang-500);
     transform: translate(-0.125rem, -0.125rem);
   }
-}
-
-@utility form-control-input-layout {
-  height: 2.5rem;
-  padding-inline: 1rem;
-}
-
-@utility form-control-textarea-layout {
-  min-height: 9rem;
-  padding-inline: 1rem;
-  padding-block: 0.75rem;
 }
 
 /* 
@@ -175,29 +180,35 @@
 */
 
 @layer utilities {
+  /* Split panel separator for small screens */
   .split-panel > * + * {
     border-top-width: 1px;
+  }
+
+  /* Switch split panel to two columns on medium screens */
+  @variant md {
+    .split-panel {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .split-panel > * + * {
+      border-top-width: 0;
+      border-left-width: 1px;
+    }
+  }
+
+  /* Responsive text tweaks */
+  @variant 2xs {
+    .text-section-alt {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+    }
+    .text-section-display {
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
   }
 
   @variant md {
     .text-body {
       font-size: 1rem;
-    }
-
-    .form-control-base {
-      font-size: 1rem;
-    }
-  }
-
-  @variant lg {
-    .form-control-input-layout {
-      height: 2.75rem;
-    }
-  }
-
-  @variant xl {
-    .form-control-input-layout {
-      height: 3rem;
     }
   }
 
@@ -205,70 +216,13 @@
     .text-chip {
       font-size: 0.875rem;
     }
-
     .text-action {
       font-size: 1.125rem;
     }
   }
 
-  @variant md {
-    .split-panel {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .split-panel > * + * {
-      border-top-width: 0;
-      border-left-width: 1px;
-    }
-  }
-
-  @variant 2xs {
-    .text-section-alt {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-    }
-
-    .text-section-display {
-      font-size: clamp(2rem, 5vw, 3rem);
-    }
-  }
-
+  /* CTA arrow movement on hover */
   .group:hover .arrow-cta-motion {
     transform: translateX(0.25rem);
-  }
-
-  .accordion-root:not(:has([data-slot="accordion-item"][data-state="open"]))
-    > [data-slot="accordion-item"]:first-child {
-    border-top-width: 1px;
-  }
-
-  @keyframes accordion-expand-up {
-    from {
-      height: 0;
-      opacity: 0;
-    }
-    to {
-      height: var(--radix-accordion-content-height);
-      opacity: 1;
-    }
-  }
-
-  @keyframes accordion-collapse-down {
-    from {
-      height: var(--radix-accordion-content-height);
-      opacity: 1;
-    }
-    to {
-      height: 0;
-      opacity: 0;
-    }
-  }
-
-  @keyframes accordion-fade-in {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
   }
 }

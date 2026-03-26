@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 import TabRailButton from "@/components/ui/TabRailButton";
-import WorkProjectPreview from "./WorkProjectPreview";
+import WorkProjectPreview from "../features/projects/ProjectPreview";
 import { projects } from "@/data/projects";
 import RoughDownRightArrow from "../ui/RoughDownRightArrow";
 import RoughCurvedArrow from "../ui/RoughCurvedArrow";

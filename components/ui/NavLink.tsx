@@ -31,7 +31,7 @@ export default function NavLink({
         strokeWidth={2}
         className="w-3 4xs:w-4 3xs:w-5 h-3 4xs:h-4 3xs:h-5 opacity-0 group-data-[active=true]:opacity-100 transition-opacity translate-y-[0.07em] duration-150 shrink-0"
       />
-      <span className="inline-block, group-hover:underline group-hover:underline-tang-accent">
+      <span className="inline-block group-hover:underline-accent">
         {children}
       </span>
     </Element>

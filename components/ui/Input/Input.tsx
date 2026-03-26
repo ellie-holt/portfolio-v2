@@ -7,7 +7,7 @@ export default function Input({
 }: ComponentPropsWithoutRef<typeof ShadcnInput>) {
   return (
     <ShadcnInput
-      className={`h-10 lg:h-11 xl:h-12 px-4 border-black bg-white shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)] text-sm sm:text-base transition-all focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5 ${className ?? ""}`}
+      className={`h-10 lg:h-11 xl:h-12 px-4 py-1 w-full min-w-0 form-control-base text-sm sm:text-base ${className ?? ""}`}
       {...props}
     />
   );

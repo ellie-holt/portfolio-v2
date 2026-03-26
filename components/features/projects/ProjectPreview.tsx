@@ -6,7 +6,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/Tooltip/Tooltip";
-import { CTA_ROUGH_ARROW_PROPS } from "../ui/roughComponentPresets";
+import { CTA_ROUGH_ARROW_PROPS } from "../../ui/roughComponentPresets";
 
 type WorkProjectPreviewProps = {
   project: Project;

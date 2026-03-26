@@ -5,7 +5,8 @@
   stable values like colours, shadows and fonts go here
 */
 @theme {
-  /* COLOURS */
+  /* ===== COLOURS ===== */
+
   --color-white: #ffffff;
   --color-black: #000000;
 
@@ -116,7 +117,8 @@
   --color-sky-600: #0072a8;
   --color-sky-ink: #00131f;
 
-  /* TYPOGRAPHY */
+  /* ===== TYPOGRAPHY ===== */
+
   --font-sans:
     var(--font-geist-sans), system-ui, -apple-system, Segoe UI, Roboto,
     sans-serif;
@@ -141,7 +143,7 @@
   --font-plex-mono:
     var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* SPACING */
+  /* ===== SPACING ===== */
 
   /* RADIUS */
   --radius-1: 0.5rem;

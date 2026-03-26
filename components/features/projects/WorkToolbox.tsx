@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/Tabs";
 import { toolbox } from "@/data/tools";
-import { LIGHT_ROUGH_ARROW_PROPS } from "../ui/roughComponentPresets";
+import { LIGHT_ROUGH_ARROW_PROPS } from "../../ui/roughComponentPresets";
 
 const toCliSlug = (value: string) =>
   value

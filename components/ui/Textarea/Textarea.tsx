@@ -9,7 +9,7 @@ export default function Textarea({
   return (
     <ShadcnTextarea
       className={cn(
-        "bg-white shadow-[var(--shadow-blocky-xs)_var(--color-tang-300)] focus-visible:shadow-[var(--shadow-blocky-sm)_var(--color-tang-500)] px-4 py-3 border-black min-h-36 text-sm sm:text-base transition-all focus-visible:-translate-x-0.5 focus-visible:-translate-y-0.5",
+        "w-full min-h-36 px-4 py-3 text-sm sm:text-base form-control-base",
         className,
       )}
       {...props}
