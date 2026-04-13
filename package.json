@@ -7,7 +7,7 @@
     "build": "npm run sanity:manifest && npm run sanity:schema && next build",
     "start": "next start",
     "sanity:manifest": "sanity manifest extract --path public/studio/static",
-    "sanity:schema": "sanity schema deploy",
+    "sanity:schema": "sanity schema deploy --manifest-dir public/studio/static --no-extract-manifest",
     "lint": "eslint",
     "test": "jest",
     "test:watch": "jest --watch",
