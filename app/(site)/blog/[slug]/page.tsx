@@ -1,21 +1,64 @@
 import { PortableText } from "@portabletext/react";
+import type { Metadata } from "next";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import SectionShell from "@/components/sections/SectionShell";
 import { blogPortableTextComponents } from "@/components/portabletext/blogPortableTextComponents";
 import RoughArrow from "@/components/ui/RoughArrow";
 import { CTA_ROUGH_ARROW_PROPS } from "@/components/ui/roughComponentPresets";
-import { client } from "@/sanity/client";
-import { POST_QUERY } from "@/sanity/queries";
+import { POST_QUERY, POST_SLUGS_QUERY } from "@/sanity/queries";
+import { sanityFetch } from "@/sanity/live";
 import StickyBlogPostNav from "./StickyBlogPostNav";
 
-export default async function BlogPost({
+type Params = Promise<{ slug: string }>;
+
+type Post = {
+  title: string;
+  body: any;
+  publishedAt?: string;
+};
+
+export async function generateStaticParams() {
+  const { data } = await sanityFetch({
+    query: POST_SLUGS_QUERY,
+    perspective: "published",
+    stega: false,
+  });
+
+  return data as Array<{ slug: string }>;
+}
+
+export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
-}) {
+  params: Params;
+}): Promise<Metadata> {
+  const { data } = await sanityFetch({
+    query: POST_QUERY,
+    params: await params,
+    stega: false,
+  });
+
+  const post = data as Post | null;
+
+  return {
+    title: post?.title ?? "Post not found",
+  };
+}
+
+export default async function BlogPost({ params }: { params: Params }) {
   const { slug } = await params;
 
-  const post = await client.fetch(POST_QUERY, { slug });
+  const { data } = await sanityFetch({
+    query: POST_QUERY,
+    params: { slug },
+  });
+
+  const post = data as Post | null;
+
+  if (!post) {
+    notFound();
+  }
 
   return (
     <main id="content-start" className="bg-white w-full">

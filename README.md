@@ -16,6 +16,20 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Sanity Visual Editing setup
+
+1. Copy `.env.example` to `.env.local` and set `SANITY_API_READ_TOKEN` to a Sanity Viewer token.
+2. Ensure your Sanity project has `http://localhost:3000` in API CORS origins with **Allow credentials** enabled.
+3. Run `npm run dev` and open [http://localhost:3000/studio](http://localhost:3000/studio).
+4. Open the Presentation tool in Studio to enable Draft Mode and click-to-edit overlays.
+
+Required environment variables:
+
+- `NEXT_PUBLIC_SITE_URL`
+- `NEXT_PUBLIC_SANITY_PROJECT_ID`
+- `NEXT_PUBLIC_SANITY_DATASET`
+- `SANITY_API_READ_TOKEN`
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

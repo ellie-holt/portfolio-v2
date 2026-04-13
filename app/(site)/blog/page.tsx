@@ -2,11 +2,20 @@ import Link from "next/link";
 import SectionShell from "@/components/sections/SectionShell";
 import RoughArrow from "@/components/ui/RoughArrow";
 import { CTA_ROUGH_ARROW_PROPS } from "@/components/ui/roughComponentPresets";
-import { client } from "@/sanity/client";
 import { POSTS_QUERY } from "@/sanity/queries";
+import { sanityFetch } from "@/sanity/live";
+
+type PostPreview = {
+  title: string;
+  slug: { current: string };
+  publishedAt?: string;
+};
 
 export default async function Blog() {
-  const posts = await client.fetch(POSTS_QUERY);
+  const { data } = await sanityFetch({
+    query: POSTS_QUERY,
+  });
+  const posts = data as PostPreview[];
 
   return (
     <main id="content-start" className="bg-white w-full">
@@ -18,7 +27,7 @@ export default async function Blog() {
                 No posts yet.
               </p>
             ) : (
-              posts.map((post: any) => (
+              posts.map((post) => (
                 <article
                   key={post.slug.current}
                   className="pt-r2 md:pt-r3 pb-r2 first:pt-r2 border-black/70 border-b border-dashed "
