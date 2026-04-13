@@ -59,6 +59,8 @@ export default function About() {
               <Image
                 src="/me-4.jpg"
                 alt="Portrait of Ellie Holt"
+                fetchPriority="high"
+                loading="eager"
                 fill
                 sizes="(max-width: 768px) 80vw, 21rem"
                 className="object-cover"

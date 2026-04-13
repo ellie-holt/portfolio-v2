@@ -13,6 +13,7 @@ export const monaspaceArgon = localFont({
   variable: "--font-monaspace-argon",
   weight: "200 800",
   display: "swap",
+  preload: false,
 });
 
 export const monaspaceXenon = localFont({
@@ -20,6 +21,7 @@ export const monaspaceXenon = localFont({
   variable: "--font-monaspace-xenon",
   weight: "200 800",
   display: "swap",
+  preload: false,
 });
 
 export const monaspaceRadon = localFont({
@@ -27,6 +29,7 @@ export const monaspaceRadon = localFont({
   variable: "--font-monaspace-radon",
   weight: "200 800",
   display: "swap",
+  preload: false,
 });
 
 export const monaspaceKrypton = localFont({
@@ -34,6 +37,7 @@ export const monaspaceKrypton = localFont({
   variable: "--font-monaspace-krypton",
   weight: "200 800",
   display: "swap",
+  preload: false,
 });
 
 export const geistSans = Geist({

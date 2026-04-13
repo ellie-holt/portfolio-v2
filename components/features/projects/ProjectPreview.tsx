@@ -1,4 +1,5 @@
 import type { Project } from "@/data/projects";
+import Image from "next/image";
 import RoughArrow from "@/components/ui/RoughArrow";
 import {
   Tooltip,
@@ -68,14 +69,17 @@ export default function WorkProjectPreview({
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="block self-end md:w-[clamp(24rem,95%,45rem)] lg:w-[clamp(22rem,95%,40rem)] max-w-110 mx-r1 border border-black bg-white"
+                  className="relative block aspect-square w-[min(95vw,28rem)] self-end md:w-[clamp(24rem,95%,45rem)] lg:w-[clamp(22rem,95%,40rem)] max-w-110 mx-r1 border border-black bg-white overflow-hidden"
                   aria-label={`${project.title} - opens in a new tab`}
                 >
-                  <img
+                  <Image
                     src={project.image.src}
                     alt={project.image.alt}
-                    className="w-full h-full object-cover"
+                    fill
+                    sizes="(min-width: 1024px) 40rem, (min-width: 768px) 45rem, 95vw"
+                    className="w-full h-full object-contain bg-[#E0E6EB]"
                     loading="lazy"
+                    decoding="async"
                   />
                 </a>
               </TooltipTrigger>

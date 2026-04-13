@@ -15,7 +15,6 @@ describe("projects data integrity", () => {
       expect(project.slug.trim()).not.toBe("");
       expect(project.title.trim()).not.toBe("");
       expect(project.description.trim()).not.toBe("");
-      expect(project.accent.trim()).not.toBe("");
 
       expect(project.stack.length).toBeGreaterThan(0);
       expect(project.stack.every((item) => item.trim().length > 0)).toBe(true);

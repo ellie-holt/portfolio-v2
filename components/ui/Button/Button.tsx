@@ -6,7 +6,7 @@ import type {
 import { cn } from "@/lib/utils";
 
 export const buttonClass =
-  "group inline-flex w-fit items-center gap-r0 border-2 border-black bg-white px-5 py-3 font-mono text-base sm:text-lg shadow-[var(--shadow-blocky-sm)_var(--color-tang-300)] transition-all hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[var(--shadow-blocky-xs)_var(--color-tang-500)] active:translate-x-1 active:translate-y-1 active:shadow-none [&_svg]:transition-transform [&_svg]:duration-200 [&_svg]:ease-out hover:[&_svg]:translate-x-1 disabled:translate-x-0 disabled:translate-y-0 disabled:shadow-none disabled:cursor-not-allowed disabled:opacity-50";
+  "group inline-flex w-fit items-center gap-r0 border-2 border-black bg-white px-5 py-3 font-mono text-base sm:text-lg shadow-[var(--shadow-blocky-sm)_var(--color-tang-300)] transition-all hover:bg-[#fffbfa] focus-visible:bg-[#fffbfa] active:bg-[#ffefe8] hover:translate-x-0.5 hover:translate-y-0.5 hover:shadow-[var(--shadow-blocky-xs)_var(--color-tang-500)] active:translate-x-1 active:translate-y-1 active:shadow-none [&_svg]:transition-transform [&_svg]:duration-200 [&_svg]:ease-out hover:[&_svg]:translate-x-1 disabled:translate-x-0 disabled:translate-y-0 disabled:shadow-none disabled:cursor-not-allowed disabled:opacity-50";
 
 type BaseProps = {
   children: ReactNode;

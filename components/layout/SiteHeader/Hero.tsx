@@ -21,7 +21,13 @@ export default function Hero() {
   const [h1Height, setH1Height] = useState(0);
   const [arrowHeight, setArrowHeight] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isSmallestScreen, setIsSmallestScreen] = useState(false);
+  const [hasMounted, setHasMounted] = useState(false);
   const [h2AnimationSettled, setH2AnimationSettled] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!heroContentRef.current) return;
@@ -128,12 +134,35 @@ export default function Hero() {
     return () => mediaQuery.removeListener(handleChange);
   }, []);
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 420px)");
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setIsSmallestScreen(event.matches);
+    };
+
+    setIsSmallestScreen(mediaQuery.matches);
+
+    if (typeof mediaQuery.addEventListener === "function") {
+      mediaQuery.addEventListener("change", handleChange);
+      return () => mediaQuery.removeEventListener("change", handleChange);
+    }
+
+    mediaQuery.addListener(handleChange);
+    return () => mediaQuery.removeListener(handleChange);
+  }, []);
+
+  const isMobileViewport = hasMounted ? isMobile : false;
+  const isSmallestViewport = hasMounted ? isSmallestScreen : false;
+
   const h1Words = isBlogRoute ? ["Blog", "posts:"] : ["Ellie", "Holt:"];
   const h1Characters = h1Words.reduce((count, word) => count + word.length, 0);
   const h2Words = isBlogRoute
     ? ["{", "thoughts", "and", "musings", "}"]
-    : isMobile
-      ? ["{", "web", "developer", "}"]
+    : isMobileViewport
+      ? isSmallestViewport
+        ? ["{", "web", "dev", "}"]
+        : ["{", "web", "developer", "}"]
       : ["{", "front-end", "web", "developer", "}"];
   const h2Characters = h2Words.reduce((count, word) => count + word.length, 0);
   const h1TypeDuration = (h1Characters - 1) * 0.045 + 0.24;
@@ -150,13 +179,15 @@ export default function Hero() {
   }, [pathname]);
 
   const shouldInstantRemountH2 = h2AnimationSettled;
-  const collapseScale = isMobile ? 0.58 : 0.54;
-  const arrowCollapseScale = isMobile ? 0.38 : 0.32;
+  const collapseScale = isMobileViewport ? 0.58 : 0.54;
+  const arrowCollapseScale = collapseScale;
   const currentScale = 1 - (1 - collapseScale) * collapseProgress;
+  const currentH1Scale =
+    currentScale + (isMobileViewport ? 0.06 * collapseProgress : 0);
   const currentArrowScale = 1 - (1 - arrowCollapseScale) * collapseProgress;
   const arrowCenterCompensationY = ((1 - currentArrowScale) * arrowHeight) / 6;
-  const arrowMobileShiftX = isMobile ? 16 * (1 - collapseProgress) : 0;
-  const h2Visibility = Math.max(0, 1 - collapseProgress * 2);
+  const arrowMobileShiftX = isMobileViewport ? 16 * (1 - collapseProgress) : 0;
+  const h2Visibility = Math.max(0, 1 - collapseProgress);
   const isCollapsed = collapseProgress > 0.02;
   const arrowHref = isBlogPostRoute
     ? "/blog"
@@ -168,7 +199,7 @@ export default function Hero() {
   const scaledHeroHeight = heroHeight ? heroHeight * currentScale : 0;
   const collapsedTargetHeight =
     h1Height && arrowHeight
-      ? Math.max(h1Height * currentScale, arrowHeight * currentArrowScale)
+      ? Math.max(h1Height * currentH1Scale, arrowHeight * currentArrowScale)
       : scaledHeroHeight;
   const heroTargetHeight =
     scaledHeroHeight && collapsedTargetHeight
@@ -202,15 +233,15 @@ export default function Hero() {
         <div
           className={
             isCollapsed
-              ? "grid w-full grid-cols-[minmax(0,1fr)_auto] grid-rows-[auto_auto] items-start justify-items-start"
-              : "grid grid-cols-1 grid-rows-[auto_auto_auto] place-items-center sm:place-items-start sm:grid-cols-[1fr_auto] sm:grid-rows-[auto_auto]"
+              ? "grid w-full grid-cols-[minmax(0,1fr)_clamp(3.9rem,9vw,13.5rem)] grid-rows-[auto_auto] items-start justify-items-start gap-x-2 sm:gap-x-4"
+              : "grid w-full grid-cols-[minmax(0,1fr)_clamp(3.9rem,9vw,13.5rem)] grid-rows-[auto_auto] items-start justify-items-start gap-x-2 sm:gap-x-4"
           }
         >
           <motion.div
-            className={`col-start-1 row-start-1 min-w-0 w-full text-center ${
+            className={`col-start-1 row-start-1 min-w-0 w-full text-left ${
               isCollapsed ? "col-span-1" : "col-span-1"
             }`}
-            animate={{ scale: currentScale }}
+            animate={{ scale: currentH1Scale }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             style={{ transformOrigin: "top left", willChange: "transform" }}
           >
@@ -230,11 +261,11 @@ export default function Hero() {
                       text: h1Words[1],
                     },
                   ]}
-                  className="w-full font-mono text-[12vw] sm:text-[clamp(2.6rem,8vw,10rem)] font-bold  text-black whitespace-nowrap"
-                  cursorClassName="bg-aqua-ink h-[12vw] sm:h-[clamp(2.6rem,8vw,10rem)] relative top-2"
+                  className="w-full font-mono text-[clamp(1.9rem,7.4vw,8.75rem)] font-bold text-black whitespace-nowrap"
+                  cursorClassName="bg-aqua-ink h-[clamp(1.9rem,7.4vw,8.75rem)] relative top-2"
                   transitionDuration={0.24}
                   cursorReps={1}
-                  textAlign={isMobile ? "center" : "left"}
+                  textAlign="left"
                 />
               </a>
             </div>
@@ -256,7 +287,7 @@ export default function Hero() {
           >
             <div ref={h2ContentRef} className="w-full">
               <TypewriterEffect
-                key={`${isBlogRoute ? "blog" : "site"}-${isMobile ? "mobile" : "desktop"}`}
+                key={`${isBlogRoute ? "blog" : "site"}-${isMobileViewport ? "mobile" : "desktop"}`}
                 element="h2"
                 words={h2Words.map((word, index) => ({
                   text: word,
@@ -264,22 +295,22 @@ export default function Hero() {
                     index === 0 || index === h2Words.length - 1
                       ? "text-[1.3em] font-plex-mono"
                       : "",
-                    isMobile && index === 0 ? "-mr-[0.16em]" : "",
-                    isMobile && index === h2Words.length - 1
+                    isMobileViewport && index === 0 ? "-mr-[0.16em]" : "",
+                    isMobileViewport && index === h2Words.length - 1
                       ? "-ml-[0.16em]"
                       : "",
                   ]
                     .filter(Boolean)
                     .join(" "),
                 }))}
-                className="text-black w-full text-left col-start-1 col-end-2 font-mono text-[7vw] sm:text-[clamp(1.75rem,3.15vw,3.75rem)] font-bold"
-                cursorClassName="bg-aqua-ink h-[7vw] sm:h-[clamp(1.75rem,3.15vw,3.75rem)] relative top-1"
+                className="text-black w-full text-left col-start-1 col-end-2 font-mono text-[clamp(0.95rem,4.1vw,3.2rem)] font-bold"
+                cursorClassName="bg-aqua-ink h-[clamp(0.95rem,4.1vw,3.2rem)] relative top-1"
                 transitionDuration={shouldInstantRemountH2 ? 0.01 : 0.24}
                 cursorReps={shouldInstantRemountH2 ? 0 : 9}
                 charStagger={shouldInstantRemountH2 ? 0 : 0.05}
                 startDelay={shouldInstantRemountH2 ? 0 : h1TypeDuration + 0.2}
                 showCursor={!shouldInstantRemountH2}
-                textAlign={isMobile && !isCollapsed ? "center" : "left"}
+                textAlign="left"
               />
             </div>
           </motion.div>
@@ -287,20 +318,20 @@ export default function Hero() {
           <motion.div
             className={
               isCollapsed
-                ? `col-start-2 row-start-1 row-span-2 self-center justify-self-end -mt-0.5 sm:mt-0 ${
+                ? `col-start-2 row-start-1 row-span-1 self-center justify-self-end mt-0 ${
                     isBlogRoute
                       ? "mr-[clamp(0.75rem,4.5vw,3.25rem)]"
                       : "mr-[clamp(0.35rem,2vw,1.5rem)]"
                   }`
-                : `col-start-1 row-start-3 mt-2 justify-self-center sm:col-start-2 sm:row-start-1 sm:row-span-2 sm:mt-0 sm:self-center sm:justify-self-end ${
+                : `col-start-2 row-start-1 row-span-2 mt-0 self-center justify-self-end ${
                     isBlogRoute
-                      ? "mr-0 sm:mr-[clamp(0.75rem,4.5vw,3.25rem)]"
-                      : "mr-0 sm:mr-[clamp(0.35rem,2vw,1.5rem)]"
+                      ? "mr-[clamp(0.75rem,4.5vw,3.25rem)]"
+                      : "mr-[clamp(0.35rem,2vw,1.5rem)]"
                   }`
             }
             animate={{
               scale: currentArrowScale,
-              y: arrowCenterCompensationY,
+              y: isCollapsed ? 0 : arrowCenterCompensationY,
               x: arrowMobileShiftX,
             }}
             transition={{ duration: 0.35, ease: "easeOut" }}
@@ -353,11 +384,11 @@ export default function Hero() {
                   fill="#f27941"
                   strokeWidth={2}
                   roughness={1.5}
-                  className="block h-[clamp(5.4rem,12.5vw,17rem)] w-[clamp(5.4rem,12.5vw,17rem)] scale-100"
+                  className="block h-[clamp(3.9rem,9vw,13.5rem)] w-[clamp(3.9rem,9vw,13.5rem)] scale-100"
                 />
               </motion.span>
               {isBlogRoute && !isCollapsed ? (
-                <span className="-mt-1 sm:mt-0 lg:mt-8 font-mono self-end text-[clamp(0.62rem,1.8vw,0.9rem)] lowercase tracking-[0.02em] text-aqua-ink/80">
+                <span className="mt-0 sm:mt-0 lg:mt-1 font-mono self-center text-center ml-2 sm:ml-2.5 text-[clamp(0.7rem,2vw,1rem)] lowercase tracking-[0.02em] text-aqua-ink/80">
                   <span className="md:hidden">back</span>
                   <span className="hidden md:inline">back to main</span>
                 </span>

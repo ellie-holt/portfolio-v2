@@ -5,7 +5,6 @@ export type Project = {
   liveUrl: string;
   sourceUrl: string;
   stack: string[];
-  accent: string;
   image: {
     src: string;
     alt: string;
@@ -21,9 +20,8 @@ export const projects: Project[] = [
     liveUrl: "https://herecomestherainagain.netlify.app/",
     sourceUrl: "https://github.com/ellie-holt/react-weather-app",
     stack: ["React", "Tailwind", "SCSS", "OpenWeatherMap API"],
-    accent: "var(--color-tang-500)",
     image: {
-      src: "/weather-app-square.png",
+      src: "/weather-app4.png",
       alt: "Weather App interface screenshot",
     },
   },
@@ -35,7 +33,6 @@ export const projects: Project[] = [
     liveUrl: "https://findthetime.netlify.app/",
     sourceUrl: "https://github.com/ellie-holt/world-clock",
     stack: ["HTML/CSS", "JavaScript", "Moment.js"],
-    accent: "var(--color-aqua-500)",
     image: {
       src: "/world-clock-square.png",
       alt: "World Clock interface screenshot",
@@ -43,16 +40,28 @@ export const projects: Project[] = [
   },
   {
     slug: "ai-poet",
-    title: "AI Poet",
+    title: "Poem Generator",
     description:
       "A fun little app that generates short poems from prompts via an AI API.",
     liveUrl: "https://aipoet.netlify.app/",
     sourceUrl: "https://github.com/ellie-holt/poem-generator",
     stack: ["HTML/CSS", "JavaScript", "SheCodes AI API"],
-    accent: "var(--color-azure-500)",
     image: {
       src: "/ai-poet-square.png",
       alt: "AI Poet interface screenshot",
+    },
+  },
+  {
+    slug: "portfolio-v1",
+    title: "Portfolio v1",
+    description:
+      "An initial portfolio with a bold grid-based visual style, responsive component architecture, semantic markup, and keyboard-friendly navigation.",
+    liveUrl: "https://ellie-holt.netlify.app/",
+    sourceUrl: "https://github.com/ellie-holt/portfolio",
+    stack: ["Svelte", "CSS Grid", "Storybook"],
+    image: {
+      src: "/portfolio-v12.png",
+      alt: "Portfolio version 1 interface screenshot",
     },
   },
 ];
