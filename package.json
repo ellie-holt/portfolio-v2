@@ -4,8 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run sanity:manifest && npm run sanity:schema && next build",
     "start": "next start",
+    "sanity:manifest": "sanity manifest extract --path public/studio/static",
+    "sanity:schema": "sanity schema deploy",
     "lint": "eslint",
     "test": "jest",
     "test:watch": "jest --watch",
