@@ -191,7 +191,9 @@ export default function Hero() {
   const currentScale = 1 - (1 - collapseScale) * collapseProgress;
   const currentH1Scale =
     currentScale + (isMobileViewport ? 0.06 * collapseProgress : 0);
-  const currentArrowScale = 1 - (1 - arrowCollapseScale) * collapseProgress;
+  const currentArrowScale =
+    (1 - (1 - arrowCollapseScale) * collapseProgress) *
+    (isSmallestViewport ? 0.8 : 1);
   const arrowCenterCompensationY = ((1 - currentArrowScale) * arrowHeight) / 6;
   const arrowMobileShiftX = isMobileViewport ? 16 * (1 - collapseProgress) : 0;
   const h2Visibility = Math.max(0, 1 - collapseProgress);
@@ -407,7 +409,7 @@ export default function Hero() {
                     isSmallestViewport ? 1.5 : isMobileViewport ? 1.65 : 2
                   }
                   roughness={
-                    isSmallestViewport ? 1 : isMobileViewport ? 1.2 : 1.5
+                    isSmallestViewport ? 0.7 : isMobileViewport ? 1.2 : 1.5
                   }
                   className="block h-[clamp(3.35rem,7.8vw,13.5rem)] w-[clamp(3.35rem,7.8vw,13.5rem)] 3xs:h-[clamp(3.6rem,8.4vw,13.5rem)] 3xs:w-[clamp(3.6rem,8.4vw,13.5rem)] sm:h-[clamp(3.9rem,9vw,13.5rem)] sm:w-[clamp(3.9rem,9vw,13.5rem)] scale-100"
                 />
