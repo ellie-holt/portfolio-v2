@@ -7,6 +7,9 @@ import { motion } from "motion/react";
 import { usePathname } from "next/navigation";
 
 export default function Hero() {
+  const BREAKPOINT_SM_PX = 640;
+  const BREAKPOINT_3XS_PX = 448;
+
   const pathname = usePathname();
   const isBlogRoute = pathname?.startsWith("/blog") ?? false;
   const isBlogPostRoute = /^\/blog\/.+/.test(pathname ?? "");
@@ -117,7 +120,9 @@ export default function Hero() {
   }, [isBlogPostRoute]);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 639px)");
+    const mediaQuery = window.matchMedia(
+      `(max-width: ${BREAKPOINT_SM_PX - 1}px)`,
+    );
 
     const handleChange = (event: MediaQueryListEvent) => {
       setIsMobile(event.matches);
@@ -135,7 +140,9 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(max-width: 420px)");
+    const mediaQuery = window.matchMedia(
+      `(max-width: ${BREAKPOINT_3XS_PX - 1}px)`,
+    );
 
     const handleChange = (event: MediaQueryListEvent) => {
       setIsSmallestScreen(event.matches);
@@ -158,7 +165,7 @@ export default function Hero() {
   const h1Words = isBlogRoute ? ["Blog", "posts:"] : ["Ellie", "Holt:"];
   const h1Characters = h1Words.reduce((count, word) => count + word.length, 0);
   const h2Words = isBlogRoute
-    ? ["{", "thoughts", "and", "musings", "}"]
+    ? ["{", "my", "thoughts", "}"]
     : isMobileViewport
       ? isSmallestViewport
         ? ["{", "web", "dev", "}"]
@@ -261,8 +268,8 @@ export default function Hero() {
                       text: h1Words[1],
                     },
                   ]}
-                  className="w-full font-mono text-[clamp(1.9rem,7.4vw,8.75rem)] font-bold text-black whitespace-nowrap"
-                  cursorClassName="bg-aqua-ink h-[clamp(1.9rem,7.4vw,8.75rem)] relative top-2"
+                  className="w-full font-mono text-[clamp(2.08rem,8.15vw,8.75rem)] 3xs:text-[clamp(2.02rem,7.9vw,8.75rem)] sm:text-[clamp(1.9rem,7.4vw,8.75rem)] font-bold text-black whitespace-nowrap"
+                  cursorClassName="bg-aqua-ink h-[clamp(2.08rem,8.15vw,8.75rem)] 3xs:h-[clamp(2.02rem,7.9vw,8.75rem)] sm:h-[clamp(1.9rem,7.4vw,8.75rem)] relative top-2"
                   transitionDuration={0.24}
                   cursorReps={1}
                   textAlign="left"
@@ -272,7 +279,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="col-start-1 row-start-2 min-w-0 w-full justify-self-start overflow-hidden sm:mb-4 lg:mb-6 -mt-4 md:-mt-6 xl:-mt-10 2xl:-mt-12"
+            className="col-start-1 row-start-2 min-w-0 w-full justify-self-start overflow-hidden sm:mb-4 lg:mb-6 -mt-2 3xs:-mt-4 md:-mt-6 xl:-mt-10 2xl:-mt-12"
             animate={{
               scale: currentScale,
               opacity: h2Visibility,
@@ -287,7 +294,13 @@ export default function Hero() {
           >
             <div ref={h2ContentRef} className="w-full">
               <TypewriterEffect
-                key={`${isBlogRoute ? "blog" : "site"}-${isMobileViewport ? "mobile" : "desktop"}`}
+                key={`${isBlogRoute ? "blog" : "site"}-${
+                  isMobileViewport
+                    ? isSmallestViewport
+                      ? "mobile-small"
+                      : "mobile"
+                    : "desktop"
+                }`}
                 element="h2"
                 words={h2Words.map((word, index) => ({
                   text: word,
@@ -303,8 +316,8 @@ export default function Hero() {
                     .filter(Boolean)
                     .join(" "),
                 }))}
-                className="text-black w-full text-left col-start-1 col-end-2 font-mono text-[clamp(0.95rem,4.1vw,3.2rem)] font-bold"
-                cursorClassName="bg-aqua-ink h-[clamp(0.95rem,4.1vw,3.2rem)] relative top-1"
+                className="text-black w-full text-left col-start-1 col-end-2 font-mono text-[clamp(1.34rem,5.8vw,3.2rem)] 3xs:text-[clamp(1.16rem,5vw,3.2rem)] sm:text-[clamp(0.95rem,4.1vw,3.2rem)] font-bold"
+                cursorClassName="bg-aqua-ink h-[clamp(1.34rem,5.8vw,3.2rem)] 3xs:h-[clamp(1.16rem,5vw,3.2rem)] sm:h-[clamp(0.95rem,4.1vw,3.2rem)] relative top-1"
                 transitionDuration={shouldInstantRemountH2 ? 0.01 : 0.24}
                 cursorReps={shouldInstantRemountH2 ? 0 : 9}
                 charStagger={shouldInstantRemountH2 ? 0 : 0.05}
@@ -384,7 +397,7 @@ export default function Hero() {
                   fill="#f27941"
                   strokeWidth={2}
                   roughness={1.5}
-                  className="block h-[clamp(3.9rem,9vw,13.5rem)] w-[clamp(3.9rem,9vw,13.5rem)] scale-100"
+                  className="block h-[clamp(3.9rem,9vw,13.5rem)] w-[clamp(3.9rem,9vw,13.5rem)] max-sm:h-[clamp(3.6rem,8.4vw,13.5rem)] max-sm:w-[clamp(3.6rem,8.4vw,13.5rem)] scale-100"
                 />
               </motion.span>
               {isBlogRoute && !isCollapsed ? (

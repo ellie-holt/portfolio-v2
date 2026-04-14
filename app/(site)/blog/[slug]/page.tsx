@@ -67,12 +67,12 @@ export default async function BlogPost({ params }: { params: Params }) {
         heading={"blog / " + post.title.toLowerCase()}
         barVariant="first"
       >
-        <article className="grid grid-cols-6 px-hpad py-[clamp(2.25rem,6vw,5.5rem)] border-black border-b min-h-[calc(100dvh-300px)]">
+        <article className="max-w-prose xs:max-w-none flex flex-col items-center px-r3 3xs:px-10 2xs:px-14 xs:px-0 py-[clamp(2.25rem,6vw,5.5rem)] border-black border-b min-h-[calc(100dvh-300px)] xs:grid xs:grid-cols-6">
           <aside className="hidden lg:block lg:col-start-6 xl:col-start-5 col-span-full row-start-1 mt-r2 lg:ml-8 xl:ml-28">
             <StickyBlogPostNav />
           </aside>
-          <div className="col-start-2 col-end-6 row-start-1 w-full max-w-5xl grid grid-cols-subgrid">
-            <header className="stack-1 pb-r2 border-black/70 border-b border-dashed col-start-1 col-end-5 lg:col-end-4">
+          <div className="w-full max-w-5xl xs:col-start-2 xs:col-end-6 xs:row-start-1 xs:grid xs:grid-cols-subgrid">
+            <header className="stack-1 pb-r2 border-black/70 border-b border-dashed xs:col-start-1 xs:col-end-5 lg:col-end-4">
               <h1 className="text-title text-aqua-ink leading-tight">
                 {post.title}
               </h1>
@@ -93,7 +93,7 @@ export default async function BlogPost({ params }: { params: Params }) {
               ) : null}
             </header>
 
-            <div className="pt-r1 col-start-1 col-end-5">
+            <div className="pt-r1 xs:col-start-1 xs:col-end-5">
               <div className="max-w-[72ch] pb-r2 md:pb-r3">
                 <PortableText
                   value={post.body}
@@ -102,7 +102,7 @@ export default async function BlogPost({ params }: { params: Params }) {
               </div>
             </div>
 
-            <div className="mt-r4 pt-r2 border-black/70 border-t border-dashed col-start-1 col-end-5 lg:col-end-4">
+            <div className="mt-r4 pt-r2 border-black/70 border-t border-dashed xs:col-start-1 xs:col-end-5 lg:col-end-4">
               <Link
                 href="/blog"
                 className="group text-action inline-flex items-center gap-r0 font-semibold underline-accent hover:decoration-transparent lowercase transition-[text-decoration]"

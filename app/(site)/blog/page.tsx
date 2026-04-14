@@ -20,8 +20,8 @@ export default async function Blog() {
   return (
     <main id="content-start" className="bg-white w-full">
       <SectionShell id="blog" heading="blog" barVariant="first">
-        <div className="grid grid-cols-6 px-hpad py-[clamp(2.25rem,6vw,5.5rem)]  border-b min-h-[calc(100dvh-300px)]">
-          <div className="w-full max-w-3xl col-start-2 col-end-6">
+        <div className="flex flex-col max-xs:items-center px-r3 3xs:px-10 2xs:px-14 xs:px-0 py-[clamp(2.25rem,6vw,5.5rem)] border-b min-h-[calc(100dvh-300px)] xs:grid xs:grid-cols-6">
+          <div className="w-full max-w-3xl xs:col-start-2 xs:col-end-6">
             {posts.length === 0 ? (
               <p className="bg-white px-r1 py-r1 border border-black/70 border-dashed text-body text-aqua-ink/90">
                 No posts yet.

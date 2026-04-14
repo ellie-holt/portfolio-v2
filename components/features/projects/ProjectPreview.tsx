@@ -60,7 +60,7 @@ export default function WorkProjectPreview({
         </div>
 
         {/* Project preview/cta on the right */}
-        <div className="group flex flex-col flex-2 self-center md:self-end">
+        <div className="group flex flex-col flex-2 self-center md:self-end min-w-0 w-full">
           {/* Project image */}
           <TooltipProvider delayDuration={100}>
             <Tooltip>
@@ -69,7 +69,7 @@ export default function WorkProjectPreview({
                   href={project.liveUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="relative block aspect-square w-[min(95vw,28rem)] self-end md:w-[clamp(24rem,95%,45rem)] lg:w-[clamp(22rem,95%,40rem)] max-w-110 mx-r1 border border-black bg-white overflow-hidden"
+                  className="relative block aspect-square min-w-0 w-full max-w-md md:max-w-180 lg:max-w-160 self-end sm:mx-r1 border border-black bg-white overflow-hidden"
                   aria-label={`${project.title} - opens in a new tab`}
                 >
                   <Image
@@ -77,7 +77,7 @@ export default function WorkProjectPreview({
                     alt={project.image.alt}
                     fill
                     sizes="(min-width: 1024px) 40rem, (min-width: 768px) 45rem, 95vw"
-                    className="w-full h-full object-contain bg-[#E0E6EB]"
+                    className="w-full h-full min-w-0 object-contain bg-[#E0E6EB]"
                     loading="lazy"
                     decoding="async"
                   />
