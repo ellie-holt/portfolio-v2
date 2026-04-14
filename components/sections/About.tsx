@@ -50,12 +50,12 @@ export default function About() {
         </div>
 
         {/* right: photo */}
-        <div className="grid place-content-center place-items-center w-full px-hpad py-r3 bg-aqua-wash">
+        <div className="grid place-items-center w-full px-r3 md:px-hpad py-r3 bg-aqua-wash">
           <div
-            className="relative w-full max-w-84 px-r1 py-r1 border-2 border-black outline-tang-500 dashed-outline bg-white"
+            className="relative w-full max-w-84 my-r2 md:my-0 p-r1 border-2 border-black outline-tang-500 dashed-outline bg-white"
             aria-label="Photo placeholder"
           >
-            <div className="relative w-full aspect-4/5 overflow-hidden border border-black/50 border-dashed bg-slate-100">
+            <div className="relative p-r1 w-full h-full aspect-4/5 overflow-hidden border border-black/50 border-dashed bg-slate-100">
               <Image
                 src="/me-4.jpg"
                 alt="Portrait of Ellie Holt"
@@ -67,9 +67,6 @@ export default function About() {
               />
             </div>
           </div>
-          <p className="mt-r0 font-mono text-slate-700 text-xs 2xs:text-sm">
-            TODO: Take a professional headshot.
-          </p>
         </div>
       </div>
     </SectionShell>
