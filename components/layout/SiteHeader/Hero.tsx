@@ -234,7 +234,10 @@ export default function Hero() {
         height: heroTargetHeight,
       }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      style={{ willChange: "height" }}
+      style={{
+        willChange: "height",
+        minHeight: isMobileViewport && isCollapsed ? "2.5rem" : undefined,
+      }}
     >
       <div ref={heroContentRef} className="w-full px-hpad">
         <div
@@ -247,7 +250,7 @@ export default function Hero() {
           <motion.div
             className={`col-start-1 row-start-1 min-w-0 w-full text-left ${
               isCollapsed ? "col-span-1" : "col-span-1"
-            }`}
+            } ${isMobileViewport && isCollapsed ? "pt-1.5" : ""}`}
             animate={{ scale: currentH1Scale }}
             transition={{ duration: 0.35, ease: "easeOut" }}
             style={{ transformOrigin: "top left", willChange: "transform" }}
@@ -268,8 +271,8 @@ export default function Hero() {
                       text: h1Words[1],
                     },
                   ]}
-                  className="w-full font-mono text-[clamp(2.08rem,8.15vw,8.75rem)] 3xs:text-[clamp(2.02rem,7.9vw,8.75rem)] sm:text-[clamp(1.9rem,7.4vw,8.75rem)] font-bold text-black whitespace-nowrap"
-                  cursorClassName="bg-aqua-ink h-[clamp(2.08rem,8.15vw,8.75rem)] 3xs:h-[clamp(2.02rem,7.9vw,8.75rem)] sm:h-[clamp(1.9rem,7.4vw,8.75rem)] relative top-2"
+                  className="w-full font-mono text-[clamp(2.1rem,3vw,9rem)] 3xs:text-[clamp(2.1rem,8.1vw,8.75rem)] sm:text-[clamp(1.9rem,7.4vw,8.75rem)] font-bold text-black whitespace-nowrap"
+                  cursorClassName="bg-aqua-ink h-[clamp(2.3rem,3vw,9rem)] 3xs:h-[clamp(2.1rem,8.1vw,8.75rem)] sm:h-[clamp(1.9rem,7.4vw,8.75rem)] relative top-2"
                   transitionDuration={0.24}
                   cursorReps={1}
                   textAlign="left"
@@ -279,7 +282,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="col-start-1 row-start-2 min-w-0 w-full justify-self-start overflow-hidden sm:mb-4 lg:mb-6 -mt-2 3xs:-mt-4 md:-mt-6 xl:-mt-10 2xl:-mt-12"
+            className="col-start-1 row-start-2 min-w-0 w-full justify-self-start overflow-hidden mb-2 sm:mb-4 lg:mb-6 -mt-2 3xs:-mt-4 md:-mt-6 xl:-mt-10 2xl:-mt-12"
             animate={{
               scale: currentScale,
               opacity: h2Visibility,
@@ -331,12 +334,12 @@ export default function Hero() {
           <motion.div
             className={
               isCollapsed
-                ? `col-start-2 row-start-1 row-span-1 self-center justify-self-end mt-0 ${
+                ? `col-start-2 row-start-1 row-span-1 self-center justify-self-end mt-1 3xs:mt-0 ${
                     isBlogRoute
                       ? "mr-[clamp(0.75rem,4.5vw,3.25rem)]"
                       : "mr-[clamp(0.35rem,2vw,1.5rem)]"
                   }`
-                : `col-start-2 row-start-1 row-span-2 mt-0 self-center justify-self-end ${
+                : `col-start-2 row-start-1 row-span-2 mt-1 3xs:mt-0 self-center justify-self-end ${
                     isBlogRoute
                       ? "mr-[clamp(0.75rem,4.5vw,3.25rem)]"
                       : "mr-[clamp(0.35rem,2vw,1.5rem)]"
@@ -344,7 +347,12 @@ export default function Hero() {
             }
             animate={{
               scale: currentArrowScale,
-              y: isCollapsed ? 0 : arrowCenterCompensationY,
+              y:
+                isCollapsed && isBlogRoute && isMobileViewport
+                  ? 2
+                  : isCollapsed
+                    ? 0
+                    : arrowCenterCompensationY,
               x: arrowMobileShiftX,
             }}
             transition={{ duration: 0.35, ease: "easeOut" }}
@@ -395,9 +403,13 @@ export default function Hero() {
                   variant="solid"
                   stroke="#1a0d08CC"
                   fill="#f27941"
-                  strokeWidth={2}
-                  roughness={1.5}
-                  className="block h-[clamp(3.9rem,9vw,13.5rem)] w-[clamp(3.9rem,9vw,13.5rem)] max-sm:h-[clamp(3.6rem,8.4vw,13.5rem)] max-sm:w-[clamp(3.6rem,8.4vw,13.5rem)] scale-100"
+                  strokeWidth={
+                    isSmallestViewport ? 1.5 : isMobileViewport ? 1.65 : 2
+                  }
+                  roughness={
+                    isSmallestViewport ? 1 : isMobileViewport ? 1.2 : 1.5
+                  }
+                  className="block h-[clamp(3.35rem,7.8vw,13.5rem)] w-[clamp(3.35rem,7.8vw,13.5rem)] 3xs:h-[clamp(3.6rem,8.4vw,13.5rem)] 3xs:w-[clamp(3.6rem,8.4vw,13.5rem)] sm:h-[clamp(3.9rem,9vw,13.5rem)] sm:w-[clamp(3.9rem,9vw,13.5rem)] scale-100"
                 />
               </motion.span>
               {isBlogRoute && !isCollapsed ? (

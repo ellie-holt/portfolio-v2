@@ -28,7 +28,7 @@ export default async function Buffer() {
           </Link>
         </div>
 
-        <div className="col-span-3 3xs:col-span-2 flex h-full flex-col items-start justify-start gap-r0 px-hpad pt-r2 bg-tang-wash">
+        <div className="col-span-3 3xs:col-span-2 flex h-full flex-col items-start justify-start gap-r0 px-hpad pt-r2 bg-none 3xs:bg-tang-wash">
           <p className="font-mono text-label text-aqua-ink/80">
             latest blog post
           </p>
