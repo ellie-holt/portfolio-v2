@@ -5,7 +5,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET;
 const siteOrigin =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.NODE_ENV === "production"
-    ? "https://ellieholt.vercel.app"
+    ? "https://ellieholt.dev"
     : "http://localhost:3000");
 
 if (!projectId) throw new Error("Missing NEXT_PUBLIC_SANITY_PROJECT_ID");

@@ -8,7 +8,7 @@ import { resolve } from "./app/studio/src/presentation/resolve";
 const siteOrigin =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.NODE_ENV === "production"
-    ? "https://ellieholt.vercel.app"
+    ? "https://ellieholt.dev"
     : "http://localhost:3000");
 
 export default defineConfig({
