@@ -22,10 +22,6 @@ export default function Contact() {
 
         {/* right: fun animation */}
         <div className="hidden relative md:flex items-end bg-aqua-wash px-hpad py-r3 overflow-hidden">
-          <div
-            aria-hidden="true"
-            className="top-r1 right-r1 absolute w-28 h-28 pointer-events-none"
-          ></div>
           <p className="sr-only">Drop me a message</p>
           <p
             aria-hidden="true"
@@ -41,7 +37,6 @@ export default function Contact() {
                 mass: 1.5,
                 delay: 0.2,
               }}
-              // viewport={{ once: true }}
               className="inline-block"
             >
               Drop

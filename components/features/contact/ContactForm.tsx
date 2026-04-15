@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Button from "@/components/ui/Button/Button";
 import RoughArrow from "@/components/ui/RoughArrow";
-import { Field, FieldLabel } from "@/components/ui/Field/Field";
+import { Field, FieldLabel } from "@/components/external/shadcn/ui/field";
 import Input from "@/components/ui/Input/Input";
 import Textarea from "@/components/ui/Textarea/Textarea";
 import { CTA_ROUGH_ARROW_PROPS } from "@/components/ui/roughComponentPresets";

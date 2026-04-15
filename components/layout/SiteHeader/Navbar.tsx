@@ -35,7 +35,6 @@ export default function NavbarRewrite() {
   };
 
   useEffect(() => {
-    console.log("effect ran");
     if (pathname !== "/") {
       setActiveSection("");
       return;

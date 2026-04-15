@@ -21,7 +21,7 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/ellie-holt/react-weather-app",
     stack: ["React", "Tailwind", "SCSS", "OpenWeatherMap API"],
     image: {
-      src: "/weather-app4.png",
+      src: "/weather-app.png",
       alt: "Weather App interface screenshot",
     },
   },
@@ -60,7 +60,7 @@ export const projects: Project[] = [
     sourceUrl: "https://github.com/ellie-holt/portfolio",
     stack: ["Svelte", "CSS Grid", "Storybook"],
     image: {
-      src: "/portfolio-v12.png",
+      src: "/portfolio-v1.png",
       alt: "Portfolio version 1 interface screenshot",
     },
   },

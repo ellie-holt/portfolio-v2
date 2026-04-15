@@ -89,8 +89,6 @@ export async function POST(request: Request) {
     );
   }
 
-  console.log("BACKEND received:", { name, email, message });
-
   try {
     await sendContactEmail({ name, email, message });
   } catch (error) {

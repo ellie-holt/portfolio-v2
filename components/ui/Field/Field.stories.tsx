@@ -10,7 +10,7 @@ import {
   FieldSeparator,
   FieldSet,
   FieldTitle,
-} from "./Field";
+} from "@/components/external/shadcn/ui/field";
 import Input from "../Input/Input";
 import Textarea from "../Textarea/Textarea";
 

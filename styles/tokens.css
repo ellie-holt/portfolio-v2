@@ -37,37 +37,6 @@
   --color-tang-600: #a63a08;
   --color-tang-ink: #1a0901;
 
-  /* violet — purple, sits between azure and rose */
-  --color-violet-wash: #f5f3ff;
-  --color-violet-100: #ede9fd;
-  --color-violet-200: #d4cafc;
-  --color-violet-300: #b4a4f9;
-  --color-violet-400: #9580f5;
-  --color-violet-500: #7c5fe8;
-  --color-violet-600: #5234b0;
-  --color-violet-ink: #12082a;
-
-  /* rose — warm pink, pairs with tang */
-  --color-rose-wash: #fff2f5;
-  --color-rose-100: #ffe4ea;
-  --color-rose-200: #ffc2cf;
-  --color-rose-300: #ff92a8;
-  --color-rose-400: #ff6285;
-  --color-rose-500: #e8385f;
-  --color-rose-600: #a81040;
-  --color-rose-ink: #200410;
-
-  /* moss — yellow-green, earthy contrast to azure */
-  --color-moss-wash: #f7fef0;
-  --color-moss-100: #eafcd8;
-  --color-moss-200: #cff8a8;
-  --color-moss-300: #a8ef6a;
-  --color-moss-400: #82df38;
-  --color-moss-500: #62c220;
-  --color-moss-600: #3d8a0d;
-  --color-moss-ink: #0d1f03;
-
-  /* amber — warm golden yellow, pairs with aqua for contrast */
   --color-amber-wash: #fffdf0;
   --color-amber-100: #fff8d6;
   --color-amber-200: #ffeea0;
@@ -77,7 +46,6 @@
   --color-amber-600: #a87a00;
   --color-amber-ink: #1c1400;
 
-  /* slate — cool grey-blue, neutral anchor for any palette */
   --color-slate-wash: #f4f6f9;
   --color-slate-100: #e8ecf3;
   --color-slate-200: #ced6e5;
@@ -87,36 +55,6 @@
   --color-slate-600: #2d4663;
   --color-slate-ink: #060d18;
 
-  /* crimson — deep red, dramatic and editorial */
-  --color-crimson-wash: #fff3f3;
-  --color-crimson-100: #ffe5e5;
-  --color-crimson-200: #ffc4c4;
-  --color-crimson-300: #ff9292;
-  --color-crimson-400: #f85f5f;
-  --color-crimson-500: #e03030;
-  --color-crimson-600: #9e0c0c;
-  --color-crimson-ink: #1f0202;
-
-  /* sand — warm desaturated tan, good for editorial neutrals */
-  --color-sand-wash: #fdfaf6;
-  --color-sand-100: #f8f1e6;
-  --color-sand-200: #eeddc4;
-  --color-sand-300: #dfc29a;
-  --color-sand-400: #cfa474;
-  --color-sand-500: #b58552;
-  --color-sand-600: #7a5630;
-  --color-sand-ink: #1a1008;
-
-  /* sky — light blue, softer and breezier than azure */
-  --color-sky-wash: #f0faff;
-  --color-sky-100: #e0f5ff;
-  --color-sky-200: #b8e9ff;
-  --color-sky-300: #7dd8ff;
-  --color-sky-400: #40c4ff;
-  --color-sky-500: #0fa8e8;
-  --color-sky-600: #0072a8;
-  --color-sky-ink: #00131f;
-
   /* ===== TYPOGRAPHY ===== */
 
   --font-sans:
@@ -124,22 +62,6 @@
     sans-serif;
   --font-mono:
     var(--font-monaspace-neon), ui-monospace, SFMono-Regular, Menlo, monospace;
-
-  --font-argon:
-    var(--font-monaspace-argon), system-ui, -apple-system, Segoe UI, Roboto,
-    sans-serif;
-  --font-krypton:
-    var(--font-monaspace-krypton), system-ui, -apple-system, Segoe UI, Roboto,
-    sans-serif;
-  --font-neon:
-    var(--font-monaspace-neon), system-ui, -apple-system, Segoe UI, Roboto,
-    sans-serif;
-  --font-radon:
-    var(--font-monaspace-radon), system-ui, -apple-system, Segoe UI, Roboto,
-    sans-serif;
-  --font-xenon:
-    var(--font-monaspace-xenon), system-ui, -apple-system, Segoe UI, Roboto,
-    sans-serif;
   --font-plex-mono:
     var(--font-ibm-plex-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
 

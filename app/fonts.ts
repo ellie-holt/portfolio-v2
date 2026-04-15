@@ -8,38 +8,6 @@ export const monaspaceNeon = localFont({
   display: "swap",
 });
 
-export const monaspaceArgon = localFont({
-  src: "../assets/fonts/Monaspace_Argon_Var.woff2",
-  variable: "--font-monaspace-argon",
-  weight: "200 800",
-  display: "swap",
-  preload: false,
-});
-
-export const monaspaceXenon = localFont({
-  src: "../assets/fonts/Monaspace_Xenon_Var.woff2",
-  variable: "--font-monaspace-xenon",
-  weight: "200 800",
-  display: "swap",
-  preload: false,
-});
-
-export const monaspaceRadon = localFont({
-  src: "../assets/fonts/Monaspace_Radon_Var.woff2",
-  variable: "--font-monaspace-radon",
-  weight: "200 800",
-  display: "swap",
-  preload: false,
-});
-
-export const monaspaceKrypton = localFont({
-  src: "../assets/fonts/Monaspace_Krypton_Var.woff2",
-  variable: "--font-monaspace-krypton",
-  weight: "200 800",
-  display: "swap",
-  preload: false,
-});
-
 export const geistSans = Geist({
   subsets: ["latin"],
   variable: "--font-geist-sans",
@@ -52,11 +20,7 @@ export const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const rootFontClassName = [
-  monaspaceArgon.variable,
   monaspaceNeon.variable,
-  monaspaceXenon.variable,
-  monaspaceRadon.variable,
-  monaspaceKrypton.variable,
   geistSans.variable,
   ibmPlexMono.variable,
   "antialiased",

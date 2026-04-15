@@ -57,7 +57,7 @@ export default function About() {
           >
             <div className="relative p-r1 w-full h-full aspect-4/5 overflow-hidden border border-black/50 border-dashed bg-slate-100">
               <Image
-                src="/me-4.jpg"
+                src="/me.jpg"
                 alt="Portrait of Ellie Holt"
                 fetchPriority="high"
                 loading="eager"
